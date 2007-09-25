@@ -1,0 +1,24 @@
+PortSystem          1.0
+
+name                qrencode
+version             1.0.2
+revision            0
+categories          graphics
+maintainers         nomaintainer@macports.org
+description         encode/decode QR code.
+long_description    qrencode is a C library that encodes/decodes QR code.
+homepage            http://megaui.net/fukuchi/works/qrencode/index.html
+platforms           darwin freebsd
+
+distfiles           ${name}-${version}.tar.gz:qrencode
+use_autoconf        yes
+
+set serverList {
+  http://megaui.net/fukuchi/works/qrencode
+}
+
+foreach server ${serverList} {
+    lappend master_sites ${server}/:qrencode
+}
+
+checksums md5 add273fb140bc73bb5f52fcda00614a4
