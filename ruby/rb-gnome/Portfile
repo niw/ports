@@ -1,0 +1,76 @@
+# $Id: Portfile 20393 2006-11-03 01:49:32Z blair@macports.org $
+PortSystem		1.0
+PortGroup		ruby 1.0
+
+ruby.setup		{gnome ruby-gnome2-all} 0.16.0 extconf.rb \
+				{ README gdkpixbuf/sample glib/sample gnome/sample \
+					gnomecanvas/sample gtk/sample \
+					gtkglext/sample gtkhtml2/sample libart/sample \
+					libglade/sample pango/sample } \
+				sourceforge:ruby-gnome2
+revision			5
+maintainers		tristan@opendarwin.org
+description		Gnome2 libraries for ruby
+long_description	Gnome2 libraries for ruby including gtk2, gstreamer, \
+					gconf, gnomevfs and more.
+categories-append	gnome
+checksums		md5 b3b4f81ef0fe2ce6b3f965bb7c6d3686
+patchfiles      patch-extconf-r2645.rb
+
+set svn_available 0
+foreach svncmd "${svn.cmd} ${prefix}/bin/svn /usr/bin/svn /usr/local/bin/svn" {
+  if { [file executable ${svncmd}] } {
+	set svn_available 1
+	break;
+  }
+}
+if {$svn_available} {
+  fetch.type	svn
+  svn.url		https://ruby-gnome2.svn.sourceforge.net/svnroot/ruby-gnome2/ruby-gnome2/trunk ${worksrcdir}
+  svn.tag		2645
+}
+
+default_variants +only_gtk2 +rcairo
+
+depends_lib-append		port:gnome-session \
+				port:gtkglext \
+				port:libgtkhtml \
+				port:glib2 \
+				port:pango \
+				port:gtk2 \
+				port:gconf \
+				port:libgnomecanvas \
+				port:gnome-vfs \
+				port:libart_lgpl \
+				port:libglade2 \
+				port:libgnomeprintui \
+				port:librsvg
+
+variant only_gtk2 description {minimal install of ruby/gtk2} {
+	depends_lib-delete port:gnome-session \
+				port:gtkglext \
+				port:libgtkhtml \
+				port:gconf \
+				port:libgnomecanvas \
+				port:gnome-vfs \
+				port:libart_lgpl \
+				port:libglade2 \
+				port:libgnomeprintui \
+				port:librsvg \
+
+	configure.args-append glib atk pango gdkpixbuf gtk
+}
+
+variant rcairo description {use rcairo} {
+	depends_lib-append port:rb-rcairo
+}
+
+variant poppler description {use poppler} {
+	configure.args-append poppler
+	depends_lib-append port:poppler
+}
+
+post-build {
+	reinplace "s|^#!.*ruby|#!${ruby.bin}|" \
+		${worksrcpath}/libglade/bin/ruby-glade-create-template
+}
