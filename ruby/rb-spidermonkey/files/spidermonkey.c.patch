@@ -1,0 +1,17 @@
+Index: spidermonkey.c
+===================================================================
+--- spidermonkey.c	(リビジョン 6)
++++ spidermonkey.c	(作業コピー)
+@@ -3,9 +3,9 @@
+ #include <ruby.h>
+ 
+ #ifdef NEED_SMJS_PREFIX
+-#  include <smjs/jsapi.h>
+-#  include <smjs/jshash.h>
+-#  include <smjs/jsobj.h>
++#  include <js/jsapi.h>
++#  include <js/jshash.h>
++#  include <js/jsobj.h>
+ #else
+ #  include <jsapi.h>
+ #  include <jshash.h>

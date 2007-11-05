@@ -1,0 +1,13 @@
+Index: extconf.rb
+===================================================================
+--- extconf.rb	(リビジョン 6)
++++ extconf.rb	(作業コピー)
+@@ -10,7 +10,7 @@
+     lib = "js32"
+   else
+     $defs << " -DXP_UNIX"
+-    lib = "smjs"
++    lib = "js"
+   end
+ 
+   $defs << " -DNEED_SMJS_PREFIX"

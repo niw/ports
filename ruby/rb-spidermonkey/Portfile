@@ -1,0 +1,15 @@
+PortSystem	1.0
+PortGroup	ruby 1.0
+ruby.setup	spidermonkey 0.0 extconf.rb
+revision	6
+maintainers	niwa@dotswitch.net
+description	Ruby bindings for spidermonkey
+long_description	Ruby bindings for spidermonkey
+homepage 	http://code.google.com/p/ruby-spidermonkey/
+master_sites 	http://code.google.com/p/ruby-spidermonkey/source
+categories-append	lang
+fetch.type	svn
+svn.url	http://ruby-spidermonkey.googlecode.com/svn/trunk/ ${worksrcdir}
+svn.tag	6
+patchfiles	extconf.rb.patch spidermonkey.c.patch
+depends_lib-append	port:spidermonkey
