@@ -1,0 +1,13 @@
+--- src/vim.h.orig
++++ src/vim.h
+@@ -472,6 +472,10 @@
+ # define USE_IM_CONTROL
+ #endif
+ 
++#if defined(FEAT_GUI_MACVIM)
++# define USE_IM_CONTROL
++#endif
++
+ /*
+  * Whether 'ambiwidth' supports "auto".  Currently, only for Win32.
+  */

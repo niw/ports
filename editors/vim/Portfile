@@ -1,0 +1,223 @@
+# $Id: Portfile 23309 2007-03-28 17:43:36Z pipping@macports.org $
+PortSystem          1.0
+
+name                vim
+set vim_version     7.1
+set vim_patchlevel  161
+version             ${vim_version}.${vim_patchlevel}
+revision            0
+categories          editors
+maintainers         nomaintainer@macports.org
+description         Vi "workalike" with many additional features
+long_description    Vim is a virtually compatible, extremely \
+                      enhanced version of the vi editor.
+homepage            http://www.vim.org/
+platforms           darwin freebsd
+
+distfiles           ${name}-${vim_version}.tar.bz2:vim \
+                      ${name}-${vim_version}-extra.tar.gz:extra \
+                      ${name}-${vim_version}-lang.tar.gz:extra
+
+use_bzip2           yes
+
+set serverList {
+                    ftp://ftp.vim.org/pub/vim/ \
+                      http://ftp.vim.org/pub/vim/ \
+                      ftp://ftp.us.vim.org/pub/vim/ \
+                      ftp://ftp.ca.vim.org/pub/vim/ \
+                      ftp://ftp.nl.vim.org/pub/vim/ \
+                      ftp://ftp.uk.vim.org/pub/vim/ \
+                      ftp://ftp.ie.vim.org/pub/vim/ \
+                      ftp://ftp.is.vim.org/pub/vim/ \
+                      ftp://ftp.pl.vim.org/pub/vim/ \
+                      ftp://ftp.ro.vim.org/pub/vim/ \
+                      ftp://ftp.cz.vim.org/pub/vim/ \
+                      ftp://ftp.sk.vim.org/pub/vim/ \
+                      ftp://ftp.jp.vim.org/pub/vim/ \
+                      ftp://ftp.kr.vim.org/pub/vim/ \
+                      ftp://ftp2.us.vim.org/pub/vim/ \
+                      ftp://ftp9.us.vim.org/pub/vim/ \
+                      ftp://ftp2.nl.vim.org/pub/vim/ \
+                      ftp://ftp3.nl.vim.org/pub/vim/ \
+                      ftp://ftp3.de.vim.org/pub/vim/ \
+                      ftp://ftp2.tw.vim.org/pub/vim/ \
+                      ftp://miroir-francais.fr/pub/vim/ \
+                      ftp://ftp.tw.vim.org/pub/Unix/Editors/Vim/
+}
+
+# create list of locations for source, extras, patches from serverList
+foreach server ${serverList} {
+    lappend master_sites ${server}unix/:vim
+    lappend master_sites ${server}extra/:extra
+    lappend patch_sites ${server}patches/${vim_version}
+}
+
+dist_subdir         vim
+distname            vim[strsed ${vim_version} {g/[.]//}]
+
+eval {
+    set low 1
+    set pl [expr $vim_patchlevel]
+    while {$low <= $pl} {
+        set high [expr $low + 99];
+        if {$high < $pl} {
+             patchfiles-append \
+             [format "%s.%03d-%03d.gz" $vim_version $low $high]
+             incr low 100
+        } else {
+            patchfiles-append [format "%s.%03d" $vim_version $low]
+            incr low 1
+        }
+    }
+}
+
+depends_lib         port:gettext port:ncurses
+configure.args      --enable-gui=no --without-x --disable-gpm \
+                      --mandir=${prefix}/share/man --with-tlib=ncurses
+configure.env       CPPFLAGS="-I${prefix}/include" \
+                      LDFLAGS="-L${prefix}/lib"
+extract.only        ${name}-${vim_version}${extract.suffix}
+post-extract {
+    system "gnutar xvfz ${distpath}/${name}-${vim_version}-extra.tar.gz -C \
+      ${workpath}"
+    system "gnutar xvfz ${distpath}/${name}-${vim_version}-lang.tar.gz -C \
+      ${workpath}"
+}
+pre-configure {
+	cd ${worksrcpath}/src
+	system "make autoconf"
+}
+
+test.run            yes
+
+variant athena conflicts aqua cocoa gtk1 gtk2 motif {
+    configure.args-delete   --enable-gui=no --without-x
+    configure.args-append   --enable-gui=athena --with-x --disable-darwin
+    depends_lib-append      lib:libX11:XFree86
+}
+variant gtk1 conflicts aqua cocoa athena gtk2 motif {
+    configure.args-delete   --enable-gui=no --without-x
+    configure.args-append   --enable-gui=gtk --with-x --disable-darwin
+    depends_lib-append      lib:libgtk.1:gtk1
+}
+variant gtk2 conflicts aqua cocoa athena gtk1 motif {
+    configure.args-delete   --enable-gui=no --without-x
+    configure.args-append   --enable-gui=gtk2 --with-x --disable-darwin
+    depends_lib-append      lib:libgtk.2:gtk2
+}
+variant motif conflicts aqua cocoa athena gtk1 gtk2 {
+    configure.args-delete   --enable-gui=no --without-x
+    configure.args-append   --enable-gui=motif --with-x --disable-darwin
+    depends_lib-append      lib:libXm:openmotif
+}
+#variant gnome {
+#   configure.args-delete   --enable-gui=no --without-x
+#   configure.args-append   --enable-gui=gnome --with-x --disable-darwin
+# What for depends?
+#}
+#variant gnome2 {
+#   configure.args-delete   --enable-gui=no --without-x
+#   configure.args-append   --enable-gui=gnome2 --with-x --disable-darwin
+# What for depends?
+#}
+
+variant tiny    conflicts aqua cocoa {
+	configure.args-append --with-features=tiny
+}
+variant small   conflicts aqua cocoa {
+	configure.args-append --with-features=small
+}
+variant big                     { configure.args-append --with-features=big }
+variant huge                    { configure.args-append --with-features=huge }
+variant multibyte               { configure.args-append --enable-multibyte }
+variant xim                     { configure.args-append --with-xim }
+
+variant perl {
+    configure.args-append   --enable-perlinterp
+    depends_lib-append      bin:perl:perl5.8
+}
+variant python {
+    configure.args-append   --enable-pythoninterp
+    depends_lib-append      bin:python:python23
+}
+variant ruby {
+    configure.args-append   --enable-rubyinterp
+    depends_lib-append      bin:ruby:ruby
+}
+variant tcl {
+    configure.args-append   --enable-tclinterp
+    depends_lib-append      bin:tclsh:tcl
+}
+
+variant cscope {
+    configure.args-append   --enable-cscope
+}
+
+# merely a proof-of-concept:
+# gettext - not linked at all
+# ncurses - incorrectly linked from /usr/lib
+variant universal {
+    configure.args-append   --with-mac-arch=both
+    configure.env-delete    CPPFLAGS="-I${prefix}/include" \
+                              LDFLAGS="-L${prefix}/lib"
+}
+
+# apply KaoriYa's patches and enable migemo
+# see http://2xup.org/log/2006/09/13-0220
+#     http://kimuraw.txt-nifty.com/d/2006/11/vim_portfile.html
+variant kaoriya {
+    depends_lib-append lib:libmigemo:cmigemo
+    master_sites-append http://www.kaoriya.net/testdir/:kaoriya
+    distfiles-append vim7-daily-w32j.exe:kaoriya
+	checksums-append vim7-daily-w32j.exe md5 d98b838749169775127758fa84f08e69
+    depends_lib-append bin:7za:p7zip
+	post-patch {
+		cd ${worksrcpath}
+		system "7za x ${distpath}/vim7-daily-w32j.exe"
+		system "cat vim7-daily-w32j/patches/* | patch -p0 -F3"
+		system "cat ${portpath}/${filesdir}/patch-configure.in | patch -p0"
+	}
+	configure.args-append --enable-multibyte
+	configure.args-append --enable-migemo
+}
+
+variant aqua conflicts athena cocoa gtk1 gtk2 motif {
+    configure.args-delete   --enable-gui=no
+    configure.args-append   --enable-gui=carbon
+	post-patch {
+		if {[variant_isset kaoriya]} {
+			cd ${worksrcpath}
+			# http://wiki.macvim.org/wiki/VimPatches/ATSUI
+			# http://iplab.naist.jp/member/mio-su/dist/vim/inline0.2.diff
+			# http://wiki.macvim.org/wiki/VimPatches/Transparency
+			system "cat ${portpath}/${filesdir}/patch-gui_mac.c | patch -p0"
+			system "cat ${portpath}/${filesdir}/patch-option.c | patch -p0"
+			system "cat ${portpath}/${filesdir}/patch-syntax.c | patch -p0"
+			system "cat ${portpath}/${filesdir}/patch-vim.h | patch -p0"
+			system "cat ${portpath}/${filesdir}/patch-mbyte.c | patch -p0"
+		}
+	}
+	include proc-gvim
+}
+
+variant cocoa conflicts aqua athena gtk1 gtk2 motif {
+    configure.args-delete   --enable-gui=no
+    configure.args-append   --enable-gui=cocoa
+	post-patch {
+		cd ${worksrcpath}
+		system "cat ${portpath}/${filesdir}/patch-vim-cocoa-14 | patch -p0 || /usr/bin/true"
+		if {[variant_isset kaoriya]} {
+			system "cat ${portpath}/${filesdir}/patch-Makefile | patch -p0"
+			system "cat ${portpath}/${filesdir}/patch-gui_mac.m | patch -p0"
+			system "cat ${portpath}/${filesdir}/patch-option.c | patch -p0"
+			system "cat ${portpath}/${filesdir}/patch-syntax.c | patch -p0"
+			system "cat ${portpath}/${filesdir}/patch-version.c | patch -p0"
+			system "cat ${portpath}/${filesdir}/patch-vim.h | patch -p0"
+			system "cat ${portpath}/${filesdir}/patch-mbyte.c | patch -p0"
+		}
+	}
+	include proc-gvim
+}
+
+include checksums_dist
+include checksums_patch

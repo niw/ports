@@ -1,0 +1,77 @@
+master_sites-append \
+  http://www.douglas.stebila.ca/files/code/vim/app/:app_aqua \
+	http://www.douglas.stebila.ca/files/code/vim/doc/:doc_aqua
+distfiles-append        app-bm.tar.gz:app_aqua \
+						  doc.tar.gz:doc_aqua
+set appPath "/Applications/MacPorts/"
+configure.pre_args      --prefix=${appPath}/Vim
+post-extract {
+	system "gnutar xvfz ${distpath}/app-bm.tar.gz -C ${workpath}"
+	system "gnutar xvfz ${distpath}/doc.tar.gz -C ${workpath}"
+}
+destroot {
+	set appPath "/Applications/MacPorts/"
+	# create the required directories
+	xinstall -d -m 755 ${destroot}${appPath}Vim
+	xinstall -d -m 755 ${destroot}${prefix}/bin
+	# copy Vim.app
+	file copy ${worksrcpath}/src/Vim.app ${destroot}${appPath}Vim
+	xinstall -m 644 ${filespath}/vimrc ${filespath}/gvimrc \
+	  ${destroot}${appPath}Vim/Vim.app
+	xinstall -m 644 ${workpath}/doc-txt.icns \
+	  ${destroot}${appPath}Vim/Vim.app/Contents/Resources
+	xinstall -m 644 ${workpath}/app.icns \
+	  ${destroot}${appPath}Vim/Vim.app/Contents/Resources/gui_mac.icns
+	# remove the broken link to 'runtime', copy the folder instead
+	set runtimePath \
+	  "${destroot}${appPath}Vim/Vim.app/Contents/Resources/vim/runtime"
+	file delete ${runtimePath}
+	file copy ${worksrcpath}/runtime ${runtimePath}
+	# fix permissions
+	foreach f [glob ${runtimePath}/autoload/*.vim] {
+			file attributes ${f} -permissions 0644
+	}
+	# create a link to the executable
+	file link -hard ${destroot}${prefix}/bin/vim \
+	  ${destroot}${appPath}Vim/Vim.app/Contents/MacOS/Vim
+
+	# copy vimtutor
+	xinstall -m 755 ${worksrcpath}/src/vimtutor \
+	  ${destroot}${prefix}/bin/
+	# install documentation
+	xinstall -d ${destroot}/${prefix}/share/man/man1
+	cd ${destroot}${appPath}Vim/Vim.app/Contents/Resources/vim/runtime/doc
+	foreach manPage [glob *.1] {
+		file link -hard ${destroot}${prefix}/share/man/man1/${manPage} \
+		  ./${manPage}
+	}
+	# install launchscript
+	xinstall -m 755 ${filespath}/gvim.sh \
+	  ${destroot}/${prefix}/bin/gvim
+	# allow for Vim.App to open .nfo, .vim, .latex, .tex, .diff files
+	cd ${destroot}${appPath}Vim/Vim.app/Contents/
+	system "patch -p0 < ${filespath}/patch-Info.plist"
+	file delete ${destroot}${appPath}Vim/Vim.app/Contents/Info.plist.orig
+	# kaoriya
+	if {[variant_isset kaoriya]} {
+		set appPath "/Applications/MacPorts/"
+		set runtimePath \
+		  "${destroot}${appPath}Vim/Vim.app/Contents/Resources/vim/runtime"
+		file copy ${prefix}/share/migemo/tools/migemo.vim \
+			${runtimePath}/plugin/migemo.vim
+		reinplace "s|dict/migemo-dict|dict/\".\\&encoding.\"/migemo-dict|" \
+			${runtimePath}/plugin/migemo.vim
+		file mkdir ${runtimePath}/dict
+		cd ${prefix}/share/migemo
+		set dicts {migemo-dict han2zen.dat hira2kata.dat roma2hira.dat}
+		foreach encode [glob *] {
+			if {${encode} != "tools"} {
+				file mkdir ${runtimePath}/dict/${encode}
+				foreach dict ${dicts} {
+					file link -hard ${runtimePath}/dict/${encode}/${dict} \
+						./${encode}/${dict}
+				}
+			}
+		}
+	}
+}

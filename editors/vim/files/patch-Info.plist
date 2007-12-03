@@ -1,0 +1,26 @@
+--- Info.plist.orig
++++ Info.plist
+@@ -36,6 +36,11 @@
+ 				<array>
+ 					<string>txt</string>
+ 					<string>text</string>
++					<string>nfo</string>
++					<string>vim</string>
++					<string>latex</string>
++					<string>tex</string>
++					<string>diff</string>
+ 				</array>
+ 				<key>CFBundleTypeMIMETypes</key>
+ 				<array>
+@@ -75,5 +75,11 @@
+ 			</dict>
+ 		</array>
+ 
++		<key>LSEnvironment</key>
++		<dict>
++			<key>LANG</key>
++			<string>ja_JP.UTF-8</string>
++		</dict>
++
+ 	</dict>
+ </plist>
