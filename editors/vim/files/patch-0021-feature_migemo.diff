@@ -1,0 +1,101 @@
+--- vim7-daily-w32j/patches/0021-feature_migemo.diff
++++ vim7-daily-w32j/patches/0021-feature_migemo.diff
+@@ -177,19 +177,8 @@
+       want_sniff_request = 0;
+   #endif
+ ***************
+-*** 1710,1720 ****
+-  		i = 0;
+-  	    else
+-  	    {
+-  		cursor_off();		/* so the user knows we're busy */
+-  		out_flush();
+-  		++emsg_off;    /* So it doesn't beep if bad expr */
+-  		i = do_search(NULL, firstc, ccline.cmdbuff, count,
+-! 			SEARCH_KEEP + SEARCH_OPT + SEARCH_NOOF + SEARCH_PEEK);
+-  		--emsg_off;
+-  		/* if interrupted while searching, behave like it failed */
+-  		if (got_int)
+---- 1720,1737 ----
++*** 1727,1732 ****
++--- 1737,1745 ----
+   		i = 0;
+   	    else
+   	    {
+@@ -199,15 +188,29 @@
+   		cursor_off();		/* so the user knows we're busy */
+   		out_flush();
+   		++emsg_off;    /* So it doesn't beep if bad expr */
++***************
++*** 1734,1741 ****
++  		/* Set the time limit to half a second. */
++  		profile_setlimit(500L, &tm);
++  #endif
++  		i = do_search(NULL, firstc, ccline.cmdbuff, count,
++! 			SEARCH_KEEP + SEARCH_OPT + SEARCH_NOOF + SEARCH_PEEK,
++  #ifdef FEAT_RELTIME
++  			&tm
++  #else
++--- 1747,1758 ----
++  		/* Set the time limit to half a second. */
++  		profile_setlimit(500L, &tm);
++  #endif
+ + #ifdef USE_MIGEMO
+ + 		if (migemo_enabled)
+ + 		    search_options |= SEARCH_MIGEMO;
+ + #endif
+   		i = do_search(NULL, firstc, ccline.cmdbuff, count,
+-! 			search_options);
+-  		--emsg_off;
+-  		/* if interrupted while searching, behave like it failed */
+-  		if (got_int)
++! 			search_options,
++  #ifdef FEAT_RELTIME
++  			&tm
++  #else
+ diff -c ./src/feature.h.orig ./src/feature.h
+ *** ./src/feature.h.orig	Sat May 12 17:04:40 2007
+ --- ./src/feature.h	Sat May 12 17:05:27 2007
+@@ -431,8 +434,8 @@
+ *** ./src/search.c.orig	Sat May 12 17:05:25 2007
+ --- ./src/search.c	Sat May 12 17:05:27 2007
+ ***************
+-*** 945,950 ****
+---- 945,1245 ----
++*** 973,978 ****
++--- 973,1273 ----
+   }
+   #endif
+   
+@@ -718,7 +721,7 @@
+ + 	    if (STRLEN(query) < MIGEMO_QUERY_MAXSIZE)
+ + 	    {
+ + 		retval = searchit(win, buf, pos, dir, query, count, options,
+-+ 			pat_use, stop_lnum);
+++ 			pat_use, stop_lnum, NULL);
+ + 		migemo_release(migemo_object, query);
+ + 		didval = 1;
+ + 	    }
+@@ -733,10 +736,10 @@
+ + 
+   /*
+    * Highest level string search function.
+-   * Search for the 'count'th occurence of pattern 'pat' in direction 'dirc'
++   * Search for the 'count'th occurrence of pattern 'pat' in direction 'dirc'
+ ***************
+-*** 1241,1252 ****
+---- 1536,1565 ----
++*** 1270,1281 ****
++--- 1565,1594 ----
+   	     lrFswap(searchstr,0);
+   #endif
+   
+@@ -760,7 +763,7 @@
+   		       (SEARCH_KEEP + SEARCH_PEEK + SEARCH_HIS
+   			+ SEARCH_MSG + SEARCH_START
+   			+ ((pat != NULL && *pat == ';') ? 0 : SEARCH_NOOF))),
+-  		RE_LAST, (linenr_T)0);
++  		RE_LAST, (linenr_T)0, tm);
+ + #ifdef USE_MIGEMO
+ + 	}
+ + #endif /* USE_MIGEMO */

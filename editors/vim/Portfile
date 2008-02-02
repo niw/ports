@@ -3,7 +3,7 @@ PortSystem          1.0
 
 name                vim
 set vim_version     7.1
-set vim_patchlevel  196
+set vim_patchlevel  241
 version             ${vim_version}.${vim_patchlevel}
 revision            0
 categories          editors
@@ -174,6 +174,7 @@ variant kaoriya {
 	post-patch {
 		cd ${worksrcpath}
 		system "7za x ${distpath}/vim7-daily-w32j.exe"
+		system "cat ${portpath}/${filesdir}/patch-0021-feature_migemo.diff | patch -p0"
 		system "cat vim7-daily-w32j/patches/* | patch -p0 -F3"
 		system "cat ${portpath}/${filesdir}/patch-configure.in | patch -p0"
 	}
