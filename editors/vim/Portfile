@@ -3,7 +3,7 @@ PortSystem          1.0
 
 name                vim
 set vim_version     7.1
-set vim_patchlevel  241
+set vim_patchlevel  285
 version             ${vim_version}.${vim_patchlevel}
 revision            0
 categories          editors
@@ -76,6 +76,7 @@ configure.args      --enable-gui=no --without-x --disable-gpm \
                       --mandir=${prefix}/share/man --with-tlib=ncurses
 configure.env       CPPFLAGS="-I${prefix}/include" \
                       LDFLAGS="-L${prefix}/lib"
+patchfiles-append	patch-os_mac.h
 extract.only        ${name}-${vim_version}${extract.suffix}
 post-extract {
     system "gnutar xvfz ${distpath}/${name}-${vim_version}-extra.tar.gz -C \
@@ -167,15 +168,15 @@ variant universal {
 #     http://kimuraw.txt-nifty.com/d/2006/11/vim_portfile.html
 variant kaoriya {
     depends_lib-append lib:libmigemo:cmigemo
-    master_sites-append http://www.kaoriya.net/testdir/:kaoriya
-    distfiles-append vim7-daily-w32j.exe:kaoriya
-	checksums-append vim7-daily-w32j.exe md5 d98b838749169775127758fa84f08e69
+    master_sites-append http://www.kaoriya.net/dist/:kaoriya
+    distfiles-append vim71-20080315-kaoriya-w32j.exe:kaoriya
+	checksums-append vim71-20080315-kaoriya-w32j.exe md5 88a478b7aace42e1de25777662c6eb41
     depends_lib-append bin:7za:p7zip
 	post-patch {
 		cd ${worksrcpath}
-		system "7za x ${distpath}/vim7-daily-w32j.exe"
-		system "cat ${portpath}/${filesdir}/patch-0021-feature_migemo.diff | patch -p0"
-		system "cat vim7-daily-w32j/patches/* | patch -p0 -F3"
+		system "7za x ${distpath}/vim71-20080315-kaoriya-w32j.exe"
+		system "rm vim71-kaoriya-w32j/patches/0001-memwatch.diff"
+		system "cat vim71-kaoriya-w32j/patches/* | patch -p0 -F3"
 		system "cat ${portpath}/${filesdir}/patch-configure.in | patch -p0"
 	}
 	configure.args-append --enable-multibyte
@@ -188,7 +189,6 @@ variant aqua conflicts athena cocoa gtk1 gtk2 motif {
 	post-patch {
 		if {[variant_isset kaoriya]} {
 			cd ${worksrcpath}
-			# http://wiki.macvim.org/wiki/VimPatches/ATSUI
 			# http://iplab.naist.jp/member/mio-su/dist/vim/inline0.2.diff
 			# http://wiki.macvim.org/wiki/VimPatches/Transparency
 			system "cat ${portpath}/${filesdir}/patch-gui_mac.c | patch -p0"

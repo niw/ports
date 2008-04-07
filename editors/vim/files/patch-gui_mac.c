@@ -1,8 +1,26 @@
 --- src/gui_mac.c.orig
 +++ src/gui_mac.c
-@@ -127,6 +127,13 @@
- /* Keeping track of which scrollbar is being dragged */
- static ControlHandle dragged_sb = NULL;
+@@ -58,7 +58,8 @@
+ SInt32 gMacSystemVersion;
+ 
+ #ifdef MACOS_CONVERT
+-# define USE_CARBONKEYHANDLER
++//# define USE_CARBONKEYHANDLER
++#ifdef USE_CARBONKEYHANDLER
+ 
+ static int im_is_active = FALSE;
+ #if 0
+@@ -86,6 +87,7 @@
+ static pascal OSStatus gui_mac_unicode_key_event(
+ 	EventHandlerCallRef nextHandler, EventRef theEvent);
+ 
++#endif	// USE_CARBONKEYHANDLER
+ #endif
+ 
+ 
+@@ -156,6 +158,13 @@
+ /* Vector of char_u --> control index for hotkeys in dialogs */
+ static short *gDialogHotKeys;
  
 +/* INLINE IM */
 +#ifdef USE_IM_CONTROL
@@ -14,30 +32,21 @@
  static struct
  {
      FMFontFamily family;
-@@ -137,7 +144,12 @@
- 
+@@ -167,6 +176,7 @@
  #ifdef MACOS_CONVERT
  # define USE_ATSUI_DRAWING
-+int         p_macatsui_last;
-+int         p_antialias_last = -1;
+ int	    p_macatsui_last;
++int     p_antialias_last = -1;
  ATSUStyle   gFontStyle;
-+#ifdef FEAT_MBYTE
-+ATSUStyle   gWideFontStyle;
-+#endif
- Boolean	    gIsFontFallbackSet;
+ # ifdef FEAT_MBYTE
+ ATSUStyle   gWideFontStyle;
+@@ -301,8 +311,14 @@
+ #ifdef USE_ATSUI_DRAWING
+ static void gui_mac_set_font_attributes(GuiFont font);
+ static void gui_mac_dispose_atsui_style(void);
++static void gui_mac_change_antialias();
  #endif
  
-@@ -265,6 +277,18 @@
- static WindowRef drawer = NULL; // TODO: put into gui.h
- #endif
- 
-+#ifdef USE_ATSUI_DRAWING
-+void gui_mac_set_font_attributes(GuiFont font);
-+void gui_mac_dispose_atsui_style();
-+void gui_mac_create_atsui_style();
-+void gui_mac_change_antialias();
-+#endif
-+
 +#ifdef USE_IM_CONTROL
 +static pascal void tsmproc_pre(TEHandle textH, SInt32 refCon);
 +static pascal void tsmproc_post(TEHandle textH, SInt32 fixLen, SInt32 inputAreaStart, SInt32 inputAreaEnd, SInt32 pinStart, SInt32 pinEnd, SInt32 refCon);
@@ -46,36 +55,36 @@
  /*
   * ------------------------------------------------------------
   * Conversion Utility
-@@ -1924,10 +1948,26 @@
+@@ -1975,11 +1991,26 @@
      {
-         ControlRef rootControl;
-         GetRootControl(gui.VimWindow, &rootControl);
--        if ((event->modifiers) & activeFlag)
-+        if ((event->modifiers) & activeFlag) {
-             ActivateControl(rootControl);
--        else
-+			/* INLINE IM */
+ 	ControlRef rootControl;
+ 	GetRootControl(gui.VimWindow, &rootControl);
+-	if ((event->modifiers) & activeFlag)
++	if ((event->modifiers) & activeFlag) {
+ 	    ActivateControl(rootControl);
+-	else
 +#ifdef USE_IM_CONTROL
-+			if (s_TSMDocID) {
-+				TEActivate(s_TEHandle);
-+				ActivateTSMDocument(s_TSMDocID);
-+			}
++	    /* INLINE IM */
++	    if (s_TSMDocID) {
++	        TEActivate(s_TEHandle);
++	        ActivateTSMDocument(s_TSMDocID);
++	    }
 +#endif /* USE_IM_CONTROL */
-+		} else {
-             DeactivateControl(rootControl);
-+			/* INLINE IM */
++	} else {
+ 	    DeactivateControl(rootControl);
 +#ifdef USE_IM_CONTROL
-+			if (s_TSMDocID) {
-+				FixTSMDocument(s_TSMDocID);
-+				DeactivateTSMDocument(s_TSMDocID);
-+				TEDeactivate(s_TEHandle);
-+			}
++	    if (s_TSMDocID) {
++	        FixTSMDocument(s_TSMDocID);
++	        DeactivateTSMDocument(s_TSMDocID);
++	        TEDeactivate(s_TEHandle);
++	    }
 +#endif /* USE_IM_CONTROL */
-+		}
      }
++	}
  
      /* Activate */
-@@ -3014,6 +3054,38 @@
+     gui_focus_change((event->modifiers) & activeFlag);
+@@ -3132,6 +3163,38 @@
      gui.scrollbar_height = gui.scrollbar_width = 15; /* cheat 1 overlap */
      gui.border_offset = gui.border_width = 2;
  
@@ -114,7 +123,7 @@
      /* If Quartz-style text anti aliasing is available (see
         gui_mch_draw_string() below), enable it for all font sizes. */
      vim_setenv((char_u *)"QDTEXT_MINSIZE", (char_u *)"1");
-@@ -3078,6 +3150,9 @@
+@@ -3227,6 +3290,9 @@
  gui_mch_open(void)
  {
      ShowWindow(gui.VimWindow);
@@ -124,23 +133,7 @@
  
      if (gui_win_x != -1 && gui_win_y != -1)
  	gui_mch_set_winpos(gui_win_x, gui_win_y);
-@@ -3095,9 +3170,38 @@
-     return OK;
- }
- 
-+#ifdef USE_ATSUI_DRAWING
-+    void
-+gui_mac_dispose_atsui_style()
-+{
-+    if (p_macatsui && gFontStyle)
-+	ATSUDisposeStyle(gFontStyle);
-+#ifdef FEAT_MBYTE
-+    if (p_macatsui && gWideFontStyle)
-+	ATSUDisposeStyle(gWideFontStyle);
-+#endif
-+}
-+#endif
-+
+@@ -3260,6 +3326,22 @@
      void
  gui_mch_exit(int rc)
  {
@@ -163,42 +156,12 @@
      /* TODO: find out all what is missing here? */
      DisposeRgn(cursorRgn);
  
-@@ -3110,8 +3214,7 @@
- 	DisposeEventHandlerUPP(mouseWheelHandlerUPP);
- 
- #ifdef USE_ATSUI_DRAWING
--    if (p_macatsui && gFontStyle)
--	ATSUDisposeStyle(gFontStyle);
-+    gui_mac_dispose_atsui_style();
- #endif
- 
-     /* Exit to shell? */
-@@ -3251,6 +3354,65 @@
-     return selected_font;
+@@ -3369,6 +3451,45 @@
+     *screen_h = screenRect.bottom - 40;
  }
  
 +#ifdef USE_ATSUI_DRAWING
-+    void 
-+gui_mac_create_atsui_style()
-+{
-+    if (p_macatsui && gFontStyle == NULL)
-+    {
-+	if (ATSUCreateStyle(&gFontStyle) != noErr)
-+	    gFontStyle = NULL;
-+    }
-+#ifdef FEAT_MBYTE
-+    if (p_macatsui && gWideFontStyle == NULL)
-+    {
-+	if (ATSUCreateStyle(&gWideFontStyle) != noErr)
-+	    gWideFontStyle = NULL;
-+    }
-+#endif
-+
-+    p_macatsui_last = p_macatsui;
-+    p_antialias_last = -1;
-+}
-+
-+    void 
++    static void 
 +gui_mac_change_antialias()
 +{
 +    ATSStyleRenderingOptions	renderingOptions;
@@ -238,410 +201,23 @@
 +#endif
  
  /*
-  * Initialise vim to use the font with the given name.	Return FAIL if the font
-@@ -3268,11 +3430,7 @@
-     char_u	used_font_name[512];
+  * Open the Font Panel and wait for the user to select a font and
+@@ -4245,6 +4366,9 @@
+ 	/* switch from nomacatsui to macatsui */
+ 	gui_mac_create_atsui_style();
  
- #ifdef USE_ATSUI_DRAWING
--    if (p_macatsui && gFontStyle == NULL)
--    {
--	if (ATSUCreateStyle(&gFontStyle) != noErr)
--	    gFontStyle = NULL;
--    }
-+    gui_mac_create_atsui_style();
- #endif
- 
-     if (font_name == NULL)
-@@ -3336,49 +3494,8 @@
-     gui.char_height = font_info.ascent + font_info.descent + p_linespace;
- 
- #ifdef USE_ATSUI_DRAWING
--    ATSUFontID			fontID;
--    Fixed			fontSize;
--    ATSStyleRenderingOptions	fontOptions;
--
-     if (p_macatsui && gFontStyle)
--    {
--	fontID = font & 0xFFFF;
--	fontSize = Long2Fix(font >> 16);
--
--	/* No antialiasing by default (do not attempt to touch antialising
--	 * options on pre-Jaguar) */
--	fontOptions =
--	    (gMacSystemVersion >= 0x1020) ?
--	    kATSStyleNoAntiAliasing :
--	    kATSStyleNoOptions;
--
--	ATSUAttributeTag attribTags[] =
--	{
--	    kATSUFontTag, kATSUSizeTag, kATSUStyleRenderingOptionsTag,
--	    kATSUMaxATSUITagValue+1
--	};
--	ByteCount attribSizes[] =
--	{
--	    sizeof(ATSUFontID), sizeof(Fixed),
--	    sizeof(ATSStyleRenderingOptions), sizeof font
--	};
--	ATSUAttributeValuePtr attribValues[] =
--	{
--	    &fontID, &fontSize, &fontOptions, &font
--	};
--
--	/* Convert font id to ATSUFontID */
--	if (FMGetFontFromFontFamilyInstance(fontID, 0, &fontID, NULL) == noErr)
--	{
--	    if (ATSUSetAttributes(gFontStyle,
--			(sizeof attribTags)/sizeof(ATSUAttributeTag),
--			attribTags, attribSizes, attribValues) != noErr)
--	    {
--		ATSUDisposeStyle(gFontStyle);
--		gFontStyle = NULL;
--	    }
--	}
--    }
-+	gui_mac_set_font_attributes(font);
- #endif
- 
-     return OK;
-@@ -3435,6 +3552,68 @@
- }
- #endif
- 
-+#ifdef USE_ATSUI_DRAWING
-+    void 
-+gui_mac_set_font_attributes(GuiFont font)
-+{
-+    ATSUFontID	fontID;
-+    Fixed	fontSize;
-+    Fixed       fontWidth;
-+    
-+    fontID    = font & 0xFFFF;
-+    fontSize  = Long2Fix(font >> 16);
-+    fontWidth = Long2Fix(gui.char_width);
-+
-+    ATSUAttributeTag attribTags[] =
-+    {
-+        kATSUFontTag, kATSUSizeTag, kATSUImposeWidthTag, 
-+        kATSUMaxATSUITagValue + 1
-+    };
-+
-+    ByteCount attribSizes[] =
-+    {
-+        sizeof(ATSUFontID), sizeof(Fixed), sizeof(fontWidth), 
-+        sizeof(font)
-+    };
-+
-+    ATSUAttributeValuePtr attribValues[] =
-+    {
-+        &fontID, &fontSize, &fontWidth, &font
-+    };
-+
-+    if (FMGetFontFromFontFamilyInstance(fontID, 0, &fontID, NULL) == noErr)
-+    {
-+        if (ATSUSetAttributes(gFontStyle,
-+                    (sizeof attribTags) / sizeof(ATSUAttributeTag),
-+                    attribTags, attribSizes, attribValues) != noErr)
-+        {
-+# ifndef NDEBUG
-+            fprintf(stderr, "couldn't set font style\n");
-+# endif
-+            ATSUDisposeStyle(gFontStyle);
-+            gFontStyle = NULL;
-+        }
-+
-+#ifdef FEAT_MBYTE
-+        if (has_mbyte)
-+        {
-+            /* FIXME: we should use a more mbyte sensitive way to support 
-+             * wide font drawing */
-+            fontWidth = Long2Fix(gui.char_width * 2);
-+
-+            if (ATSUSetAttributes(gWideFontStyle,
-+                        (sizeof attribTags) / sizeof(ATSUAttributeTag),
-+                        attribTags, attribSizes, attribValues) != noErr)
-+            {
-+                ATSUDisposeStyle(gWideFontStyle);
-+                gWideFontStyle = NULL;
-+            }
-+        }
-+#endif
-+    }
-+}
-+#endif
-+
- /*
-  * Set the current text font.
-  */
-@@ -3444,66 +3623,22 @@
- #ifdef USE_ATSUI_DRAWING
-     GuiFont			currFont;
-     ByteCount			actualFontByteCount;
--    ATSUFontID			fontID;
--    Fixed			fontSize;
--    ATSStyleRenderingOptions	fontOptions;
- 
-     if (p_macatsui && gFontStyle)
-     {
- 	/* Avoid setting same font again */
--	if (ATSUGetAttribute(gFontStyle, kATSUMaxATSUITagValue+1, sizeof font,
--		    &currFont, &actualFontByteCount) == noErr &&
--		actualFontByteCount == (sizeof font))
-+	if (ATSUGetAttribute(gFontStyle, kATSUMaxATSUITagValue + 1, sizeof(font),
-+		             &currFont, &actualFontByteCount) == noErr &&
-+	    actualFontByteCount == (sizeof font))
- 	{
- 	    if (currFont == font)
- 		return;
- 	}
- 
--	fontID = font & 0xFFFF;
--	fontSize = Long2Fix(font >> 16);
--	/* Respect p_antialias setting only for wide font.
--	 * The reason for doing this at the moment is a bit complicated,
--	 * but it's mainly because a) latin (non-wide) aliased fonts
--	 * look bad in OS X 10.3.x and below (due to a bug in ATS), and
--	 * b) wide multibyte input does not suffer from that problem. */
--	/*fontOptions =
--	    (p_antialias && (font == gui.wide_font)) ?
--	    kATSStyleNoOptions : kATSStyleNoAntiAliasing;
--	*/
--	/*fontOptions = kATSStyleAntiAliasing;*/
--
--	ATSUAttributeTag attribTags[] =
--	{
--	    kATSUFontTag, kATSUSizeTag, kATSUStyleRenderingOptionsTag,
--	    kATSUMaxATSUITagValue+1
--	};
--	ByteCount attribSizes[] =
--	{
--	    sizeof(ATSUFontID), sizeof(Fixed),
--	    sizeof(ATSStyleRenderingOptions), sizeof font
--	};
--	ATSUAttributeValuePtr attribValues[] =
--	{
--	    &fontID, &fontSize, &fontOptions, &font
--	};
--
--	if (FMGetFontFromFontFamilyInstance(fontID, 0, &fontID, NULL) == noErr)
--	{
--	    if (ATSUSetAttributes(gFontStyle,
--			(sizeof attribTags)/sizeof(ATSUAttributeTag),
--			attribTags, attribSizes, attribValues) != noErr)
--	    {
--# ifndef NDEBUG
--		fprintf(stderr, "couldn't set font style\n");
--# endif
--		ATSUDisposeStyle(gFontStyle);
--		gFontStyle = NULL;
--	    }
--	}
--
-+        gui_mac_set_font_attributes(font);
-     }
- 
--    if (p_macatsui && !gIsFontFallbackSet)
-+    if (p_macatsui && ! gIsFontFallbackSet)
-     {
- 	/* Setup automatic font substitution. The user's guifontwide
- 	 * is tried first, then the system tries other fonts. */
-@@ -3524,7 +3659,9 @@
- 			&fallbackFonts,
- 			NULL) == noErr)
- 	    {
--		ATSUSetFontFallbacks((sizeof fallbackFonts)/sizeof(ATSUFontID), &fallbackFonts, kATSUSequentialFallbacksPreferred);
-+		ATSUSetFontFallbacks((sizeof fallbackFonts)/sizeof(ATSUFontID), 
-+                                     &fallbackFonts, 
-+                                     kATSUSequentialFallbacksPreferred);
- 	    }
- /*
- 	ATSUAttributeValuePtr fallbackValues[] = { };
-@@ -3907,9 +4044,10 @@
-     UniChar *tofree = mac_enc_to_utf16(s, len, (size_t *)&utf16_len);
-     utf16_len /= sizeof(UniChar);
- 
--    /* - ATSUI automatically antialiases text (Someone)
--     * - for some reason it does not work... (Jussi) */
--
-+#ifdef MAC_ATSUI_DEBUG
-+    fprintf(stderr, "row = %d, col = %d, len = %d: '%c'\n", 
-+            row, col, len, len == 1 ? s[0] : ' ');
-+#endif
-     /*
-      * When antialiasing we're using srcOr mode, we have to clear the block
-      * before drawing the text.
-@@ -3944,35 +4082,120 @@
-     }
- 
-     {
--	/* Use old-style, non-antialiased QuickDraw text rendering. */
- 	TextMode(srcCopy);
- 	TextFace(normal);
- 
--    /*  SelectFont(hdc, gui.currFont); */
--
-+        /*  SelectFont(hdc, gui.currFont); */
- 	if (flags & DRAW_TRANSP)
- 	{
- 	    TextMode(srcOr);
- 	}
- 
- 	MoveTo(TEXT_X(col), TEXT_Y(row));
--	ATSUTextLayout textLayout;
- 
--	if (ATSUCreateTextLayoutWithTextPtr(tofree,
--		    kATSUFromTextBeginning, kATSUToTextEnd,
--		    utf16_len,
--		    (gFontStyle ? 1 : 0), &utf16_len,
--		    (gFontStyle ? &gFontStyle : NULL),
--		    &textLayout) == noErr)
--	{
--	    ATSUSetTransientFontMatching(textLayout, TRUE);
--
--	    ATSUDrawText(textLayout,
--		    kATSUFromTextBeginning, kATSUToTextEnd,
--		    kATSUUseGrafPortPenLoc, kATSUUseGrafPortPenLoc);
-+        if (gFontStyle && flags & DRAW_BOLD)
-+        {
-+            Boolean attValue = true;
-+            ATSUAttributeTag attribTags[] = { kATSUQDBoldfaceTag };
-+            ByteCount attribSizes[] = { sizeof(Boolean) };
-+            ATSUAttributeValuePtr attribValues[] = { &attValue };
-+            
-+            ATSUSetAttributes(gFontStyle, 1, attribTags, attribSizes, attribValues);
-+        }
- 
--	    ATSUDisposeTextLayout(textLayout);
-+#ifdef FEAT_MBYTE
-+	if (has_mbyte)
-+	{
-+	    int n, width_in_cell, last_width_in_cell;
-+            UniCharArrayOffset offset = 0;
-+            UniCharCount yet_to_draw = 0;
-+            ATSUTextLayout textLayout;
-+            ATSUStyle      textStyle;
-+            
-+            last_width_in_cell = 1;
-+            ATSUCreateTextLayout(&textLayout);
-+            ATSUSetTextPointerLocation(textLayout, tofree, 
-+                                       kATSUFromTextBeginning, 
-+                                       kATSUToTextEnd, utf16_len);
-+            /*
-+            ATSUSetRunStyle(textLayout, gFontStyle, 
-+                            kATSUFromTextBeginning, kATSUToTextEnd); */
-+
-+	    /* Compute the length in display cells. */
-+	    for (n = 0; n < len; n += MB_BYTE2LEN(s[n]))
-+            {
-+                width_in_cell = (*mb_ptr2cells)(s + n);
-+
-+                /* probably we are switching from single byte character 
-+                 * to multibyte characters (which requires more than one
-+                 * cell to draw) */
-+                if (width_in_cell != last_width_in_cell)
-+                {
-+#ifdef MAC_ATSUI_DEBUG
-+                    fprintf(stderr, "\tn = %2d, (%d-%d), offset = %d, yet_to_draw = %d\n", 
-+                            n, last_width_in_cell, width_in_cell, offset, yet_to_draw);
-+#endif
-+                    textStyle = last_width_in_cell > 1 ? gWideFontStyle : gFontStyle;
-+
-+                    ATSUSetRunStyle(textLayout, textStyle, offset, yet_to_draw);
-+                    offset += yet_to_draw;
-+                    yet_to_draw = 0;
-+                    last_width_in_cell = width_in_cell;
-+                }
-+                
-+                yet_to_draw++;
-+            }
-+            
-+            if (yet_to_draw)
-+            {
-+#ifdef MAC_ATSUI_DEBUG
-+                fprintf(stderr, "\tn = %2d, (%d-%d), offset = %d, yet_to_draw = %d\n", 
-+                        n, last_width_in_cell, width_in_cell, offset, yet_to_draw);
-+#endif
-+                /* finish the rest style */
-+                textStyle = width_in_cell > 1 ? gWideFontStyle : gFontStyle;
-+                ATSUSetRunStyle(textLayout, textStyle, offset, kATSUToTextEnd);
-+            }
-+
-+            ATSUSetTransientFontMatching(textLayout, TRUE);
-+            ATSUDrawText(textLayout,
-+                         kATSUFromTextBeginning, kATSUToTextEnd,
-+                         kATSUUseGrafPortPenLoc, kATSUUseGrafPortPenLoc);
-+            ATSUDisposeTextLayout(textLayout);
- 	}
-+        else
-+#endif
-+        {
-+            ATSUTextLayout textLayout;
-+
-+            if (ATSUCreateTextLayoutWithTextPtr(tofree,
-+                        kATSUFromTextBeginning, kATSUToTextEnd,
-+                        utf16_len,
-+                        (gFontStyle ? 1 : 0), &utf16_len,
-+                        (gFontStyle ? &gFontStyle : NULL),
-+                        &textLayout) == noErr)
-+            {
-+                ATSUSetTransientFontMatching(textLayout, TRUE);
-+
-+                ATSUDrawText(textLayout,
-+                        kATSUFromTextBeginning, kATSUToTextEnd,
-+                        kATSUUseGrafPortPenLoc, kATSUUseGrafPortPenLoc);
-+
-+                ATSUDisposeTextLayout(textLayout);
-+            }
-+        }
-+
-+        /* drawing is done, now reset bold to normal */
-+        if (gFontStyle && flags & DRAW_BOLD)
-+        {
-+            Boolean attValue = false;
-+            
-+            ATSUAttributeTag attribTags[] = { kATSUQDBoldfaceTag };
-+            ByteCount attribSizes[] = { sizeof(Boolean) };
-+            ATSUAttributeValuePtr attribValues[] = { &attValue };
-+            
-+            ATSUSetAttributes(gFontStyle, 1, attribTags, attribSizes, attribValues);
-+        }
-     }
- 
-     if (flags & DRAW_UNDERC)
-@@ -3986,6 +4209,17 @@
- gui_mch_draw_string(int row, int col, char_u *s, int len, int flags)
- {
- #if defined(USE_ATSUI_DRAWING)
-+    /* switch from macatsui to nomacatsui */
-+    if (p_macatsui == 0 && p_macatsui_last != 0)
-+        gui_mac_dispose_atsui_style();
-+    else
-+    /* switch from nomacatsui to macatsui */
-+    if (p_macatsui != 0 && p_macatsui_last == 0)
-+        gui_mac_create_atsui_style();
-+
 +    if (p_antialias != p_antialias_last)
 +	gui_mac_change_antialias();
 +
      if (p_macatsui)
  	draw_string_ATSUI(row, col, s, len, flags);
      else
-@@ -4095,6 +4329,7 @@
+@@ -6352,10 +6476,12 @@
  #endif
-     rc.bottom = rc.top + gui.char_height;
+ }
  
-+    PenNormal();
-     gui_mch_set_fg_color(color);
- 
-     FrameRect(&rc);
-@@ -4119,6 +4354,7 @@
-     rc.right = rc.left + w;
-     rc.bottom = rc.top + h;
- 
-+    PenNormal();
-     gui_mch_set_fg_color(color);
- 
-     FrameRect(&rc);
-@@ -6023,6 +6259,8 @@
+-#if (defined(USE_IM_CONTROL) || defined(PROTO)) && defined(USE_CARBONKEYHANDLER)
++#if (defined(USE_IM_CONTROL) || defined(PROTO))
  /*
   * Input Method Control functions.
   */
@@ -650,14 +226,28 @@
  
  /*
   * Notify cursor position to IM.
-@@ -6030,14 +6268,19 @@
+@@ -6363,13 +6489,11 @@
      void
  im_set_position(int row, int col)
  {
+-#if 0
 -    /* TODO: Implement me! */
+-    im_start_row = row;
+-    im_start_col = col;
+-#endif
 +    im_row = row;
 +    im_col = col;
  }
+ 
++#if defined(USE_CARBONKEYHANDLER)
+ static ScriptLanguageRecord gTSLWindow;
+ static ScriptLanguageRecord gTSLInsert;
+ static ScriptLanguageRecord gTSLDefault = { 0, 0 };
+@@ -6429,78 +6553,127 @@
+ 	DeactivateTSMDocument(gTSMDocument);
+     }
+ }
++#endif	// USE_CARBONKEYHANDLER
  
  /*
   * Set IM status on ("active" is TRUE) or off ("active" is FALSE).
@@ -669,26 +259,38 @@
  im_set_active(int active)
 +#endif // FEAT_UIMFEP
  {
-     KeyScript(active ? smKeySysScript : smKeyRoman);
- }
-@@ -6046,13 +6289,108 @@
-  * Get IM status.  When IM is on, return not 0.  Else return 0.
-  */
-     int
+-    ScriptLanguageRecord *slptr = NULL;
+-    OSStatus err;
++    KeyScript(active ? smKeySysScript : smKeyRoman);
++}
+ 
+-    if (! gui.in_use)
+-	return;
++/*
++ * Get IM status.  When IM is on, return not 0.  Else return 0.
++ */
++    int
 +#if defined(FEAT_UIMFEP)
 +gui_im_get_status(void)
 +#else // FEAT_UIMFEP
- im_get_status(void)
++im_get_status(void)
 +#endif // FEAT_UIMFEP
- {
-     SInt32 script = GetScriptManagerVariable(smKeyScript);
-     return (script != smRoman
- 	    && script == GetScriptManagerVariable(smSysScript)) ? 1 : 0;
- }
++{
++    SInt32 script = GetScriptManagerVariable(smKeyScript);
++    return (script != smRoman
++	    && script == GetScriptManagerVariable(smSysScript)) ? 1 : 0;
++}
  
+-    if (im_initialized == 0)
+-    {
+-	im_initialized = 1;
 +static RGBColor s_saved_fg;
 +static RGBColor s_saved_bg;
-+
+ 
+-	/* save default TSM component (should be U.S.) to default */
+-	GetDefaultInputMethodOfClass(&gTSCDefault, &gTSLDefault,
+-				     kKeyboardInputMethodClass);
+-    }
 +/* INLINE IM */
 +    static pascal void
 +tsmproc_pre(TEHandle textH, SInt32 refCon)
@@ -697,7 +299,8 @@
 +    TextStyle style;
 +    RGBColor fore;
 +	int idx = syn_name2id((char_u *)"IMLine");
-+
+ 
+-    if (active == TRUE)
 +    /* Save current color and set IM color */
 +    GetForeColor(&s_saved_fg);
 +    GetBackColor(&s_saved_bg);
@@ -712,18 +315,29 @@
 +    TESetStyle(doFont | doSize | doColor, &style, false, textH);
 +
 +    /* Set IME's rectangle */
-+    {
+     {
+-	im_is_active = TRUE;
+-	ActivateTSMDocument(gTSMDocument);
+-	slptr = &gTSLInsert;
 +	int row = im_row, col = im_col;
-+
+ 
+-	if (slptr)
 +	if (col * 4 > gui.num_cols * 3)
-+	{
+ 	{
+-	    err = SetDefaultInputMethodOfClass(gTSCInsert, slptr,
+-					       kKeyboardInputMethodClass);
+-	    if (err == noErr)
+-		err = SetTextServiceLanguage(slptr);
+-
+-	    if (err == noErr)
+-		KeyScript(slptr->fScript | smKeyForceKeyScriptMask);
 +	    /* Slide inline area to 1 line down or up */
 +	    if (row > gui.num_rows / 2)
 +		--row;
 +	    else
 +		++row;
 +	    col = 0;
-+	}
+ 	}
 +	rect.top	= FILL_Y(row);
 +	rect.left	= FILL_X(col);
 +	rect.right	= FILL_X(screen_Columns);
@@ -731,9 +345,17 @@
 +	(**textH).destRect = rect;
 +	(**textH).viewRect = rect;
 +	TECalText(textH);
-+    }
+     }
+-    else
+-    {
+-	err = GetTextServiceLanguage(&gTSLInsert);
+-	if (err == noErr)
+-	    slptr = &gTSLInsert;
 +}
-+
+ 
+-	if (slptr)
+-	    GetDefaultInputMethodOfClass(&gTSCInsert, slptr,
+-					 kKeyboardInputMethodClass);
 +    static pascal void
 +tsmproc_post(TEHandle textH, SInt32 fixLen, SInt32 inputAreaStart,
 +	SInt32 inputAreaEnd, SInt32 pinStart, SInt32 pinEnd, SInt32 refCon)
@@ -741,9 +363,18 @@
 +    char_u	*to = NULL;
 +    vimconv_T	conv;
 +    int		convlen = 0;
-+
+ 
+-	/* restore to default when switch to normal mode, so than we could
+-	 * enter commands easier */
+-	SetDefaultInputMethodOfClass(gTSCDefault, &gTSLDefault,
+-				     kKeyboardInputMethodClass);
+-	SetTextServiceLanguage(&gTSLDefault);
 +    Rect rect = (**textH).viewRect;
-+
+ 
+-	im_is_active = FALSE;
+-	DeactivateTSMDocument(gTSMDocument);
+-    }
+-}
 +    /* Restore color */
 +    RGBForeColor(&s_saved_fg);
 +    RGBBackColor(&s_saved_bg);
@@ -760,12 +391,21 @@
 +	    add_to_input_buf_csi(to, convlen); 
 +       	else
 +	    add_to_input_buf_csi(*ch, fixLen); 
-+
+ 
+-/*
+- * Get IM status.  When IM is on, return not 0.  Else return 0.
+- */
+-    int
+-im_get_status(void)
+-{
+-    if (! gui.in_use)
+-	return 0;
 +	if (conv.vc_type != CONV_NONE)
 +	    vim_free(to);
 +	convert_setup(&conv, NULL, NULL);
 +    }
-+
+ 
+-    return im_is_active;
 +    if (inputAreaEnd < 0)
 +    {
 +	TESetText("", 0, textH);
@@ -774,13 +414,13 @@
 +		rect.bottom - rect.top + 1);
 +	gui_update_cursor(TRUE, FALSE);
 +    }
-+}
-+
+ }
+ 
 +
  #endif /* defined(USE_IM_CONTROL) || defined(PROTO) */
  
  
-@@ -6456,3 +6794,11 @@
+@@ -6904,3 +7077,11 @@
  }
  
  #endif // FEAT_GUI_TABLINE
