@@ -220,5 +220,12 @@ variant cocoa conflicts aqua athena gtk1 gtk2 motif {
 	include proc-gvim
 }
 
+variant silver_icon {
+	post-patch {
+		cd ${worksrcpath}
+		system "cp ${portpath}/${filesdir}/silver_app.icns src/os_mac_rsrc/app.icns"
+	}
+}
+
 include checksums_dist
 include checksums_patch
