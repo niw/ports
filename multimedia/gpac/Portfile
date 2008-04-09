@@ -1,0 +1,27 @@
+PortSystem         1.0
+
+name               gpac
+version            0.4.4
+revision           0
+
+categories         multimedia
+maintainers        niwa@dotswitch.net
+description        GPAC is an Open Source multimedia framework
+long_description   GPAC is an Open Source multimedia framework for research and academic purposes \
+                   in different aspects of multimedia, with a focus on presentation technologies \
+				   (graphics, animation and interactivity).
+homepage           http://gpac.sourceforge.net/
+
+master_sites       http://downloads.sourceforge.net/gpac/
+distname           ${name}-${version}
+checksums          md5 a5cb48ab85e9914d127fd8799b4b2e56
+worksrcdir         ${name}
+patchfiles         Makefile.patch os_net.c.patch
+
+configure.args    --mandir=${prefix}/share/man \
+                  --disable-wx
+
+post-extract {
+	cd ${worksrcpath}
+	system "chmod +x configure"
+}

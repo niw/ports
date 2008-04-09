@@ -1,0 +1,11 @@
+--- src/utils/os_net.c.orig	2008-04-10 02:56:30.000000000 +0900
++++ src/utils/os_net.c	2008-04-10 02:58:23.000000000 +0900
+@@ -93,6 +93,8 @@
+ typedef s32 SOCKET;
+ #define closesocket(v) close(v)
+ 
++typedef unsigned long u_long;
++
+ #endif
+ 
+ #ifdef __SYMBIAN32__

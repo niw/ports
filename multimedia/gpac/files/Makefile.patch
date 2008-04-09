@@ -1,0 +1,11 @@
+--- Makefile.orig	2008-04-10 04:56:30.000000000 +0900
++++ Makefile	2008-04-10 05:19:47.000000000 +0900
+@@ -49,7 +49,7 @@
+ tar:
+ 	( tar zcvf ~/$(FILE).tar.gz ../gpac --exclude CVS --exclude bin --exclude lib --exclude Obj --exclude temp --exclude amr_nb --exclude amr_nb_ft --exclude amr_wb_ft --exclude *.mak --exclude *.o --exclude *.~*)
+ 
+-install:
++install: bin/gcc/MP4Box
+ 	install -d "$(DESTDIR)$(prefix)"
+ 	install -d "$(DESTDIR)$(prefix)/bin"
+ 	install $(INSTFLAGS) -m 755 bin/gcc/MP4Box "$(DESTDIR)$(prefix)/bin"
