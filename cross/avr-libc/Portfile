@@ -1,0 +1,21 @@
+# $Id: Portfile 20225 2006-10-29 06:35:14Z blair@macports.org $
+PortSystem			1.0
+name				avr-libc
+version				1.4.4
+categories			cross
+maintainers			me@staylor.ca
+description			C library for the AVR microcontroller.
+long_description	AVR Libc is a Free Software project whose goal is \
+					to provide a high quality C library for use with \
+					GCC on Atmel AVR microcontrollers.
+homepage			http://www.nongnu.org/avr-libc/
+master_sites		http://savannah.nongnu.org/download/avr-libc/
+
+use_bzip2			yes
+checksums			md5 04f774841b9dc9886de8120f1dfb16e3
+depends_lib			port:gettext
+depends_lib			port:avr-gcc
+depends_build		port:binutils
+
+configure.args		--prefix=${prefix} --host=avr --build=`./config.guess`
+configure.cc		/opt/local/bin/avr-gcc
