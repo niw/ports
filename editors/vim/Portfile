@@ -3,7 +3,7 @@ PortSystem          1.0
 
 name                vim
 set vim_version     7.1
-set vim_patchlevel  285
+set vim_patchlevel  305
 version             ${vim_version}.${vim_patchlevel}
 revision            0
 categories          editors
@@ -143,6 +143,7 @@ variant python {
 }
 variant ruby {
     configure.args-append   --enable-rubyinterp
+	configure.env-append	RC_ARCHS=
     depends_lib-append      bin:ruby:ruby
 }
 variant tcl {
@@ -169,12 +170,12 @@ variant universal {
 variant kaoriya {
     depends_lib-append lib:libmigemo:cmigemo
     master_sites-append http://www.kaoriya.net/dist/:kaoriya
-    distfiles-append vim71-20080315-kaoriya-w32j.exe:kaoriya
-	checksums-append vim71-20080315-kaoriya-w32j.exe md5 88a478b7aace42e1de25777662c6eb41
-    depends_lib-append bin:7za:p7zip
+    distfiles-append vim71-20080531-kaoriya-w32j.exe:kaoriya
+	checksums-append vim71-20080531-kaoriya-w32j.exe md5 ca5f5cc543e18256e235205d59bc0a1a
+    depends_build-append bin:7za:p7zip
 	post-patch {
 		cd ${worksrcpath}
-		system "7za x ${distpath}/vim71-20080315-kaoriya-w32j.exe"
+		system "7za x ${distpath}/vim71-20080531-kaoriya-w32j.exe"
 		system "rm vim71-kaoriya-w32j/patches/0001-memwatch.diff"
 		system "cat vim71-kaoriya-w32j/patches/* | patch -p0 -F3"
 		system "cat ${portpath}/${filesdir}/patch-configure.in | patch -p0"
