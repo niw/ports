@@ -1,0 +1,21 @@
+PortSystem		1.0
+PortGroup		ruby 1.0
+
+ruby.setup		{rsvg ruby-gnome2} 0.17.0-rc1.r3263 extconf.rb \
+				{rsvg/README rsvg/sample} \
+				sourceforge:ruby-gnome2
+revision		0
+maintainers		kimuraw@i.nifty.jp
+description		Ruby/RSVG is a Ruby binding of librsvg.
+long_description	Ruby/RSVG is a Ruby binding of librsvg.
+categories-append	gnome
+checksums		md5 823e7dea5f904a6b0c5359de6cb7e9b7 \
+				rmd160 020b6e3547370e88a885ad5171a92230b226341f \
+				sha1 c7eb8dcea156ddda8f5f71245e99e051939f617b
+configure.env	RUBYOPT=-rvendor-specific
+configure.args		--strict rsvg
+depends_lib-append	port:librsvg port:rb-glib2 port:rb-gtk2
+
+fetch.type		svn
+svn.url			https://ruby-gnome2.svn.sourceforge.net/svnroot/ruby-gnome2/ruby-gnome2/trunk ${worksrcdir}
+svn.tag			3263
