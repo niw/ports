@@ -1,0 +1,98 @@
+PortSystem          1.0
+
+name                vim-cocoa
+version             823eb1f3cb7398560f1f0c3cc4a790dd60d57a5b
+
+categories          editors
+maintainers         nomaintainer@macports.org
+description         Vi "workalike" with many additional features
+long_description    Vim is a virtually compatible, extremely \
+                    enhanced version of the vi editor.
+homepage            http://code.google.com/p/vim-cocoa/
+platforms           darwin
+
+depends_build       port:git-core
+depends_lib         port:gettext port:ncurses
+
+distfiles           none
+checksums           none
+
+test.run            yes
+
+configure.args      --enable-gui=cocoa --without-x --disable-gpm \
+                    --mandir=${prefix}/share/man --with-tlib=ncurses \
+                    --enable-multibyte
+configure.env       CPPFLAGS="-I${prefix}/include" \
+                    LDFLAGS="-L${prefix}/lib"
+
+# fetch.type is not available in MacPorts 1.6.0 yet
+fetch {
+    file mkdir ${worksrcpath}
+    cd ${worksrcpath}
+    system "git init"
+    system "git fetch git://repo.or.cz/vim-cocoa.git"
+}
+extract {
+    cd ${worksrcpath}
+    system "git checkout ${version}"
+}
+
+pre-configure {
+    cd ${worksrcpath}/src
+    system "/bin/sh bootstrap.sh"
+}
+
+# 'Make install' is slight strange for installing Vim.app
+destroot {
+	set apppath "/Applications/MacPorts/VimCocoa"
+
+	# create the required directories
+	xinstall -d -m 755 ${destroot}${apppath}
+
+	# copy Vim.app
+	file copy ${worksrcpath}/src/Vim.app ${destroot}${apppath}
+
+	# remove the broken link to 'runtime', copy the folder instead
+	set runtimepath "${destroot}${apppath}/Vim.app/Contents/Resources/vim/runtime"
+	file delete ${runtimepath}
+	file copy ${worksrcpath}/runtime ${runtimepath}
+}
+
+variant big { configure.args-append --with-features=big }
+variant huge { configure.args-append --with-features=huge }
+variant xim { configure.args-append --with-xim }
+
+variant perl {
+    configure.args-append   --enable-perlinterp
+    depends_lib-append      bin:perl:perl5.8
+}
+variant python {
+    configure.args-append   --enable-pythoninterp
+    depends_lib-append      bin:python:python23
+}
+variant ruby {
+    configure.args-append   --enable-rubyinterp
+    configure.env-append    RC_ARCHS=
+    depends_lib-append      bin:ruby:ruby
+}
+variant tcl {
+    configure.args-append   --enable-tclinterp
+    depends_lib-append      bin:tclsh:tcl
+}
+variant cscope {
+    configure.args-append   --enable-cscope
+}
+
+variant universal {
+    configure.args-append   --with-mac-arch=both
+    configure.env-delete    CPPFLAGS="-I${prefix}/include" \
+                            LDFLAGS="-L${prefix}/lib"
+}
+
+variant silver_icon {
+    post-patch {
+		set iconpath "${worksrcpath}/src/os_mac_rsrc/app.icns"
+        file delete ${iconpath}
+        file copy ${filespath}/silver_app.icns ${iconpath}
+    }
+}
