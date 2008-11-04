@@ -19,6 +19,9 @@ checksums           none
 
 test.run            yes
 
+set apppath "/Applications/MacPorts/VimCocoa"
+
+configure.pre_args  --prefix=${apppath}
 configure.args      --enable-gui=cocoa --without-x --disable-gpm \
                     --mandir=${prefix}/share/man --with-tlib=ncurses \
                     --enable-multibyte
@@ -44,8 +47,6 @@ pre-configure {
 
 # 'Make install' is slight strange for installing Vim.app
 destroot {
-	set apppath "/Applications/MacPorts/VimCocoa"
-
 	# create the required directories
 	xinstall -d -m 755 ${destroot}${apppath}
 
