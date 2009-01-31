@@ -1,7 +1,8 @@
 PortSystem          1.0
 
 name                vim-cocoa
-version             823eb1f3cb7398560f1f0c3cc4a790dd60d57a5b
+version             7.2.049
+revision            1
 
 categories          editors
 maintainers         nomaintainer@macports.org
@@ -11,11 +12,8 @@ long_description    Vim is a virtually compatible, extremely \
 homepage            http://code.google.com/p/vim-cocoa/
 platforms           darwin
 
-depends_build       port:git-core
+depends_build       port:autoconf
 depends_lib         port:gettext port:ncurses
-
-distfiles           none
-checksums           none
 
 test.run            yes
 
@@ -28,21 +26,12 @@ configure.args      --enable-gui=cocoa --without-x --disable-gpm \
 configure.env       CPPFLAGS="-I${prefix}/include" \
                     LDFLAGS="-L${prefix}/lib"
 
-# fetch.type is not available in MacPorts 1.6.0 yet
-fetch {
-    file mkdir ${worksrcpath}
-    cd ${worksrcpath}
-    system "git init"
-    system "git fetch git://repo.or.cz/vim-cocoa.git"
-}
-extract {
-    cd ${worksrcpath}
-    system "git checkout ${version}"
-}
+fetch.type          git
+git.url             git://github.com/jjgod/vim-cocoa.git
+git.branch          f7efb57d06adde11d06d954a1725a3b17790aa95
 
 pre-configure {
-    cd ${worksrcpath}/src
-    system "/bin/sh bootstrap.sh"
+    system "cd ${worksrcpath}/src && /bin/sh bootstrap.sh"
 }
 
 # 'Make install' is slight strange for installing Vim.app
@@ -57,6 +46,10 @@ destroot {
 	set runtimepath "${destroot}${apppath}/Vim.app/Contents/Resources/vim/runtime"
 	file delete ${runtimepath}
 	file copy ${worksrcpath}/runtime ${runtimepath}
+
+	# make symlink to /opt/local/bin as vim command
+	ln -s "${apppath}/Vim.app/Contents/MacOS/Vim" ${destroot}${prefix}/bin/vim
+	system "cd ${destroot}${prefix}/bin && ln -s vim vimdiff"
 }
 
 variant big { configure.args-append --with-features=big }
