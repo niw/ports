@@ -30,6 +30,8 @@ fetch.type          git
 git.url             git://github.com/jjgod/vim-cocoa.git
 git.branch          f7efb57d06adde11d06d954a1725a3b17790aa95
 
+patchfiles          menu_ja.patch
+
 pre-configure {
     system "cd ${worksrcpath}/src && /bin/sh bootstrap.sh"
 }

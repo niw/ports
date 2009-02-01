@@ -1,0 +1,1440 @@
+diff --git runtime/lang/menu_ja_jp.euc-jp.vim runtime/lang/menu_ja_jp.euc-jp.vim
+index ee9f0e5..441bf61 100644
+--- runtime/lang/menu_ja_jp.euc-jp.vim
++++ runtime/lang/menu_ja_jp.euc-jp.vim
+@@ -13,82 +13,82 @@ let did_menu_trans = 1
+ scriptencoding euc-jp
+ 
+ " Help menu
+-menutrans &Help			¥Ø¥ë¥×(&H)
+-menutrans &Overview<Tab><F1>	³µÎ¬(&O)<Tab><F1>
+-menutrans &User\ Manual		¥æ¡¼¥¶¥Ş¥Ë¥å¥¢¥ë(&U)
++menutrans &Help			¥Ø¥ë¥×
++menutrans &Overview<Tab><F1>	³µÎ¬<Tab><F1>
++menutrans &User\ Manual		¥æ¡¼¥¶¥Ş¥Ë¥å¥¢¥ë
+ menutrans &How-to\ links	&How-to¥ê¥ó¥¯
+-menutrans &Credits		¥¯¥ì¥¸¥Ã¥È(&C)
+-menutrans Co&pying		Ãøºî¸¢¾ğÊó(&P)
+-menutrans &Sponsor/Register	¥¹¥İ¥ó¥µ¡¼/ÅĞÏ¿(&S)
+-menutrans O&rphans		¸É»ù(&R)
+-menutrans &Version		¥Ğ¡¼¥¸¥ç¥ó¾ğÊó(&V)
+-menutrans &About		Vim¤Ë¤Ä¤¤¤Æ(&A)
++menutrans &Credits		¥¯¥ì¥¸¥Ã¥È
++menutrans Co&pying		Ãøºî¸¢¾ğÊó
++menutrans &Sponsor/Register	¥¹¥İ¥ó¥µ¡¼/ÅĞÏ¿
++menutrans O&rphans		¸É»ù
++menutrans &Version		¥Ğ¡¼¥¸¥ç¥ó¾ğÊó
++menutrans &About		Vim¤Ë¤Ä¤¤¤Æ
+ 
+ let g:menutrans_help_dialog = "¥Ø¥ë¥×¤ò¸¡º÷¤·¤¿¤¤¥³¥Ş¥ó¥É¤â¤·¤¯¤ÏÃ±¸ì¤òÆşÎÏ¤·¤Æ¤¯¤À¤µ¤¤:\n\nÁŞÆş¥â¡¼¥É¤Î¥³¥Ş¥ó¥É¤Ë¤Ï i_ ¤òÀèÆ¬¤ËÉÕ²Ã¤·¤Ş¤¹. (Îã: i_CTRL-X)\n¥³¥Ş¥ó¥É¥é¥¤¥óÊÔ½¸¥³¥Ş¥ó¥É¤Ë¤Ï c_ ¤òÀèÆ¬¤ËÉÕ²Ã¤·¤Ş¤¹. (Îã: c_<Del>)\n¥ª¥×¥·¥ç¥ó¤ÎÌ¾Á°¤Ë¤Ï ' ¤òÉÕ²Ã¤·¤Ş¤¹. (Îã: 'shiftwidth')"
+ 
+ " File menu
+-menutrans &File				¥Õ¥¡¥¤¥ë(&F)
+-menutrans &Open\.\.\.<Tab>:e		³«¤¯(&O)\.\.\.<Tab>:e
+-menutrans Sp&lit-Open\.\.\.<Tab>:sp	Ê¬³ä¤·¤Æ³«¤¯(&L)\.\.\.<Tab>:sp
++menutrans &File				¥Õ¥¡¥¤¥ë
++menutrans &Open\.\.\.<Tab>:e		³«¤¯\.\.\.<Tab>:e
++menutrans Sp&lit-Open\.\.\.<Tab>:sp	Ê¬³ä¤·¤Æ³«¤¯\.\.\.<Tab>:sp
+ menutrans Open\ Tab\.\.\.<Tab>:tabnew	¥¿¥Ö¥Ú¡¼¥¸¤Ç³«¤¯<Tab>:tabnew
+-menutrans &New<Tab>:enew		¿·µ¬ºîÀ®(&N)<Tab>:enew
+-menutrans &Close<Tab>:close		ÊÄ¤¸¤ë(&C)<Tab>:close
+-menutrans &Save<Tab>:w			ÊİÂ¸(&S)<Tab>:w
+-menutrans Save\ &As\.\.\.<Tab>:sav	Ì¾Á°¤òÉÕ¤±¤ÆÊİÂ¸(&A)\.\.\.<Tab>:sav
+-menutrans Split\ &Diff\ with\.\.\.	º¹Ê¬É½¼¨(&D)\.\.\.
+-menutrans Split\ Patched\ &By\.\.\.	¥Ñ¥Ã¥Á·ë²Ì¤òÉ½¼¨(&B)\.\.\.
+-menutrans &Print			°õºş(&P)
+-menutrans Sa&ve-Exit<Tab>:wqa		ÊİÂ¸¤·¤Æ½ªÎ»(&V)<Tab>:wqa
+-menutrans E&xit<Tab>:qa			½ªÎ»(&X)<Tab>:qa
++menutrans &New<Tab>:enew		¿·µ¬ºîÀ®<Tab>:enew
++menutrans &Close<Tab>:close		ÊÄ¤¸¤ë<Tab>:close
++menutrans &Save<Tab>:w			ÊİÂ¸<Tab>:w
++menutrans Save\ &As\.\.\.<Tab>:sav	Ì¾Á°¤òÉÕ¤±¤ÆÊİÂ¸\.\.\.<Tab>:sav
++menutrans Split\ &Diff\ with\.\.\.	º¹Ê¬É½¼¨\.\.\.
++menutrans Split\ Patched\ &By\.\.\.	¥Ñ¥Ã¥Á·ë²Ì¤òÉ½¼¨\.\.\.
++menutrans &Print			°õºş
++menutrans Sa&ve-Exit<Tab>:wqa		ÊİÂ¸¤·¤Æ½ªÎ»<Tab>:wqa
++menutrans E&xit<Tab>:qa			½ªÎ»<Tab>:qa
+ 
+ " Edit menu
+-menutrans &Edit				ÊÔ½¸(&E)
+-menutrans &Undo<Tab>u			¼è¤ê¾Ã¤¹(&U)<Tab>u
+-menutrans &Redo<Tab>^R			¤â¤¦°ìÅÙ¤ä¤ë(&R)<Tab>^R
+-menutrans Rep&eat<Tab>\.		·«¤êÊÖ¤¹(&E)<Tab>\.
+-menutrans Cu&t<Tab>"+x			ÀÚ¤ê¼è¤ê(&T)<Tab>"+x
+-menutrans &Copy<Tab>"+y			¥³¥Ô¡¼(&C)<Tab>"+y
+-menutrans &Paste<Tab>"+gP		Å½¤êÉÕ¤±(&P)<Tab>"+gP
+-menutrans Put\ &Before<Tab>[p		Á°¤ËÅ½¤ë(&B)<Tab>[p
+-menutrans Put\ &After<Tab>]p		¸å¤ËÅ½¤ë(&A)<Tab>]p
+-menutrans &Delete<Tab>x			¾Ã¤¹(&D)<Tab>x
+-menutrans &Select\ All<Tab>ggVG		Á´¤ÆÁªÂò(&S)<Tab>ggVG
+-menutrans &Find\.\.\.			¸¡º÷(&F)\.\.\.
+-menutrans &Find<Tab>/			¸¡º÷(&F)<Tab>/
+-menutrans Find\ and\ Rep&lace\.\.\.	ÃÖ´¹(&L)\.\.\.
+-menutrans Find\ and\ Rep&lace<Tab>:%s	ÃÖ´¹(&L)<Tab>:%s
+-menutrans Find\ and\ Rep&lace<Tab>:s	ÃÖ´¹(&L)<Tab>:s
+-"menutrans Options\.\.\.			¥ª¥×¥·¥ç¥ó(&O)\.\.\.
+-menutrans Settings\ &Window		ÀßÄê¥¦¥£¥ó¥É¥¦(&W)
+-menutrans Startup\ &Settings		µ¯Æ°»ş¤ÎÀßÄê(&S)
++menutrans &Edit				ÊÔ½¸
++menutrans &Undo<Tab>u			¼è¤ê¾Ã¤¹<Tab>u
++menutrans &Redo<Tab>^R			¤â¤¦°ìÅÙ¤ä¤ë<Tab>^R
++menutrans Rep&eat<Tab>\.		·«¤êÊÖ¤¹<Tab>\.
++menutrans Cu&t<Tab>"+x			ÀÚ¤ê¼è¤ê<Tab>"+x
++menutrans &Copy<Tab>"+y			¥³¥Ô¡¼<Tab>"+y
++menutrans &Paste<Tab>"+gP		Å½¤êÉÕ¤±<Tab>"+gP
++menutrans Put\ &Before<Tab>[p		Á°¤ËÅ½¤ë<Tab>[p
++menutrans Put\ &After<Tab>]p		¸å¤ËÅ½¤ë<Tab>]p
++menutrans &Delete<Tab>x			¾Ã¤¹<Tab>x
++menutrans &Select\ All<Tab>ggVG		Á´¤ÆÁªÂò<Tab>ggVG
++menutrans &Find\.\.\.			¸¡º÷\.\.\.
++menutrans &Find<Tab>/			¸¡º÷<Tab>/
++menutrans Find\ and\ Rep&lace\.\.\.	ÃÖ´¹\.\.\.
++menutrans Find\ and\ Rep&lace<Tab>:%s	ÃÖ´¹<Tab>:%s
++menutrans Find\ and\ Rep&lace<Tab>:s	ÃÖ´¹<Tab>:s
++"menutrans Options\.\.\.			¥ª¥×¥·¥ç¥ó\.\.\.
++menutrans Settings\ &Window		ÀßÄê¥¦¥£¥ó¥É¥¦
++menutrans Startup\ &Settings		µ¯Æ°»ş¤ÎÀßÄê
+ 
+ " Edit/Global Settings
+-menutrans &Global\ Settings		Á´ÂÎÀßÄê(&G)
++menutrans &Global\ Settings		Á´ÂÎÀßÄê
+ menutrans Toggle\ Pattern\ &Highlight<Tab>:set\ hls!
+-	\	¥Ñ¥¿¡¼¥ó¶¯Ä´ÀÚÂØ(&H)<Tab>:set\ hls!
++	\	¥Ñ¥¿¡¼¥ó¶¯Ä´ÀÚÂØ<Tab>:set\ hls!
+ menutrans Toggle\ &Ignore-case<Tab>:set\ ic!
+-	\	Âç¾®Ê¸»ú¶èÊÌÀÚÂØ(&I)<Tab>:set\ ic!
++	\	Âç¾®Ê¸»ú¶èÊÌÀÚÂØ<Tab>:set\ ic!
+ menutrans Toggle\ &Showmatch<Tab>:set\ sm!
+-	\	¥Ş¥Ã¥ÁÉ½¼¨ÀÚÂØ(&S)<Tab>:set\ sm!
+-menutrans &Context\ lines		¥«¡¼¥½¥ë¼şÊÕ¹Ô¿ô(&C)
+-menutrans &Virtual\ Edit		²¾ÁÛÊÔ½¸(&V)
++	\	¥Ş¥Ã¥ÁÉ½¼¨ÀÚÂØ<Tab>:set\ sm!
++menutrans &Context\ lines		¥«¡¼¥½¥ë¼şÊÕ¹Ô¿ô
++menutrans &Virtual\ Edit		²¾ÁÛÊÔ½¸
+ menutrans Never				Ìµ¸ú
+ menutrans Block\ Selection		¥Ö¥í¥Ã¥¯ÁªÂò»ş
+ menutrans Insert\ mode			ÁŞÆş¥â¡¼¥É»ş
+ menutrans Block\ and\ Insert		¥Ö¥í¥Ã¥¯/ÁŞÆş¥â¡¼¥É»ş
+ menutrans Always			¾ï»ş
+ menutrans Toggle\ Insert\ &Mode<Tab>:set\ im!
+-	\	ÁŞÆş(½é¿´¼Ô)¥â¡¼¥ÉÀÚÂØ(&M)<Tab>:set\ im!
++	\	ÁŞÆş(½é¿´¼Ô)¥â¡¼¥ÉÀÚÂØ<Tab>:set\ im!
+ menutrans Toggle\ Vi\ C&ompatible<Tab>:set\ cp!
+-	\	Vi¸ß´¹¥â¡¼¥ÉÀÚÂØ(&O)<Tab>:set\ cp!
+-menutrans Search\ &Path\.\.\.		¸¡º÷¥Ñ¥¹(&P)\.\.\.
+-menutrans Ta&g\ Files\.\.\.		¥¿¥°¥Õ¥¡¥¤¥ë(&G)\.\.\.
++	\	Vi¸ß´¹¥â¡¼¥ÉÀÚÂØ<Tab>:set\ cp!
++menutrans Search\ &Path\.\.\.		¸¡º÷¥Ñ¥¹\.\.\.
++menutrans Ta&g\ Files\.\.\.		¥¿¥°¥Õ¥¡¥¤¥ë\.\.\.
+ "
+ " GUI options
+-menutrans Toggle\ &Toolbar		¥Ä¡¼¥ë¥Ğ¡¼É½¼¨ÀÚÂØ(&T)
+-menutrans Toggle\ &Bottom\ Scrollbar	¥¹¥¯¥í¡¼¥ë¥Ğ¡¼(²¼)É½¼¨ÀÚÂØ(&B)
+-menutrans Toggle\ &Left\ Scrollbar	¥¹¥¯¥í¡¼¥ë¥Ğ¡¼(º¸)É½¼¨ÀÚÂØ(&L)
+-menutrans Toggle\ &Right\ Scrollbar	¥¹¥¯¥í¡¼¥ë¥Ğ¡¼(±¦)É½¼¨ÀÚÂØ(&R)
++menutrans Toggle\ &Toolbar		¥Ä¡¼¥ë¥Ğ¡¼É½¼¨ÀÚÂØ
++menutrans Toggle\ &Bottom\ Scrollbar	¥¹¥¯¥í¡¼¥ë¥Ğ¡¼(²¼)É½¼¨ÀÚÂØ
++menutrans Toggle\ &Left\ Scrollbar	¥¹¥¯¥í¡¼¥ë¥Ğ¡¼(º¸)É½¼¨ÀÚÂØ
++menutrans Toggle\ &Right\ Scrollbar	¥¹¥¯¥í¡¼¥ë¥Ğ¡¼(±¦)É½¼¨ÀÚÂØ
+ 
+ let g:menutrans_path_dialog = "¥Õ¥¡¥¤¥ë¤Î¸¡º÷¥Ñ¥¹¤òÆşÎÏ¤·¤Æ¤¯¤À¤µ¤¤:\n¥Ç¥£¥ì¥¯¥È¥êÌ¾¤Ï¥«¥ó¥Ş ( , ) ¤Ç¶èÀÚ¤Ã¤Æ¤¯¤À¤µ¤¤."
+ let g:menutrans_tags_dialog = "¥¿¥°¥Õ¥¡¥¤¥ë¤ÎÌ¾Á°¤òÆşÎÏ¤·¤Æ¤¯¤À¤µ¤¤:\nÌ¾Á°¤Ï¥«¥ó¥Ş ( , ) ¤Ç¶èÀÚ¤Ã¤Æ¤¯¤À¤µ¤¤."
+@@ -96,147 +96,147 @@ let g:menutrans_tags_dialog = "
+ " Edit/File Settings
+ 
+ " Boolean options
+-menutrans F&ile\ Settings		¥Õ¥¡¥¤¥ëÀßÄê(&I)
++menutrans F&ile\ Settings		¥Õ¥¡¥¤¥ëÀßÄê
+ menutrans Toggle\ Line\ &Numbering<Tab>:set\ nu!
+-	\	¹ÔÈÖ¹æÉ½¼¨ÀÚÂØ(&N)<Tab>:set\ nu!
++	\	¹ÔÈÖ¹æÉ½¼¨ÀÚÂØ<Tab>:set\ nu!
+ menutrans Toggle\ &List\ Mode<Tab>:set\ list!
+-	\ ¥ê¥¹¥È¥â¡¼¥ÉÀÚÂØ(&L)<Tab>:set\ list!
++	\ ¥ê¥¹¥È¥â¡¼¥ÉÀÚÂØ<Tab>:set\ list!
+ menutrans Toggle\ Line\ &Wrap<Tab>:set\ wrap!
+-	\	¹ÔÀŞÊÖ¤·ÀÚÂØ(&W)<Tab>:set\ wrap!
++	\	¹ÔÀŞÊÖ¤·ÀÚÂØ<Tab>:set\ wrap!
+ menutrans Toggle\ W&rap\ at\ word<Tab>:set\ lbr!
+-	\	Ã±¸ìÀŞÊÖ¤·ÀÚÂØ(&R)<Tab>:set\ lbr!
++	\	Ã±¸ìÀŞÊÖ¤·ÀÚÂØ<Tab>:set\ lbr!
+ menutrans Toggle\ &expand-tab<Tab>:set\ et!
+-	\	¥¿¥ÖÅ¸³«ÀÚÂØ(&E)<Tab>:set\ et!
++	\	¥¿¥ÖÅ¸³«ÀÚÂØ<Tab>:set\ et!
+ menutrans Toggle\ &auto-indent<Tab>:set\ ai!
+-	\	¼«Æ°»ú²¼¤²ÀÚÂØ(&A)<Tab>:set\ ai!
++	\	¼«Æ°»ú²¼¤²ÀÚÂØ<Tab>:set\ ai!
+ menutrans Toggle\ &C-indenting<Tab>:set\ cin!
+-	\	C¸À¸ì»ú²¼¤²ÀÚÂØ(&C)<Tab>:set\ cin!
++	\	C¸À¸ì»ú²¼¤²ÀÚÂØ<Tab>:set\ cin!
+ 
+ " other options
+-menutrans &Shiftwidth			¥·¥Õ¥ÈÉı(&S)
+-menutrans Soft\ &Tabstop		¥½¥Õ¥È¥¦¥§¥¢¥¿¥ÖÉı(&T)
+-menutrans Te&xt\ Width\.\.\.		¥Æ¥­¥¹¥ÈÉı(&X)\.\.\.
+-menutrans &File\ Format\.\.\.		²ş¹Ôµ­¹æÁªÂò(&F)\.\.\.
++menutrans &Shiftwidth			¥·¥Õ¥ÈÉı
++menutrans Soft\ &Tabstop		¥½¥Õ¥È¥¦¥§¥¢¥¿¥ÖÉı
++menutrans Te&xt\ Width\.\.\.		¥Æ¥­¥¹¥ÈÉı\.\.\.
++menutrans &File\ Format\.\.\.		²ş¹Ôµ­¹æÁªÂò\.\.\.
+ 
+ let g:menutrans_textwidth_dialog = "¥Æ¥­¥¹¥È¤ÎÉı('textwidth')¤òÀßÄê¤·¤Æ¤¯¤À¤µ¤¤ (0¤ÇÀ°·Á¤òÌµ¸ú²½):"
+ let g:menutrans_fileformat_dialog = "¥Õ¥¡¥¤¥ë½ĞÎÏ¤Îºİ¤Î²ş¹Ôµ­¹æ¤Î·Á¼°¤òÁª¤ó¤Ç¤¯¤À¤µ¤¤."
+-let g:menutrans_fileformat_choices = "&Unix\n&Dos\n&Mac\n¥­¥ã¥ó¥»¥ë(&C)"
++let g:menutrans_fileformat_choices = "&Unix\n&Dos\n&Mac\n¥­¥ã¥ó¥»¥ë"
+ 
+-menutrans C&olor\ Scheme		¿§¥Æ¡¼¥ŞÁªÂò(&O)
+-menutrans &Keymap			¥­¡¼¥Ş¥Ã¥×(&K)
++menutrans C&olor\ Scheme		¿§¥Æ¡¼¥ŞÁªÂò
++menutrans &Keymap			¥­¡¼¥Ş¥Ã¥×
+ menutrans None				¤Ê¤·
+ 
+ " Programming menu
+-menutrans &Tools			¥Ä¡¼¥ë(&T)
+-menutrans &Jump\ to\ this\ tag<Tab>g^]	¥¿¥°¥¸¥ã¥ó¥×(&J)<Tab>g^]
+-menutrans Jump\ &back<Tab>^T		Ìá¤ë(&B)<Tab>^T
+-menutrans Build\ &Tags\ File		¥¿¥°¥Õ¥¡¥¤¥ëºîÀ®(&T)
+-menutrans &Make<Tab>:make		¥á¥¤¥¯(&M)<Tab>:make
+-menutrans &List\ Errors<Tab>:cl		¥¨¥é¡¼¥ê¥¹¥È(&L)<Tab>:cl
+-menutrans L&ist\ Messages<Tab>:cl!	¥á¥Ã¥»¡¼¥¸¥ê¥¹¥È(&I)<Tab>:cl!
+-menutrans &Next\ Error<Tab>:cn		¼¡¤Î¥¨¥é¡¼¤Ø(&N)<Tab>:cn
+-menutrans &Previous\ Error<Tab>:cp	Á°¤Î¥¨¥é¡¼¤Ø(&P)<Tab>:cp
+-menutrans &Older\ List<Tab>:cold	¸Å¤¤¥ê¥¹¥È(&O)<Tab>:cold
+-menutrans N&ewer\ List<Tab>:cnew	¿·¤·¤¤¥ê¥¹¥È(&E)<Tab>:cnew
+-menutrans Error\ &Window		¥¨¥é¡¼¥¦¥£¥ó¥É¥¦(&W)
+-menutrans &Update<Tab>:cwin		¹¹¿·(&U)<Tab>:cwin
+-menutrans &Open<Tab>:copen		³«¤¯(&O)<Tab>:copen
+-menutrans &Close<Tab>:cclose		ÊÄ¤¸¤ë(&C)<Tab>:cclose
+-menutrans &Convert\ to\ HEX<Tab>:%!xxd	HEX¤ØÊÑ´¹(&C)<Tab>:%!xxd
+-menutrans Conve&rt\ back<Tab>:%!xxd\ -r	HEX¤«¤éµÕÊÑ´¹(&R)<Tab>%!xxd\ -r
+-menutrans Se&T\ Compiler		¥³¥ó¥Ñ¥¤¥éÀßÄê(&T)
++menutrans &Tools			¥Ä¡¼¥ë
++menutrans &Jump\ to\ this\ tag<Tab>g^]	¥¿¥°¥¸¥ã¥ó¥×<Tab>g^]
++menutrans Jump\ &back<Tab>^T		Ìá¤ë<Tab>^T
++menutrans Build\ &Tags\ File		¥¿¥°¥Õ¥¡¥¤¥ëºîÀ®
++menutrans &Make<Tab>:make		¥á¥¤¥¯<Tab>:make
++menutrans &List\ Errors<Tab>:cl		¥¨¥é¡¼¥ê¥¹¥È<Tab>:cl
++menutrans L&ist\ Messages<Tab>:cl!	¥á¥Ã¥»¡¼¥¸¥ê¥¹¥È<Tab>:cl!
++menutrans &Next\ Error<Tab>:cn		¼¡¤Î¥¨¥é¡¼¤Ø<Tab>:cn
++menutrans &Previous\ Error<Tab>:cp	Á°¤Î¥¨¥é¡¼¤Ø<Tab>:cp
++menutrans &Older\ List<Tab>:cold	¸Å¤¤¥ê¥¹¥È<Tab>:cold
++menutrans N&ewer\ List<Tab>:cnew	¿·¤·¤¤¥ê¥¹¥È<Tab>:cnew
++menutrans Error\ &Window		¥¨¥é¡¼¥¦¥£¥ó¥É¥¦
++menutrans &Update<Tab>:cwin		¹¹¿·<Tab>:cwin
++menutrans &Open<Tab>:copen		³«¤¯<Tab>:copen
++menutrans &Close<Tab>:cclose		ÊÄ¤¸¤ë<Tab>:cclose
++menutrans &Convert\ to\ HEX<Tab>:%!xxd	HEX¤ØÊÑ´¹<Tab>:%!xxd
++menutrans Conve&rt\ back<Tab>:%!xxd\ -r	HEX¤«¤éµÕÊÑ´¹<Tab>%!xxd\ -r
++menutrans Se&T\ Compiler		¥³¥ó¥Ñ¥¤¥éÀßÄê
+ 
+ " Tools.Spelling Menu
+-menutrans &Spelling			¥¹¥Ú¥ê¥ó¥°(&S)
+-menutrans &Spell\ Check\ On		¥¹¥Ú¥ë¥Á¥§¥Ã¥¯Í­¸ú(&S)
+-menutrans Spell\ Check\ &Off		¥¹¥Ú¥ë¥Á¥§¥Ã¥¯Í­¸ú(&O)
+-menutrans To\ &Next\ error<Tab>]s	¼¡¤Î¥¨¥é¡¼(&N)<Tab>]s
+-menutrans To\ &Previous\ error<Tab>[s	Á°¤Î¥¨¥é¡¼(&P)<Tab>[s
+-menutrans Suggest\ &Corrections<Tab>z=	½¤Àµ¸õÊä(&C)<Tab>z=
+-menutrans &Repeat\ correction<Tab>:spellrepall	½¤Àµ¤ò·«¤êÊÖ¤¹(&R)<Tab>:spellrepall
++menutrans &Spelling			¥¹¥Ú¥ê¥ó¥°
++menutrans &Spell\ Check\ On		¥¹¥Ú¥ë¥Á¥§¥Ã¥¯Í­¸ú
++menutrans Spell\ Check\ &Off		¥¹¥Ú¥ë¥Á¥§¥Ã¥¯Í­¸ú
++menutrans To\ &Next\ error<Tab>]s	¼¡¤Î¥¨¥é¡¼<Tab>]s
++menutrans To\ &Previous\ error<Tab>[s	Á°¤Î¥¨¥é¡¼<Tab>[s
++menutrans Suggest\ &Corrections<Tab>z=	½¤Àµ¸õÊä<Tab>z=
++menutrans &Repeat\ correction<Tab>:spellrepall	½¤Àµ¤ò·«¤êÊÖ¤¹<Tab>:spellrepall
+ menutrans Set\ language\ to\ "en"	¸À¸ì¤ò\ "en"\ ¤ËÀßÄê¤¹¤ë
+ menutrans Set\ language\ to\ "en_au"	¸À¸ì¤ò\ "en_au"\ ¤ËÀßÄê¤¹¤ë
+ menutrans Set\ language\ to\ "en_ca"	¸À¸ì¤ò\ "en_ca"\ ¤ËÀßÄê¤¹¤ë
+ menutrans Set\ language\ to\ "en_gb"	¸À¸ì¤ò\ "en_gb"\ ¤ËÀßÄê¤¹¤ë
+ menutrans Set\ language\ to\ "en_nz"	¸À¸ì¤ò\ "en_nz"\ ¤ËÀßÄê¤¹¤ë
+ menutrans Set\ language\ to\ "en_us"	¸À¸ì¤ò\ "en_us"\ ¤ËÀßÄê¤¹¤ë
+-menutrans &Find\ More\ Languages	Â¾¤Î¸À¸ì¤ò¸¡º÷¤¹¤ë(&F)
++menutrans &Find\ More\ Languages	Â¾¤Î¸À¸ì¤ò¸¡º÷¤¹¤ë
+ 
+ " Tools.Fold Menu
+-menutrans &Folding			ÀŞ¾ö¤ß(&F)
++menutrans &Folding			ÀŞ¾ö¤ß
+ " open close folds
+-menutrans &Enable/Disable\ folds<Tab>zi	Í­¸ú/Ìµ¸úÀÚÂØ(&E)<Tab>zi
+-menutrans &View\ Cursor\ Line<Tab>zv	¥«¡¼¥½¥ë¹Ô¤òÉ½¼¨(&V)<Tab>zv
+-menutrans Vie&w\ Cursor\ Line\ only<Tab>zMzx	¥«¡¼¥½¥ë¹Ô¤À¤±¤òÉ½¼¨(&W)<Tab>zMzx
+-menutrans C&lose\ more\ folds<Tab>zm	ÀŞ¾ö¤ß¤òÊÄ¤¸¤ë(&L)<Tab>zm
+-menutrans &Close\ all\ folds<Tab>zM	Á´ÀŞ¾ö¤ß¤òÊÄ¤¸¤ë(&C)<Tab>zM
+-menutrans O&pen\ more\ folds<Tab>zr	ÀŞ¾ö¤ß¤ò³«¤¯(&P)<Tab>zr
+-menutrans &Open\ all\ folds<Tab>zR	Á´ÀŞ¾ö¤ß¤ò³«¤¯(&O)<Tab>zR
++menutrans &Enable/Disable\ folds<Tab>zi	Í­¸ú/Ìµ¸úÀÚÂØ<Tab>zi
++menutrans &View\ Cursor\ Line<Tab>zv	¥«¡¼¥½¥ë¹Ô¤òÉ½¼¨<Tab>zv
++menutrans Vie&w\ Cursor\ Line\ only<Tab>zMzx	¥«¡¼¥½¥ë¹Ô¤À¤±¤òÉ½¼¨<Tab>zMzx
++menutrans C&lose\ more\ folds<Tab>zm	ÀŞ¾ö¤ß¤òÊÄ¤¸¤ë<Tab>zm
++menutrans &Close\ all\ folds<Tab>zM	Á´ÀŞ¾ö¤ß¤òÊÄ¤¸¤ë<Tab>zM
++menutrans O&pen\ more\ folds<Tab>zr	ÀŞ¾ö¤ß¤ò³«¤¯<Tab>zr
++menutrans &Open\ all\ folds<Tab>zR	Á´ÀŞ¾ö¤ß¤ò³«¤¯<Tab>zR
+ " fold method
+-menutrans Fold\ Met&hod			ÀŞ¾ö¤ßÊıË¡(&H)
+-menutrans M&anual			¼êÆ°(&A)
+-menutrans I&ndent			¥¤¥ó¥Ç¥ó¥È(&N)
+-menutrans E&xpression			¼°É¾²Á(&X)
+-menutrans S&yntax			¥·¥ó¥¿¥Ã¥¯¥¹(&Y)
+-menutrans &Diff				º¹Ê¬(&D)
+-menutrans Ma&rker			¥Ş¡¼¥«¡¼(&R)
++menutrans Fold\ Met&hod			ÀŞ¾ö¤ßÊıË¡
++menutrans M&anual			¼êÆ°
++menutrans I&ndent			¥¤¥ó¥Ç¥ó¥È
++menutrans E&xpression			¼°É¾²Á
++menutrans S&yntax			¥·¥ó¥¿¥Ã¥¯¥¹
++menutrans &Diff				º¹Ê¬
++menutrans Ma&rker			¥Ş¡¼¥«¡¼
+ " create and delete folds
+-menutrans Create\ &Fold<Tab>zf		ÀŞ¾ö¤ßºîÀ®(&F)<Tab>zf
+-menutrans &Delete\ Fold<Tab>zd		ÀŞ¾ö¤ßºï½ü(&D)<Tab>zd
+-menutrans Delete\ &All\ Folds<Tab>zD	Á´ÀŞ¾ö¤ßºï½ü(&A)<Tab>zD
++menutrans Create\ &Fold<Tab>zf		ÀŞ¾ö¤ßºîÀ®<Tab>zf
++menutrans &Delete\ Fold<Tab>zd		ÀŞ¾ö¤ßºï½ü<Tab>zd
++menutrans Delete\ &All\ Folds<Tab>zD	Á´ÀŞ¾ö¤ßºï½ü<Tab>zD
+ " moving around in folds
+-menutrans Fold\ col&umn\ width		ÀŞ¾ö¤ß¥«¥é¥àÉı(&U)
++menutrans Fold\ col&umn\ width		ÀŞ¾ö¤ß¥«¥é¥àÉı
+ 
+-menutrans &Update		¹¹¿·(&U)
+-menutrans &Get\ Block		¥Ö¥í¥Ã¥¯Ãê½Ğ(&G)
+-menutrans &Put\ Block		¥Ö¥í¥Ã¥¯Å¬ÍÑ(&P)
++menutrans &Update		¹¹¿·
++menutrans &Get\ Block		¥Ö¥í¥Ã¥¯Ãê½Ğ
++menutrans &Put\ Block		¥Ö¥í¥Ã¥¯Å¬ÍÑ
+ 
+ " Names for buffer menu.
+-menutrans &Buffers		¥Ğ¥Ã¥Õ¥¡(&B)
+-menutrans &Refresh\ menu	¥á¥Ë¥å¡¼ºÆÆÉ¹ş(&R)
+-menutrans &Delete		ºï½ü(&D)
+-menutrans &Alternate		Î¢¤ØÀÚÂØ(&A)
+-menutrans &Next			¼¡¤Î¥Ğ¥Ã¥Õ¥¡(&N)
+-menutrans &Previous		Á°¤Î¥Ğ¥Ã¥Õ¥¡(&P)
++menutrans &Buffers		¥Ğ¥Ã¥Õ¥¡
++menutrans &Refresh\ menu	¥á¥Ë¥å¡¼ºÆÆÉ¹ş
++menutrans &Delete		ºï½ü
++menutrans &Alternate		Î¢¤ØÀÚÂØ
++menutrans &Next			¼¡¤Î¥Ğ¥Ã¥Õ¥¡
++menutrans &Previous		Á°¤Î¥Ğ¥Ã¥Õ¥¡
+ menutrans [No\ File]		[ÌµÂê]
+ let g:menutrans_no_file = "[ÌµÂê]"
+ 
+ " Window menu
+-menutrans &Window			¥¦¥£¥ó¥É¥¦(&W)
+-menutrans &New<Tab>^Wn			¿·µ¬ºîÀ®(&N)<Tab>^Wn
+-menutrans S&plit<Tab>^Ws		Ê¬³ä(&P)<Tab>^Ws
+-menutrans Sp&lit\ To\ #<Tab>^W^^	Î¢¥Ğ¥Ã¥Õ¥¡¤ØÊ¬³ä(&L)<Tab>^W^^
+-menutrans Split\ &Vertically<Tab>^Wv	¿âÄ¾Ê¬³ä(&V)<Tab>^Wv
+-menutrans Split\ File\ E&xplorer	¥Õ¥¡¥¤¥ë¥¨¥¯¥¹¥×¥í¡¼¥é(&X)
+-menutrans &Close<Tab>^Wc		ÊÄ¤¸¤ë(&C)<Tab>^Wc
+-menutrans Move\ &To			°ÜÆ°(&T)
+-menutrans &Top<Tab>^WK			¾å(&T)<Tab>^WK
+-menutrans &Bottom<Tab>^WJ		²¼(&B)<Tab>^WJ
+-menutrans &Left\ side<Tab>^WH		º¸(&L)<Tab>^WH
+-menutrans &Right\ side<Tab>^WL		±¦(&R)<Tab>^WL
+-menutrans Close\ &Other(s)<Tab>^Wo	Â¾¤òÊÄ¤¸¤ë(&O)<Tab>^Wo
+-menutrans Ne&xt<Tab>^Ww			¼¡¤Ø(&X)<Tab>^Ww
+-menutrans P&revious<Tab>^WW		Á°¤Ø(&R)<Tab>^WW
+-menutrans &Equal\ Size<Tab>^W=	Æ±¤¸¹â¤µ¤Ë(&E)<Tab>^W=
+-menutrans &Max\ Height<Tab>^W_		ºÇÂç¹â¤Ë(&M)<Tab>^W_
+-menutrans M&in\ Height<Tab>^W1_		ºÇ¾®¹â¤Ë(&i)<Tab>^W1_
+-menutrans Max\ &Width<Tab>^W\|		ºÇÂçÉı¤Ë(&W)<Tab>^W\|
+-menutrans Min\ Widt&h<Tab>^W1\|		ºÇ¾®Éı¤Ë(&H)<Tab>^W1\|
+-menutrans Rotate\ &Up<Tab>^WR		¾å¤Ë¥í¡¼¥Æ¡¼¥·¥ç¥ó(&U)<Tab>^WR
+-menutrans Rotate\ &Down<Tab>^Wr		²¼¤Ë¥í¡¼¥Æ¡¼¥·¥ç¥ó(&D)<Tab>^Wr
+-menutrans Select\ Fo&nt\.\.\.		¥Õ¥©¥ó¥ÈÀßÄê(&N)\.\.\.
++menutrans &Window			¥¦¥£¥ó¥É¥¦
++menutrans &New<Tab>^Wn			¿·µ¬ºîÀ®<Tab>^Wn
++menutrans S&plit<Tab>^Ws		Ê¬³ä<Tab>^Ws
++menutrans Sp&lit\ To\ #<Tab>^W^^	Î¢¥Ğ¥Ã¥Õ¥¡¤ØÊ¬³ä<Tab>^W^^
++menutrans Split\ &Vertically<Tab>^Wv	¿âÄ¾Ê¬³ä<Tab>^Wv
++menutrans Split\ File\ E&xplorer	¥Õ¥¡¥¤¥ë¥¨¥¯¥¹¥×¥í¡¼¥é
++menutrans &Close<Tab>^Wc		ÊÄ¤¸¤ë<Tab>^Wc
++menutrans Move\ &To			°ÜÆ°
++menutrans &Top<Tab>^WK			¾å<Tab>^WK
++menutrans &Bottom<Tab>^WJ		²¼<Tab>^WJ
++menutrans &Left\ side<Tab>^WH		º¸<Tab>^WH
++menutrans &Right\ side<Tab>^WL		±¦<Tab>^WL
++menutrans Close\ &Other(s)<Tab>^Wo	Â¾¤òÊÄ¤¸¤ë<Tab>^Wo
++menutrans Ne&xt<Tab>^Ww			¼¡¤Ø<Tab>^Ww
++menutrans P&revious<Tab>^WW		Á°¤Ø<Tab>^WW
++menutrans &Equal\ Size<Tab>^W=	Æ±¤¸¹â¤µ¤Ë<Tab>^W=
++menutrans &Max\ Height<Tab>^W_		ºÇÂç¹â¤Ë<Tab>^W_
++menutrans M&in\ Height<Tab>^W1_		ºÇ¾®¹â¤Ë<Tab>^W1_
++menutrans Max\ &Width<Tab>^W\|		ºÇÂçÉı¤Ë<Tab>^W\|
++menutrans Min\ Widt&h<Tab>^W1\|		ºÇ¾®Éı¤Ë<Tab>^W1\|
++menutrans Rotate\ &Up<Tab>^WR		¾å¤Ë¥í¡¼¥Æ¡¼¥·¥ç¥ó<Tab>^WR
++menutrans Rotate\ &Down<Tab>^Wr		²¼¤Ë¥í¡¼¥Æ¡¼¥·¥ç¥ó<Tab>^Wr
++menutrans Select\ Fo&nt\.\.\.		¥Õ¥©¥ó¥ÈÀßÄê\.\.\.
+ 
+ " The popup menu
+-menutrans &Undo			¼è¤ê¾Ã¤¹(&U)
+-menutrans Cu&t			ÀÚ¤ê¼è¤ê(&T)
+-menutrans &Copy			¥³¥Ô¡¼(&C)
+-menutrans &Paste		Å½¤êÉÕ¤±(&P)
+-menutrans &Delete		ºï½ü(&D)
++menutrans &Undo			¼è¤ê¾Ã¤¹
++menutrans Cu&t			ÀÚ¤ê¼è¤ê
++menutrans &Copy			¥³¥Ô¡¼
++menutrans &Paste		Å½¤êÉÕ¤±
++menutrans &Delete		ºï½ü
+ menutrans Select\ Blockwise	¶ë·Á¥Ö¥í¥Ã¥¯ÁªÂò
+-menutrans Select\ &Word		Ã±¸ìÁªÂò(&W)
+-menutrans Select\ &Line		¹ÔÁªÂò(&L)
+-menutrans Select\ &Block	¥Ö¥í¥Ã¥¯ÁªÂò(&B)
+-menutrans Select\ &All		¤¹¤Ù¤ÆÁªÂò(&A)
++menutrans Select\ &Word		Ã±¸ìÁªÂò
++menutrans Select\ &Line		¹ÔÁªÂò
++menutrans Select\ &Block	¥Ö¥í¥Ã¥¯ÁªÂò
++menutrans Select\ &All		¤¹¤Ù¤ÆÁªÂò
+ 
+ " The GUI toolbar (for Win32 or GTK)
+ if has("toolbar")
+@@ -277,18 +277,18 @@ if has("toolbar")
+ endif
+ 
+ " Syntax menu
+-menutrans &Syntax		¥·¥ó¥¿¥Ã¥¯¥¹(&S)
+-menutrans &Show\ filetypes\ in\ menu	ÂĞ±ş·Á¼°¤ò¥á¥Ë¥å¡¼¤ËÉ½¼¨(&S)
+-menutrans Set\ '&syntax'\ only	'syntax'¤À¤±ÀßÄê(&S)
+-menutrans Set\ '&filetype'\ too	'filetype'¤âÀßÄê(&F)
+-menutrans &Off			Ìµ¸ú²½(&O)
+-menutrans &Manual		¼êÆ°ÀßÄê(&M)
+-menutrans A&utomatic		¼«Æ°ÀßÄê(&U)
++menutrans &Syntax		¥·¥ó¥¿¥Ã¥¯¥¹
++menutrans &Show\ filetypes\ in\ menu	ÂĞ±ş·Á¼°¤ò¥á¥Ë¥å¡¼¤ËÉ½¼¨
++menutrans Set\ '&syntax'\ only	'syntax'¤À¤±ÀßÄê
++menutrans Set\ '&filetype'\ too	'filetype'¤âÀßÄê
++menutrans &Off			Ìµ¸ú²½
++menutrans &Manual		¼êÆ°ÀßÄê
++menutrans A&utomatic		¼«Æ°ÀßÄê
+ menutrans on/off\ for\ &This\ file
+-	\	¥ª¥ó/¥ª¥ÕÀÚÂØ(&T)
+-menutrans Co&lor\ test		¥«¥é¡¼¥Æ¥¹¥È(&L)
+-menutrans &Highlight\ test	¥Ï¥¤¥é¥¤¥È¥Æ¥¹¥È(&H)
+-menutrans &Convert\ to\ HTML	HTML¤Ø¥³¥ó¥Ğ¡¼¥È(&C)
++	\	¥ª¥ó/¥ª¥ÕÀÚÂØ
++menutrans Co&lor\ test		¥«¥é¡¼¥Æ¥¹¥È
++menutrans &Highlight\ test	¥Ï¥¤¥é¥¤¥È¥Æ¥¹¥È
++menutrans &Convert\ to\ HTML	HTML¤Ø¥³¥ó¥Ğ¡¼¥È
+ 
+ " Japanese specific menu
+ " À®Èİ¤Ïiconv¼¡Âè¡¢É¬¤º¤·¤â»ØÄê¤·¤¿¥¨¥ó¥³¡¼¥É¤Ë¤Ê¤ë¤ï¤±¤Ç¤Ï¤Ê¤¤¤³¤È¤ËÃí°Õ
+@@ -297,39 +297,39 @@ if has('iconv')
+   let support_jisx0213 = (iconv("\x87\x64\x87\x6a", 'cp932', 'euc-jisx0213') ==# "\xad\xc5\xad\xcb") ? 1 : 0
+   "
+   " ÆÉ¤ß¹ş¤ß
+-  an 10.395 ¥Õ¥¡¥¤¥ë(&F).-SEPICONV- <Nop>
+-  an 10.396.100.100 ¥Õ¥¡¥¤¥ë(&F).¥¨¥ó¥³¡¼¥É»ØÄê(&E)\.\.\..³«¤¯(&O)\.\.\..SJIS(&S)<Tab>fenc=cp932 :browse confirm e ++enc=cp932<CR>
++  an 10.395 ¥Õ¥¡¥¤¥ë.-SEPICONV- <Nop>
++  an 10.396.100.100 ¥Õ¥¡¥¤¥ë.¥¨¥ó¥³¡¼¥É»ØÄê\.\.\..³«¤¯\.\.\..SJIS<Tab>fenc=cp932 :browse confirm e ++enc=cp932<CR>
+   if !support_jisx0213
+-    an 10.396.100.110 ¥Õ¥¡¥¤¥ë(&F).¥¨¥ó¥³¡¼¥É»ØÄê(&E)\.\.\..³«¤¯(&O)\.\.\..EUC(&E)<Tab>fenc=euc-jp :browse confirm e ++enc=euc-jp<CR>
+-    an 10.396.100.120 ¥Õ¥¡¥¤¥ë(&F).¥¨¥ó¥³¡¼¥É»ØÄê(&E)\.\.\..³«¤¯(&O)\.\.\..JIS(&J)<Tab>fenc=iso-2022-jp :browse confirm e ++enc=iso-2022-jp<CR>
++    an 10.396.100.110 ¥Õ¥¡¥¤¥ë.¥¨¥ó¥³¡¼¥É»ØÄê\.\.\..³«¤¯\.\.\..EUC<Tab>fenc=euc-jp :browse confirm e ++enc=euc-jp<CR>
++    an 10.396.100.120 ¥Õ¥¡¥¤¥ë.¥¨¥ó¥³¡¼¥É»ØÄê\.\.\..³«¤¯\.\.\..JIS<Tab>fenc=iso-2022-jp :browse confirm e ++enc=iso-2022-jp<CR>
+   else
+-    an 10.396.100.110 ¥Õ¥¡¥¤¥ë(&F).¥¨¥ó¥³¡¼¥É»ØÄê(&E)\.\.\..³«¤¯(&O)\.\.\..EUC(&E)<Tab>fenc=euc-jisx0213 :browse confirm e ++enc=euc-jisx0213<CR>
+-    an 10.396.100.120 ¥Õ¥¡¥¤¥ë(&F).¥¨¥ó¥³¡¼¥É»ØÄê(&E)\.\.\..³«¤¯(&O)\.\.\..JIS(&J)<Tab>fenc=iso-2022-jp-3 :browse confirm e ++enc=iso-2022-jp-3<CR>
++    an 10.396.100.110 ¥Õ¥¡¥¤¥ë.¥¨¥ó¥³¡¼¥É»ØÄê\.\.\..³«¤¯\.\.\..EUC<Tab>fenc=euc-jisx0213 :browse confirm e ++enc=euc-jisx0213<CR>
++    an 10.396.100.120 ¥Õ¥¡¥¤¥ë.¥¨¥ó¥³¡¼¥É»ØÄê\.\.\..³«¤¯\.\.\..JIS<Tab>fenc=iso-2022-jp-3 :browse confirm e ++enc=iso-2022-jp-3<CR>
+   endif
+-  an 10.396.100.130 ¥Õ¥¡¥¤¥ë(&F).¥¨¥ó¥³¡¼¥É»ØÄê(&E)\.\.\..³«¤¯(&O)\.\.\..UTF-8(&8)<Tab>fenc=utf-8 :browse confirm e ++enc=utf-8<CR>
++  an 10.396.100.130 ¥Õ¥¡¥¤¥ë.¥¨¥ó¥³¡¼¥É»ØÄê\.\.\..³«¤¯\.\.\..UTF-8<Tab>fenc=utf-8 :browse confirm e ++enc=utf-8<CR>
+ 
+   " ºÆÆÉ¹ş
+-  an 10.396.110.100 ¥Õ¥¡¥¤¥ë(&F).¥¨¥ó¥³¡¼¥É»ØÄê(&E)\.\.\..ºÆÆÉ¹ş(&R)\.\.\..SJIS(&S)<Tab>fenc=cp932 :e ++enc=cp932<CR>
++  an 10.396.110.100 ¥Õ¥¡¥¤¥ë.¥¨¥ó¥³¡¼¥É»ØÄê\.\.\..ºÆÆÉ¹ş\.\.\..SJIS<Tab>fenc=cp932 :e ++enc=cp932<CR>
+   if !support_jisx0213
+-    an 10.396.110.110 ¥Õ¥¡¥¤¥ë(&F).¥¨¥ó¥³¡¼¥É»ØÄê(&E)\.\.\..ºÆÆÉ¹ş(&R)\.\.\..EUC(&E)<Tab>fenc=euc-jp :e ++enc=euc-jp<CR>
+-    an 10.396.110.120 ¥Õ¥¡¥¤¥ë(&F).¥¨¥ó¥³¡¼¥É»ØÄê(&E)\.\.\..ºÆÆÉ¹ş(&R)\.\.\..JIS(&J)<Tab>fenc=iso-2022-jp :e ++enc=iso-2022-jp<CR>
++    an 10.396.110.110 ¥Õ¥¡¥¤¥ë.¥¨¥ó¥³¡¼¥É»ØÄê\.\.\..ºÆÆÉ¹ş\.\.\..EUC<Tab>fenc=euc-jp :e ++enc=euc-jp<CR>
++    an 10.396.110.120 ¥Õ¥¡¥¤¥ë.¥¨¥ó¥³¡¼¥É»ØÄê\.\.\..ºÆÆÉ¹ş\.\.\..JIS<Tab>fenc=iso-2022-jp :e ++enc=iso-2022-jp<CR>
+   else
+-    an 10.396.110.110 ¥Õ¥¡¥¤¥ë(&F).¥¨¥ó¥³¡¼¥É»ØÄê(&E)\.\.\..ºÆÆÉ¹ş(&R)\.\.\..EUC(&E)<Tab>fenc=euc-jisx0213 :e ++enc=euc-jisx0213<CR>
+-    an 10.396.110.120 ¥Õ¥¡¥¤¥ë(&F).¥¨¥ó¥³¡¼¥É»ØÄê(&E)\.\.\..ºÆÆÉ¹ş(&R)\.\.\..JIS(&J)<Tab>fenc=iso-2022-jp-3 :e ++enc=iso-2022-jp-3<CR>
++    an 10.396.110.110 ¥Õ¥¡¥¤¥ë.¥¨¥ó¥³¡¼¥É»ØÄê\.\.\..ºÆÆÉ¹ş\.\.\..EUC<Tab>fenc=euc-jisx0213 :e ++enc=euc-jisx0213<CR>
++    an 10.396.110.120 ¥Õ¥¡¥¤¥ë.¥¨¥ó¥³¡¼¥É»ØÄê\.\.\..ºÆÆÉ¹ş\.\.\..JIS<Tab>fenc=iso-2022-jp-3 :e ++enc=iso-2022-jp-3<CR>
+   endif
+-  an 10.396.110.130 ¥Õ¥¡¥¤¥ë(&F).¥¨¥ó¥³¡¼¥É»ØÄê(&E)\.\.\..ºÆÆÉ¹ş(&R)\.\.\..UTF-8(&8)<Tab>fenc=utf-8 :e ++enc=utf-8<CR>
++  an 10.396.110.130 ¥Õ¥¡¥¤¥ë.¥¨¥ó¥³¡¼¥É»ØÄê\.\.\..ºÆÆÉ¹ş\.\.\..UTF-8<Tab>fenc=utf-8 :e ++enc=utf-8<CR>
+ 
+   " ÊİÂ¸
+-  an 10.396.115 ¥Õ¥¡¥¤¥ë(&F).¥¨¥ó¥³¡¼¥É»ØÄê(&E)\.\.\..-SEP1- <Nop>
+-  an 10.396.120.100 ¥Õ¥¡¥¤¥ë(&F).¥¨¥ó¥³¡¼¥É»ØÄê(&E)\.\.\..ÊİÂ¸(&S)\.\.\..SJIS(&S)<Tab>fenc=cp932 :set fenc=cp932 \| w<CR>
++  an 10.396.115 ¥Õ¥¡¥¤¥ë.¥¨¥ó¥³¡¼¥É»ØÄê\.\.\..-SEP1- <Nop>
++  an 10.396.120.100 ¥Õ¥¡¥¤¥ë.¥¨¥ó¥³¡¼¥É»ØÄê\.\.\..ÊİÂ¸\.\.\..SJIS<Tab>fenc=cp932 :set fenc=cp932 \| w<CR>
+   if !support_jisx0213
+-    an 10.396.120.110 ¥Õ¥¡¥¤¥ë(&F).¥¨¥ó¥³¡¼¥É»ØÄê(&E)\.\.\..ÊİÂ¸(&S)\.\.\..EUC(&E)<Tab>fenc=euc-jp :set fenc=euc-jp \| w<CR>
+-    an 10.396.120.120 ¥Õ¥¡¥¤¥ë(&F).¥¨¥ó¥³¡¼¥É»ØÄê(&E)\.\.\..ÊİÂ¸(&S)\.\.\..JIS(&J)<Tab>fenc=iso-2022-jp :set fenc=iso-2022-jp \| w<CR>
++    an 10.396.120.110 ¥Õ¥¡¥¤¥ë.¥¨¥ó¥³¡¼¥É»ØÄê\.\.\..ÊİÂ¸\.\.\..EUC<Tab>fenc=euc-jp :set fenc=euc-jp \| w<CR>
++    an 10.396.120.120 ¥Õ¥¡¥¤¥ë.¥¨¥ó¥³¡¼¥É»ØÄê\.\.\..ÊİÂ¸\.\.\..JIS<Tab>fenc=iso-2022-jp :set fenc=iso-2022-jp \| w<CR>
+   else
+-    an 10.396.120.110 ¥Õ¥¡¥¤¥ë(&F).¥¨¥ó¥³¡¼¥É»ØÄê(&E)\.\.\..ÊİÂ¸(&S)\.\.\..EUC(&E)<Tab>fenc=euc-jisx0213 :set fenc=euc-jisx0213 \| w<CR>
+-    an 10.396.120.120 ¥Õ¥¡¥¤¥ë(&F).¥¨¥ó¥³¡¼¥É»ØÄê(&E)\.\.\..ÊİÂ¸(&S)\.\.\..JIS(&J)<Tab>fenc=iso-2022-jp-3 :set fenc=iso-2022-jp-3 \| w<CR>
++    an 10.396.120.110 ¥Õ¥¡¥¤¥ë.¥¨¥ó¥³¡¼¥É»ØÄê\.\.\..ÊİÂ¸\.\.\..EUC<Tab>fenc=euc-jisx0213 :set fenc=euc-jisx0213 \| w<CR>
++    an 10.396.120.120 ¥Õ¥¡¥¤¥ë.¥¨¥ó¥³¡¼¥É»ØÄê\.\.\..ÊİÂ¸\.\.\..JIS<Tab>fenc=iso-2022-jp-3 :set fenc=iso-2022-jp-3 \| w<CR>
+   endif
+-  an 10.396.120.130 ¥Õ¥¡¥¤¥ë(&F).¥¨¥ó¥³¡¼¥É»ØÄê(&E)\.\.\..ÊİÂ¸(&S)\.\.\..UTF-8(&8)<Tab>fenc=utf-8 :set fenc=utf-8 \| w<CR>
++  an 10.396.120.130 ¥Õ¥¡¥¤¥ë.¥¨¥ó¥³¡¼¥É»ØÄê\.\.\..ÊİÂ¸\.\.\..UTF-8<Tab>fenc=utf-8 :set fenc=utf-8 \| w<CR>
+ endif
+ 
+ " filler to avoid the line above being recognized as a modeline
+diff --git runtime/lang/menu_ja_jp.utf-8.vim runtime/lang/menu_ja_jp.utf-8.vim
+index c36d6a0..b750733 100644
+--- runtime/lang/menu_ja_jp.utf-8.vim
++++ runtime/lang/menu_ja_jp.utf-8.vim
+@@ -13,82 +13,82 @@ let did_menu_trans = 1
+ scriptencoding utf-8
+ 
+ " Help menu
+-menutrans &Help			ãƒ˜ãƒ«ãƒ—(&H)
+-menutrans &Overview<Tab><F1>	æ¦‚ç•¥(&O)<Tab><F1>
+-menutrans &User\ Manual		ãƒ¦ãƒ¼ã‚¶ãƒãƒ‹ãƒ¥ã‚¢ãƒ«(&U)
++menutrans &Help			ãƒ˜ãƒ«ãƒ—
++menutrans &Overview<Tab><F1>	æ¦‚ç•¥<Tab><F1>
++menutrans &User\ Manual		ãƒ¦ãƒ¼ã‚¶ãƒãƒ‹ãƒ¥ã‚¢ãƒ«
+ menutrans &How-to\ links	&How-toãƒªãƒ³ã‚¯
+-menutrans &Credits		ã‚¯ãƒ¬ã‚¸ãƒƒãƒˆ(&C)
+-menutrans Co&pying		è‘—ä½œæ¨©æƒ…å ±(&P)
+-menutrans &Sponsor/Register	ã‚¹ãƒãƒ³ã‚µãƒ¼/ç™»éŒ²(&S)
+-menutrans O&rphans		å­¤å…(&R)
+-menutrans &Version		ãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±(&V)
+-menutrans &About		Vimã«ã¤ã„ã¦(&A)
++menutrans &Credits		ã‚¯ãƒ¬ã‚¸ãƒƒãƒˆ
++menutrans Co&pying		è‘—ä½œæ¨©æƒ…å ±
++menutrans &Sponsor/Register	ã‚¹ãƒãƒ³ã‚µãƒ¼/ç™»éŒ²
++menutrans O&rphans		å­¤å…
++menutrans &Version		ãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±
++menutrans &About		Vimã«ã¤ã„ã¦
+ 
+ let g:menutrans_help_dialog = "ãƒ˜ãƒ«ãƒ—ã‚’æ¤œç´¢ã—ãŸã„ã‚³ãƒãƒ³ãƒ‰ã‚‚ã—ãã¯å˜èªã‚’å…¥åŠ›ã—ã¦ãã ã•ã„:\n\næŒ¿å…¥ãƒ¢ãƒ¼ãƒ‰ã®ã‚³ãƒãƒ³ãƒ‰ã«ã¯ i_ ã‚’å…ˆé ­ã«ä»˜åŠ ã—ã¾ã™. (ä¾‹: i_CTRL-X)\nã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ç·¨é›†ã‚³ãƒãƒ³ãƒ‰ã«ã¯ c_ ã‚’å…ˆé ­ã«ä»˜åŠ ã—ã¾ã™. (ä¾‹: c_<Del>)\nã‚ªãƒ—ã‚·ãƒ§ãƒ³ã®åå‰ã«ã¯ ' ã‚’ä»˜åŠ ã—ã¾ã™. (ä¾‹: 'shiftwidth')"
+ 
+ " File menu
+-menutrans &File				ãƒ•ã‚¡ã‚¤ãƒ«(&F)
+-menutrans &Open\.\.\.<Tab>:e		é–‹ã(&O)\.\.\.<Tab>:e
+-menutrans Sp&lit-Open\.\.\.<Tab>:sp	åˆ†å‰²ã—ã¦é–‹ã(&L)\.\.\.<Tab>:sp
++menutrans &File				ãƒ•ã‚¡ã‚¤ãƒ«
++menutrans &Open\.\.\.<Tab>:e		é–‹ã\.\.\.<Tab>:e
++menutrans Sp&lit-Open\.\.\.<Tab>:sp	åˆ†å‰²ã—ã¦é–‹ã\.\.\.<Tab>:sp
+ menutrans Open\ Tab\.\.\.<Tab>:tabnew	ã‚¿ãƒ–ãƒšãƒ¼ã‚¸ã§é–‹ã<Tab>:tabnew
+-menutrans &New<Tab>:enew		æ–°è¦ä½œæˆ(&N)<Tab>:enew
+-menutrans &Close<Tab>:close		é–‰ã˜ã‚‹(&C)<Tab>:close
+-menutrans &Save<Tab>:w			ä¿å­˜(&S)<Tab>:w
+-menutrans Save\ &As\.\.\.<Tab>:sav	åå‰ã‚’ä»˜ã‘ã¦ä¿å­˜(&A)\.\.\.<Tab>:sav
+-menutrans Split\ &Diff\ with\.\.\.	å·®åˆ†è¡¨ç¤º(&D)\.\.\.
+-menutrans Split\ Patched\ &By\.\.\.	ãƒ‘ãƒƒãƒçµæœã‚’è¡¨ç¤º(&B)\.\.\.
+-menutrans &Print			å°åˆ·(&P)
+-menutrans Sa&ve-Exit<Tab>:wqa		ä¿å­˜ã—ã¦çµ‚äº†(&V)<Tab>:wqa
+-menutrans E&xit<Tab>:qa			çµ‚äº†(&X)<Tab>:qa
++menutrans &New<Tab>:enew		æ–°è¦ä½œæˆ<Tab>:enew
++menutrans &Close<Tab>:close		é–‰ã˜ã‚‹<Tab>:close
++menutrans &Save<Tab>:w			ä¿å­˜<Tab>:w
++menutrans Save\ &As\.\.\.<Tab>:sav	åå‰ã‚’ä»˜ã‘ã¦ä¿å­˜\.\.\.<Tab>:sav
++menutrans Split\ &Diff\ with\.\.\.	å·®åˆ†è¡¨ç¤º\.\.\.
++menutrans Split\ Patched\ &By\.\.\.	ãƒ‘ãƒƒãƒçµæœã‚’è¡¨ç¤º\.\.\.
++menutrans &Print			å°åˆ·
++menutrans Sa&ve-Exit<Tab>:wqa		ä¿å­˜ã—ã¦çµ‚äº†<Tab>:wqa
++menutrans E&xit<Tab>:qa			çµ‚äº†<Tab>:qa
+ 
+ " Edit menu
+-menutrans &Edit				ç·¨é›†(&E)
+-menutrans &Undo<Tab>u			å–ã‚Šæ¶ˆã™(&U)<Tab>u
+-menutrans &Redo<Tab>^R			ã‚‚ã†ä¸€åº¦ã‚„ã‚‹(&R)<Tab>^R
+-menutrans Rep&eat<Tab>\.		ç¹°ã‚Šè¿”ã™(&E)<Tab>\.
+-menutrans Cu&t<Tab>"+x			åˆ‡ã‚Šå–ã‚Š(&T)<Tab>"+x
+-menutrans &Copy<Tab>"+y			ã‚³ãƒ”ãƒ¼(&C)<Tab>"+y
+-menutrans &Paste<Tab>"+gP		è²¼ã‚Šä»˜ã‘(&P)<Tab>"+gP
+-menutrans Put\ &Before<Tab>[p		å‰ã«è²¼ã‚‹(&B)<Tab>[p
+-menutrans Put\ &After<Tab>]p		å¾Œã«è²¼ã‚‹(&A)<Tab>]p
+-menutrans &Delete<Tab>x			æ¶ˆã™(&D)<Tab>x
+-menutrans &Select\ All<Tab>ggVG		å…¨ã¦é¸æŠ(&S)<Tab>ggVG
+-menutrans &Find\.\.\.			æ¤œç´¢(&F)\.\.\.
+-menutrans &Find<Tab>/			æ¤œç´¢(&F)<Tab>/
+-menutrans Find\ and\ Rep&lace\.\.\.	ç½®æ›(&L)\.\.\.
+-menutrans Find\ and\ Rep&lace<Tab>:%s	ç½®æ›(&L)<Tab>:%s
+-menutrans Find\ and\ Rep&lace<Tab>:s	ç½®æ›(&L)<Tab>:s
+-"menutrans Options\.\.\.			ã‚ªãƒ—ã‚·ãƒ§ãƒ³(&O)\.\.\.
+-menutrans Settings\ &Window		è¨­å®šã‚¦ã‚£ãƒ³ãƒ‰ã‚¦(&W)
+-menutrans Startup\ &Settings		èµ·å‹•æ™‚ã®è¨­å®š(&S)
++menutrans &Edit				ç·¨é›†
++menutrans &Undo<Tab>u			å–ã‚Šæ¶ˆã™<Tab>u
++menutrans &Redo<Tab>^R			ã‚‚ã†ä¸€åº¦ã‚„ã‚‹<Tab>^R
++menutrans Rep&eat<Tab>\.		ç¹°ã‚Šè¿”ã™<Tab>\.
++menutrans Cu&t<Tab>"+x			åˆ‡ã‚Šå–ã‚Š<Tab>"+x
++menutrans &Copy<Tab>"+y			ã‚³ãƒ”ãƒ¼<Tab>"+y
++menutrans &Paste<Tab>"+gP		è²¼ã‚Šä»˜ã‘<Tab>"+gP
++menutrans Put\ &Before<Tab>[p		å‰ã«è²¼ã‚‹<Tab>[p
++menutrans Put\ &After<Tab>]p		å¾Œã«è²¼ã‚‹<Tab>]p
++menutrans &Delete<Tab>x			æ¶ˆã™<Tab>x
++menutrans &Select\ All<Tab>ggVG		å…¨ã¦é¸æŠ<Tab>ggVG
++menutrans &Find\.\.\.			æ¤œç´¢\.\.\.
++menutrans &Find<Tab>/			æ¤œç´¢<Tab>/
++menutrans Find\ and\ Rep&lace\.\.\.	ç½®æ›\.\.\.
++menutrans Find\ and\ Rep&lace<Tab>:%s	ç½®æ›<Tab>:%s
++menutrans Find\ and\ Rep&lace<Tab>:s	ç½®æ›<Tab>:s
++"menutrans Options\.\.\.			ã‚ªãƒ—ã‚·ãƒ§ãƒ³\.\.\.
++menutrans Settings\ &Window		è¨­å®šã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
++menutrans Startup\ &Settings		èµ·å‹•æ™‚ã®è¨­å®š
+ 
+ " Edit/Global Settings
+-menutrans &Global\ Settings		å…¨ä½“è¨­å®š(&G)
++menutrans &Global\ Settings		å…¨ä½“è¨­å®š
+ menutrans Toggle\ Pattern\ &Highlight<Tab>:set\ hls!
+-	\	ãƒ‘ã‚¿ãƒ¼ãƒ³å¼·èª¿åˆ‡æ›¿(&H)<Tab>:set\ hls!
++	\	ãƒ‘ã‚¿ãƒ¼ãƒ³å¼·èª¿åˆ‡æ›¿<Tab>:set\ hls!
+ menutrans Toggle\ &Ignore-case<Tab>:set\ ic!
+-	\	å¤§å°æ–‡å­—åŒºåˆ¥åˆ‡æ›¿(&I)<Tab>:set\ ic!
++	\	å¤§å°æ–‡å­—åŒºåˆ¥åˆ‡æ›¿<Tab>:set\ ic!
+ menutrans Toggle\ &Showmatch<Tab>:set\ sm!
+-	\	ãƒãƒƒãƒè¡¨ç¤ºåˆ‡æ›¿(&S)<Tab>:set\ sm!
+-menutrans &Context\ lines		ã‚«ãƒ¼ã‚½ãƒ«å‘¨è¾ºè¡Œæ•°(&C)
+-menutrans &Virtual\ Edit		ä»®æƒ³ç·¨é›†(&V)
++	\	ãƒãƒƒãƒè¡¨ç¤ºåˆ‡æ›¿<Tab>:set\ sm!
++menutrans &Context\ lines		ã‚«ãƒ¼ã‚½ãƒ«å‘¨è¾ºè¡Œæ•°
++menutrans &Virtual\ Edit		ä»®æƒ³ç·¨é›†
+ menutrans Never				ç„¡åŠ¹
+ menutrans Block\ Selection		ãƒ–ãƒ­ãƒƒã‚¯é¸æŠæ™‚
+ menutrans Insert\ mode			æŒ¿å…¥ãƒ¢ãƒ¼ãƒ‰æ™‚
+ menutrans Block\ and\ Insert		ãƒ–ãƒ­ãƒƒã‚¯/æŒ¿å…¥ãƒ¢ãƒ¼ãƒ‰æ™‚
+ menutrans Always			å¸¸æ™‚
+ menutrans Toggle\ Insert\ &Mode<Tab>:set\ im!
+-	\	æŒ¿å…¥(åˆå¿ƒè€…)ãƒ¢ãƒ¼ãƒ‰åˆ‡æ›¿(&M)<Tab>:set\ im!
++	\	æŒ¿å…¥(åˆå¿ƒè€…)ãƒ¢ãƒ¼ãƒ‰åˆ‡æ›¿<Tab>:set\ im!
+ menutrans Toggle\ Vi\ C&ompatible<Tab>:set\ cp!
+-	\	Viäº’æ›ãƒ¢ãƒ¼ãƒ‰åˆ‡æ›¿(&O)<Tab>:set\ cp!
+-menutrans Search\ &Path\.\.\.		æ¤œç´¢ãƒ‘ã‚¹(&P)\.\.\.
+-menutrans Ta&g\ Files\.\.\.		ã‚¿ã‚°ãƒ•ã‚¡ã‚¤ãƒ«(&G)\.\.\.
++	\	Viäº’æ›ãƒ¢ãƒ¼ãƒ‰åˆ‡æ›¿<Tab>:set\ cp!
++menutrans Search\ &Path\.\.\.		æ¤œç´¢ãƒ‘ã‚¹\.\.\.
++menutrans Ta&g\ Files\.\.\.		ã‚¿ã‚°ãƒ•ã‚¡ã‚¤ãƒ«\.\.\.
+ "
+ " GUI options
+-menutrans Toggle\ &Toolbar		ãƒ„ãƒ¼ãƒ«ãƒãƒ¼è¡¨ç¤ºåˆ‡æ›¿(&T)
+-menutrans Toggle\ &Bottom\ Scrollbar	ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼(ä¸‹)è¡¨ç¤ºåˆ‡æ›¿(&B)
+-menutrans Toggle\ &Left\ Scrollbar	ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼(å·¦)è¡¨ç¤ºåˆ‡æ›¿(&L)
+-menutrans Toggle\ &Right\ Scrollbar	ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼(å³)è¡¨ç¤ºåˆ‡æ›¿(&R)
++menutrans Toggle\ &Toolbar		ãƒ„ãƒ¼ãƒ«ãƒãƒ¼è¡¨ç¤ºåˆ‡æ›¿
++menutrans Toggle\ &Bottom\ Scrollbar	ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼(ä¸‹)è¡¨ç¤ºåˆ‡æ›¿
++menutrans Toggle\ &Left\ Scrollbar	ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼(å·¦)è¡¨ç¤ºåˆ‡æ›¿
++menutrans Toggle\ &Right\ Scrollbar	ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼(å³)è¡¨ç¤ºåˆ‡æ›¿
+ 
+ let g:menutrans_path_dialog = "ãƒ•ã‚¡ã‚¤ãƒ«ã®æ¤œç´¢ãƒ‘ã‚¹ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„:\nãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªåã¯ã‚«ãƒ³ãƒ ( , ) ã§åŒºåˆ‡ã£ã¦ãã ã•ã„."
+ let g:menutrans_tags_dialog = "ã‚¿ã‚°ãƒ•ã‚¡ã‚¤ãƒ«ã®åå‰ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„:\nåå‰ã¯ã‚«ãƒ³ãƒ ( , ) ã§åŒºåˆ‡ã£ã¦ãã ã•ã„."
+@@ -96,147 +96,147 @@ let g:menutrans_tags_dialog = "ã‚¿ã‚°ãƒ•ã‚¡ã‚¤ãƒ«ã®åå‰ã‚’å…¥åŠ›ã—ã¦ãã 
+ " Edit/File Settings
+ 
+ " Boolean options
+-menutrans F&ile\ Settings		ãƒ•ã‚¡ã‚¤ãƒ«è¨­å®š(&I)
++menutrans F&ile\ Settings		ãƒ•ã‚¡ã‚¤ãƒ«è¨­å®š
+ menutrans Toggle\ Line\ &Numbering<Tab>:set\ nu!
+-	\	è¡Œç•ªå·è¡¨ç¤ºåˆ‡æ›¿(&N)<Tab>:set\ nu!
++	\	è¡Œç•ªå·è¡¨ç¤ºåˆ‡æ›¿<Tab>:set\ nu!
+ menutrans Toggle\ &List\ Mode<Tab>:set\ list!
+-	\ ãƒªã‚¹ãƒˆãƒ¢ãƒ¼ãƒ‰åˆ‡æ›¿(&L)<Tab>:set\ list!
++	\ ãƒªã‚¹ãƒˆãƒ¢ãƒ¼ãƒ‰åˆ‡æ›¿<Tab>:set\ list!
+ menutrans Toggle\ Line\ &Wrap<Tab>:set\ wrap!
+-	\	è¡ŒæŠ˜è¿”ã—åˆ‡æ›¿(&W)<Tab>:set\ wrap!
++	\	è¡ŒæŠ˜è¿”ã—åˆ‡æ›¿<Tab>:set\ wrap!
+ menutrans Toggle\ W&rap\ at\ word<Tab>:set\ lbr!
+-	\	å˜èªæŠ˜è¿”ã—åˆ‡æ›¿(&R)<Tab>:set\ lbr!
++	\	å˜èªæŠ˜è¿”ã—åˆ‡æ›¿<Tab>:set\ lbr!
+ menutrans Toggle\ &expand-tab<Tab>:set\ et!
+-	\	ã‚¿ãƒ–å±•é–‹åˆ‡æ›¿(&E)<Tab>:set\ et!
++	\	ã‚¿ãƒ–å±•é–‹åˆ‡æ›¿<Tab>:set\ et!
+ menutrans Toggle\ &auto-indent<Tab>:set\ ai!
+-	\	è‡ªå‹•å­—ä¸‹ã’åˆ‡æ›¿(&A)<Tab>:set\ ai!
++	\	è‡ªå‹•å­—ä¸‹ã’åˆ‡æ›¿<Tab>:set\ ai!
+ menutrans Toggle\ &C-indenting<Tab>:set\ cin!
+-	\	Cè¨€èªå­—ä¸‹ã’åˆ‡æ›¿(&C)<Tab>:set\ cin!
++	\	Cè¨€èªå­—ä¸‹ã’åˆ‡æ›¿<Tab>:set\ cin!
+ 
+ " other options
+-menutrans &Shiftwidth			ã‚·ãƒ•ãƒˆå¹…(&S)
+-menutrans Soft\ &Tabstop		ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚¿ãƒ–å¹…(&T)
+-menutrans Te&xt\ Width\.\.\.		ãƒ†ã‚­ã‚¹ãƒˆå¹…(&X)\.\.\.
+-menutrans &File\ Format\.\.\.		æ”¹è¡Œè¨˜å·é¸æŠ(&F)\.\.\.
++menutrans &Shiftwidth			ã‚·ãƒ•ãƒˆå¹…
++menutrans Soft\ &Tabstop		ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚¿ãƒ–å¹…
++menutrans Te&xt\ Width\.\.\.		ãƒ†ã‚­ã‚¹ãƒˆå¹…\.\.\.
++menutrans &File\ Format\.\.\.		æ”¹è¡Œè¨˜å·é¸æŠ\.\.\.
+ 
+ let g:menutrans_textwidth_dialog = "ãƒ†ã‚­ã‚¹ãƒˆã®å¹…('textwidth')ã‚’è¨­å®šã—ã¦ãã ã•ã„ (0ã§æ•´å½¢ã‚’ç„¡åŠ¹åŒ–):"
+ let g:menutrans_fileformat_dialog = "ãƒ•ã‚¡ã‚¤ãƒ«å‡ºåŠ›ã®éš›ã®æ”¹è¡Œè¨˜å·ã®å½¢å¼ã‚’é¸ã‚“ã§ãã ã•ã„."
+-let g:menutrans_fileformat_choices = "&Unix\n&Dos\n&Mac\nã‚­ãƒ£ãƒ³ã‚»ãƒ«(&C)"
++let g:menutrans_fileformat_choices = "&Unix\n&Dos\n&Mac\nã‚­ãƒ£ãƒ³ã‚»ãƒ«"
+ 
+-menutrans C&olor\ Scheme		è‰²ãƒ†ãƒ¼ãƒé¸æŠ(&O)
+-menutrans &Keymap			ã‚­ãƒ¼ãƒãƒƒãƒ—(&K)
++menutrans C&olor\ Scheme		è‰²ãƒ†ãƒ¼ãƒé¸æŠ
++menutrans &Keymap			ã‚­ãƒ¼ãƒãƒƒãƒ—
+ menutrans None				ãªã—
+ 
+ " Programming menu
+-menutrans &Tools			ãƒ„ãƒ¼ãƒ«(&T)
+-menutrans &Jump\ to\ this\ tag<Tab>g^]	ã‚¿ã‚°ã‚¸ãƒ£ãƒ³ãƒ—(&J)<Tab>g^]
+-menutrans Jump\ &back<Tab>^T		æˆ»ã‚‹(&B)<Tab>^T
+-menutrans Build\ &Tags\ File		ã‚¿ã‚°ãƒ•ã‚¡ã‚¤ãƒ«ä½œæˆ(&T)
+-menutrans &Make<Tab>:make		ãƒ¡ã‚¤ã‚¯(&M)<Tab>:make
+-menutrans &List\ Errors<Tab>:cl		ã‚¨ãƒ©ãƒ¼ãƒªã‚¹ãƒˆ(&L)<Tab>:cl
+-menutrans L&ist\ Messages<Tab>:cl!	ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒªã‚¹ãƒˆ(&I)<Tab>:cl!
+-menutrans &Next\ Error<Tab>:cn		æ¬¡ã®ã‚¨ãƒ©ãƒ¼ã¸(&N)<Tab>:cn
+-menutrans &Previous\ Error<Tab>:cp	å‰ã®ã‚¨ãƒ©ãƒ¼ã¸(&P)<Tab>:cp
+-menutrans &Older\ List<Tab>:cold	å¤ã„ãƒªã‚¹ãƒˆ(&O)<Tab>:cold
+-menutrans N&ewer\ List<Tab>:cnew	æ–°ã—ã„ãƒªã‚¹ãƒˆ(&E)<Tab>:cnew
+-menutrans Error\ &Window		ã‚¨ãƒ©ãƒ¼ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦(&W)
+-menutrans &Update<Tab>:cwin		æ›´æ–°(&U)<Tab>:cwin
+-menutrans &Open<Tab>:copen		é–‹ã(&O)<Tab>:copen
+-menutrans &Close<Tab>:cclose		é–‰ã˜ã‚‹(&C)<Tab>:cclose
+-menutrans &Convert\ to\ HEX<Tab>:%!xxd	HEXã¸å¤‰æ›(&C)<Tab>:%!xxd
+-menutrans Conve&rt\ back<Tab>:%!xxd\ -r	HEXã‹ã‚‰é€†å¤‰æ›(&R)<Tab>%!xxd\ -r
+-menutrans Se&T\ Compiler		ã‚³ãƒ³ãƒ‘ã‚¤ãƒ©è¨­å®š(&T)
++menutrans &Tools			ãƒ„ãƒ¼ãƒ«
++menutrans &Jump\ to\ this\ tag<Tab>g^]	ã‚¿ã‚°ã‚¸ãƒ£ãƒ³ãƒ—<Tab>g^]
++menutrans Jump\ &back<Tab>^T		æˆ»ã‚‹<Tab>^T
++menutrans Build\ &Tags\ File		ã‚¿ã‚°ãƒ•ã‚¡ã‚¤ãƒ«ä½œæˆ
++menutrans &Make<Tab>:make		ãƒ¡ã‚¤ã‚¯<Tab>:make
++menutrans &List\ Errors<Tab>:cl		ã‚¨ãƒ©ãƒ¼ãƒªã‚¹ãƒˆ<Tab>:cl
++menutrans L&ist\ Messages<Tab>:cl!	ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒªã‚¹ãƒˆ<Tab>:cl!
++menutrans &Next\ Error<Tab>:cn		æ¬¡ã®ã‚¨ãƒ©ãƒ¼ã¸<Tab>:cn
++menutrans &Previous\ Error<Tab>:cp	å‰ã®ã‚¨ãƒ©ãƒ¼ã¸<Tab>:cp
++menutrans &Older\ List<Tab>:cold	å¤ã„ãƒªã‚¹ãƒˆ<Tab>:cold
++menutrans N&ewer\ List<Tab>:cnew	æ–°ã—ã„ãƒªã‚¹ãƒˆ<Tab>:cnew
++menutrans Error\ &Window		ã‚¨ãƒ©ãƒ¼ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
++menutrans &Update<Tab>:cwin		æ›´æ–°<Tab>:cwin
++menutrans &Open<Tab>:copen		é–‹ã<Tab>:copen
++menutrans &Close<Tab>:cclose		é–‰ã˜ã‚‹<Tab>:cclose
++menutrans &Convert\ to\ HEX<Tab>:%!xxd	HEXã¸å¤‰æ›<Tab>:%!xxd
++menutrans Conve&rt\ back<Tab>:%!xxd\ -r	HEXã‹ã‚‰é€†å¤‰æ›<Tab>%!xxd\ -r
++menutrans Se&T\ Compiler		ã‚³ãƒ³ãƒ‘ã‚¤ãƒ©è¨­å®š
+ 
+ " Tools.Spelling Menu
+-menutrans &Spelling			ã‚¹ãƒšãƒªãƒ³ã‚°(&S)
+-menutrans &Spell\ Check\ On		ã‚¹ãƒšãƒ«ãƒã‚§ãƒƒã‚¯æœ‰åŠ¹(&S)
+-menutrans Spell\ Check\ &Off		ã‚¹ãƒšãƒ«ãƒã‚§ãƒƒã‚¯æœ‰åŠ¹(&O)
+-menutrans To\ &Next\ error<Tab>]s	æ¬¡ã®ã‚¨ãƒ©ãƒ¼(&N)<Tab>]s
+-menutrans To\ &Previous\ error<Tab>[s	å‰ã®ã‚¨ãƒ©ãƒ¼(&P)<Tab>[s
+-menutrans Suggest\ &Corrections<Tab>z=	ä¿®æ­£å€™è£œ(&C)<Tab>z=
+-menutrans &Repeat\ correction<Tab>:spellrepall	ä¿®æ­£ã‚’ç¹°ã‚Šè¿”ã™(&R)<Tab>:spellrepall
++menutrans &Spelling			ã‚¹ãƒšãƒªãƒ³ã‚°
++menutrans &Spell\ Check\ On		ã‚¹ãƒšãƒ«ãƒã‚§ãƒƒã‚¯æœ‰åŠ¹
++menutrans Spell\ Check\ &Off		ã‚¹ãƒšãƒ«ãƒã‚§ãƒƒã‚¯æœ‰åŠ¹
++menutrans To\ &Next\ error<Tab>]s	æ¬¡ã®ã‚¨ãƒ©ãƒ¼<Tab>]s
++menutrans To\ &Previous\ error<Tab>[s	å‰ã®ã‚¨ãƒ©ãƒ¼<Tab>[s
++menutrans Suggest\ &Corrections<Tab>z=	ä¿®æ­£å€™è£œ<Tab>z=
++menutrans &Repeat\ correction<Tab>:spellrepall	ä¿®æ­£ã‚’ç¹°ã‚Šè¿”ã™<Tab>:spellrepall
+ menutrans Set\ language\ to\ "en"	è¨€èªã‚’\ "en"\ ã«è¨­å®šã™ã‚‹
+ menutrans Set\ language\ to\ "en_au"	è¨€èªã‚’\ "en_au"\ ã«è¨­å®šã™ã‚‹
+ menutrans Set\ language\ to\ "en_ca"	è¨€èªã‚’\ "en_ca"\ ã«è¨­å®šã™ã‚‹
+ menutrans Set\ language\ to\ "en_gb"	è¨€èªã‚’\ "en_gb"\ ã«è¨­å®šã™ã‚‹
+ menutrans Set\ language\ to\ "en_nz"	è¨€èªã‚’\ "en_nz"\ ã«è¨­å®šã™ã‚‹
+ menutrans Set\ language\ to\ "en_us"	è¨€èªã‚’\ "en_us"\ ã«è¨­å®šã™ã‚‹
+-menutrans &Find\ More\ Languages	ä»–ã®è¨€èªã‚’æ¤œç´¢ã™ã‚‹(&F)
++menutrans &Find\ More\ Languages	ä»–ã®è¨€èªã‚’æ¤œç´¢ã™ã‚‹
+ 
+ " Tools.Fold Menu
+-menutrans &Folding			æŠ˜ç•³ã¿(&F)
++menutrans &Folding			æŠ˜ç•³ã¿
+ " open close folds
+-menutrans &Enable/Disable\ folds<Tab>zi	æœ‰åŠ¹/ç„¡åŠ¹åˆ‡æ›¿(&E)<Tab>zi
+-menutrans &View\ Cursor\ Line<Tab>zv	ã‚«ãƒ¼ã‚½ãƒ«è¡Œã‚’è¡¨ç¤º(&V)<Tab>zv
+-menutrans Vie&w\ Cursor\ Line\ only<Tab>zMzx	ã‚«ãƒ¼ã‚½ãƒ«è¡Œã ã‘ã‚’è¡¨ç¤º(&W)<Tab>zMzx
+-menutrans C&lose\ more\ folds<Tab>zm	æŠ˜ç•³ã¿ã‚’é–‰ã˜ã‚‹(&L)<Tab>zm
+-menutrans &Close\ all\ folds<Tab>zM	å…¨æŠ˜ç•³ã¿ã‚’é–‰ã˜ã‚‹(&C)<Tab>zM
+-menutrans O&pen\ more\ folds<Tab>zr	æŠ˜ç•³ã¿ã‚’é–‹ã(&P)<Tab>zr
+-menutrans &Open\ all\ folds<Tab>zR	å…¨æŠ˜ç•³ã¿ã‚’é–‹ã(&O)<Tab>zR
++menutrans &Enable/Disable\ folds<Tab>zi	æœ‰åŠ¹/ç„¡åŠ¹åˆ‡æ›¿<Tab>zi
++menutrans &View\ Cursor\ Line<Tab>zv	ã‚«ãƒ¼ã‚½ãƒ«è¡Œã‚’è¡¨ç¤º<Tab>zv
++menutrans Vie&w\ Cursor\ Line\ only<Tab>zMzx	ã‚«ãƒ¼ã‚½ãƒ«è¡Œã ã‘ã‚’è¡¨ç¤º<Tab>zMzx
++menutrans C&lose\ more\ folds<Tab>zm	æŠ˜ç•³ã¿ã‚’é–‰ã˜ã‚‹<Tab>zm
++menutrans &Close\ all\ folds<Tab>zM	å…¨æŠ˜ç•³ã¿ã‚’é–‰ã˜ã‚‹<Tab>zM
++menutrans O&pen\ more\ folds<Tab>zr	æŠ˜ç•³ã¿ã‚’é–‹ã<Tab>zr
++menutrans &Open\ all\ folds<Tab>zR	å…¨æŠ˜ç•³ã¿ã‚’é–‹ã<Tab>zR
+ " fold method
+-menutrans Fold\ Met&hod			æŠ˜ç•³ã¿æ–¹æ³•(&H)
+-menutrans M&anual			æ‰‹å‹•(&A)
+-menutrans I&ndent			ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆ(&N)
+-menutrans E&xpression			å¼è©•ä¾¡(&X)
+-menutrans S&yntax			ã‚·ãƒ³ã‚¿ãƒƒã‚¯ã‚¹(&Y)
+-menutrans &Diff				å·®åˆ†(&D)
+-menutrans Ma&rker			ãƒãƒ¼ã‚«ãƒ¼(&R)
++menutrans Fold\ Met&hod			æŠ˜ç•³ã¿æ–¹æ³•
++menutrans M&anual			æ‰‹å‹•
++menutrans I&ndent			ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆ
++menutrans E&xpression			å¼è©•ä¾¡
++menutrans S&yntax			ã‚·ãƒ³ã‚¿ãƒƒã‚¯ã‚¹
++menutrans &Diff				å·®åˆ†
++menutrans Ma&rker			ãƒãƒ¼ã‚«ãƒ¼
+ " create and delete folds
+-menutrans Create\ &Fold<Tab>zf		æŠ˜ç•³ã¿ä½œæˆ(&F)<Tab>zf
+-menutrans &Delete\ Fold<Tab>zd		æŠ˜ç•³ã¿å‰Šé™¤(&D)<Tab>zd
+-menutrans Delete\ &All\ Folds<Tab>zD	å…¨æŠ˜ç•³ã¿å‰Šé™¤(&A)<Tab>zD
++menutrans Create\ &Fold<Tab>zf		æŠ˜ç•³ã¿ä½œæˆ<Tab>zf
++menutrans &Delete\ Fold<Tab>zd		æŠ˜ç•³ã¿å‰Šé™¤<Tab>zd
++menutrans Delete\ &All\ Folds<Tab>zD	å…¨æŠ˜ç•³ã¿å‰Šé™¤<Tab>zD
+ " moving around in folds
+-menutrans Fold\ col&umn\ width		æŠ˜ç•³ã¿ã‚«ãƒ©ãƒ å¹…(&U)
++menutrans Fold\ col&umn\ width		æŠ˜ç•³ã¿ã‚«ãƒ©ãƒ å¹…
+ 
+-menutrans &Update		æ›´æ–°(&U)
+-menutrans &Get\ Block		ãƒ–ãƒ­ãƒƒã‚¯æŠ½å‡º(&G)
+-menutrans &Put\ Block		ãƒ–ãƒ­ãƒƒã‚¯é©ç”¨(&P)
++menutrans &Update		æ›´æ–°
++menutrans &Get\ Block		ãƒ–ãƒ­ãƒƒã‚¯æŠ½å‡º
++menutrans &Put\ Block		ãƒ–ãƒ­ãƒƒã‚¯é©ç”¨
+ 
+ " Names for buffer menu.
+-menutrans &Buffers		ãƒãƒƒãƒ•ã‚¡(&B)
+-menutrans &Refresh\ menu	ãƒ¡ãƒ‹ãƒ¥ãƒ¼å†èª­è¾¼(&R)
+-menutrans &Delete		å‰Šé™¤(&D)
+-menutrans &Alternate		è£ã¸åˆ‡æ›¿(&A)
+-menutrans &Next			æ¬¡ã®ãƒãƒƒãƒ•ã‚¡(&N)
+-menutrans &Previous		å‰ã®ãƒãƒƒãƒ•ã‚¡(&P)
++menutrans &Buffers		ãƒãƒƒãƒ•ã‚¡
++menutrans &Refresh\ menu	ãƒ¡ãƒ‹ãƒ¥ãƒ¼å†èª­è¾¼
++menutrans &Delete		å‰Šé™¤
++menutrans &Alternate		è£ã¸åˆ‡æ›¿
++menutrans &Next			æ¬¡ã®ãƒãƒƒãƒ•ã‚¡
++menutrans &Previous		å‰ã®ãƒãƒƒãƒ•ã‚¡
+ menutrans [No\ File]		[ç„¡é¡Œ]
+ let g:menutrans_no_file = "[ç„¡é¡Œ]"
+ 
+ " Window menu
+-menutrans &Window			ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦(&W)
+-menutrans &New<Tab>^Wn			æ–°è¦ä½œæˆ(&N)<Tab>^Wn
+-menutrans S&plit<Tab>^Ws		åˆ†å‰²(&P)<Tab>^Ws
+-menutrans Sp&lit\ To\ #<Tab>^W^^	è£ãƒãƒƒãƒ•ã‚¡ã¸åˆ†å‰²(&L)<Tab>^W^^
+-menutrans Split\ &Vertically<Tab>^Wv	å‚ç›´åˆ†å‰²(&V)<Tab>^Wv
+-menutrans Split\ File\ E&xplorer	ãƒ•ã‚¡ã‚¤ãƒ«ã‚¨ã‚¯ã‚¹ãƒ—ãƒ­ãƒ¼ãƒ©(&X)
+-menutrans &Close<Tab>^Wc		é–‰ã˜ã‚‹(&C)<Tab>^Wc
+-menutrans Move\ &To			ç§»å‹•(&T)
+-menutrans &Top<Tab>^WK			ä¸Š(&T)<Tab>^WK
+-menutrans &Bottom<Tab>^WJ		ä¸‹(&B)<Tab>^WJ
+-menutrans &Left\ side<Tab>^WH		å·¦(&L)<Tab>^WH
+-menutrans &Right\ side<Tab>^WL		å³(&R)<Tab>^WL
+-menutrans Close\ &Other(s)<Tab>^Wo	ä»–ã‚’é–‰ã˜ã‚‹(&O)<Tab>^Wo
+-menutrans Ne&xt<Tab>^Ww			æ¬¡ã¸(&X)<Tab>^Ww
+-menutrans P&revious<Tab>^WW		å‰ã¸(&R)<Tab>^WW
+-menutrans &Equal\ Size<Tab>^W=	åŒã˜é«˜ã•ã«(&E)<Tab>^W=
+-menutrans &Max\ Height<Tab>^W_		æœ€å¤§é«˜ã«(&M)<Tab>^W_
+-menutrans M&in\ Height<Tab>^W1_		æœ€å°é«˜ã«(&i)<Tab>^W1_
+-menutrans Max\ &Width<Tab>^W\|		æœ€å¤§å¹…ã«(&W)<Tab>^W\|
+-menutrans Min\ Widt&h<Tab>^W1\|		æœ€å°å¹…ã«(&H)<Tab>^W1\|
+-menutrans Rotate\ &Up<Tab>^WR		ä¸Šã«ãƒ­ãƒ¼ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³(&U)<Tab>^WR
+-menutrans Rotate\ &Down<Tab>^Wr		ä¸‹ã«ãƒ­ãƒ¼ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³(&D)<Tab>^Wr
+-menutrans Select\ Fo&nt\.\.\.		ãƒ•ã‚©ãƒ³ãƒˆè¨­å®š(&N)\.\.\.
++menutrans &Window			ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
++menutrans &New<Tab>^Wn			æ–°è¦ä½œæˆ<Tab>^Wn
++menutrans S&plit<Tab>^Ws		åˆ†å‰²<Tab>^Ws
++menutrans Sp&lit\ To\ #<Tab>^W^^	è£ãƒãƒƒãƒ•ã‚¡ã¸åˆ†å‰²<Tab>^W^^
++menutrans Split\ &Vertically<Tab>^Wv	å‚ç›´åˆ†å‰²<Tab>^Wv
++menutrans Split\ File\ E&xplorer	ãƒ•ã‚¡ã‚¤ãƒ«ã‚¨ã‚¯ã‚¹ãƒ—ãƒ­ãƒ¼ãƒ©
++menutrans &Close<Tab>^Wc		é–‰ã˜ã‚‹<Tab>^Wc
++menutrans Move\ &To			ç§»å‹•
++menutrans &Top<Tab>^WK			ä¸Š<Tab>^WK
++menutrans &Bottom<Tab>^WJ		ä¸‹<Tab>^WJ
++menutrans &Left\ side<Tab>^WH		å·¦<Tab>^WH
++menutrans &Right\ side<Tab>^WL		å³<Tab>^WL
++menutrans Close\ &Other(s)<Tab>^Wo	ä»–ã‚’é–‰ã˜ã‚‹<Tab>^Wo
++menutrans Ne&xt<Tab>^Ww			æ¬¡ã¸<Tab>^Ww
++menutrans P&revious<Tab>^WW		å‰ã¸<Tab>^WW
++menutrans &Equal\ Size<Tab>^W=	åŒã˜é«˜ã•ã«<Tab>^W=
++menutrans &Max\ Height<Tab>^W_		æœ€å¤§é«˜ã«<Tab>^W_
++menutrans M&in\ Height<Tab>^W1_		æœ€å°é«˜ã«<Tab>^W1_
++menutrans Max\ &Width<Tab>^W\|		æœ€å¤§å¹…ã«<Tab>^W\|
++menutrans Min\ Widt&h<Tab>^W1\|		æœ€å°å¹…ã«<Tab>^W1\|
++menutrans Rotate\ &Up<Tab>^WR		ä¸Šã«ãƒ­ãƒ¼ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³<Tab>^WR
++menutrans Rotate\ &Down<Tab>^Wr		ä¸‹ã«ãƒ­ãƒ¼ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³<Tab>^Wr
++menutrans Select\ Fo&nt\.\.\.		ãƒ•ã‚©ãƒ³ãƒˆè¨­å®š\.\.\.
+ 
+ " The popup menu
+-menutrans &Undo			å–ã‚Šæ¶ˆã™(&U)
+-menutrans Cu&t			åˆ‡ã‚Šå–ã‚Š(&T)
+-menutrans &Copy			ã‚³ãƒ”ãƒ¼(&C)
+-menutrans &Paste		è²¼ã‚Šä»˜ã‘(&P)
+-menutrans &Delete		å‰Šé™¤(&D)
++menutrans &Undo			å–ã‚Šæ¶ˆã™
++menutrans Cu&t			åˆ‡ã‚Šå–ã‚Š
++menutrans &Copy			ã‚³ãƒ”ãƒ¼
++menutrans &Paste		è²¼ã‚Šä»˜ã‘
++menutrans &Delete		å‰Šé™¤
+ menutrans Select\ Blockwise	çŸ©å½¢ãƒ–ãƒ­ãƒƒã‚¯é¸æŠ
+-menutrans Select\ &Word		å˜èªé¸æŠ(&W)
+-menutrans Select\ &Line		è¡Œé¸æŠ(&L)
+-menutrans Select\ &Block	ãƒ–ãƒ­ãƒƒã‚¯é¸æŠ(&B)
+-menutrans Select\ &All		ã™ã¹ã¦é¸æŠ(&A)
++menutrans Select\ &Word		å˜èªé¸æŠ
++menutrans Select\ &Line		è¡Œé¸æŠ
++menutrans Select\ &Block	ãƒ–ãƒ­ãƒƒã‚¯é¸æŠ
++menutrans Select\ &All		ã™ã¹ã¦é¸æŠ
+ 
+ " The GUI toolbar (for Win32 or GTK)
+ if has("toolbar")
+@@ -277,18 +277,18 @@ if has("toolbar")
+ endif
+ 
+ " Syntax menu
+-menutrans &Syntax		ã‚·ãƒ³ã‚¿ãƒƒã‚¯ã‚¹(&S)
+-menutrans &Show\ filetypes\ in\ menu	å¯¾å¿œå½¢å¼ã‚’ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã«è¡¨ç¤º(&S)
+-menutrans Set\ '&syntax'\ only	'syntax'ã ã‘è¨­å®š(&S)
+-menutrans Set\ '&filetype'\ too	'filetype'ã‚‚è¨­å®š(&F)
+-menutrans &Off			ç„¡åŠ¹åŒ–(&O)
+-menutrans &Manual		æ‰‹å‹•è¨­å®š(&M)
+-menutrans A&utomatic		è‡ªå‹•è¨­å®š(&U)
++menutrans &Syntax		ã‚·ãƒ³ã‚¿ãƒƒã‚¯ã‚¹
++menutrans &Show\ filetypes\ in\ menu	å¯¾å¿œå½¢å¼ã‚’ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã«è¡¨ç¤º
++menutrans Set\ '&syntax'\ only	'syntax'ã ã‘è¨­å®š
++menutrans Set\ '&filetype'\ too	'filetype'ã‚‚è¨­å®š
++menutrans &Off			ç„¡åŠ¹åŒ–
++menutrans &Manual		æ‰‹å‹•è¨­å®š
++menutrans A&utomatic		è‡ªå‹•è¨­å®š
+ menutrans on/off\ for\ &This\ file
+-	\	ã‚ªãƒ³/ã‚ªãƒ•åˆ‡æ›¿(&T)
+-menutrans Co&lor\ test		ã‚«ãƒ©ãƒ¼ãƒ†ã‚¹ãƒˆ(&L)
+-menutrans &Highlight\ test	ãƒã‚¤ãƒ©ã‚¤ãƒˆãƒ†ã‚¹ãƒˆ(&H)
+-menutrans &Convert\ to\ HTML	HTMLã¸ã‚³ãƒ³ãƒãƒ¼ãƒˆ(&C)
++	\	ã‚ªãƒ³/ã‚ªãƒ•åˆ‡æ›¿
++menutrans Co&lor\ test		ã‚«ãƒ©ãƒ¼ãƒ†ã‚¹ãƒˆ
++menutrans &Highlight\ test	ãƒã‚¤ãƒ©ã‚¤ãƒˆãƒ†ã‚¹ãƒˆ
++menutrans &Convert\ to\ HTML	HTMLã¸ã‚³ãƒ³ãƒãƒ¼ãƒˆ
+ 
+ " Japanese specific menu
+ " æˆå¦ã¯iconvæ¬¡ç¬¬ã€å¿…ãšã—ã‚‚æŒ‡å®šã—ãŸã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰ã«ãªã‚‹ã‚ã‘ã§ã¯ãªã„ã“ã¨ã«æ³¨æ„
+@@ -297,39 +297,39 @@ if has('iconv')
+   let support_jisx0213 = (iconv("\x87\x64\x87\x6a", 'cp932', 'euc-jisx0213') ==# "\xad\xc5\xad\xcb") ? 1 : 0
+   "
+   " èª­ã¿è¾¼ã¿
+-  an 10.395 ãƒ•ã‚¡ã‚¤ãƒ«(&F).-SEPICONV- <Nop>
+-  an 10.396.100.100 ãƒ•ã‚¡ã‚¤ãƒ«(&F).ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š(&E)\.\.\..é–‹ã(&O)\.\.\..SJIS(&S)<Tab>fenc=cp932 :browse confirm e ++enc=cp932<CR>
++  an 10.395 ãƒ•ã‚¡ã‚¤ãƒ«.-SEPICONV- <Nop>
++  an 10.396.100.100 ãƒ•ã‚¡ã‚¤ãƒ«.ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š\.\.\..é–‹ã\.\.\..SJIS<Tab>fenc=cp932 :browse confirm e ++enc=cp932<CR>
+   if !support_jisx0213
+-    an 10.396.100.110 ãƒ•ã‚¡ã‚¤ãƒ«(&F).ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š(&E)\.\.\..é–‹ã(&O)\.\.\..EUC(&E)<Tab>fenc=euc-jp :browse confirm e ++enc=euc-jp<CR>
+-    an 10.396.100.120 ãƒ•ã‚¡ã‚¤ãƒ«(&F).ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š(&E)\.\.\..é–‹ã(&O)\.\.\..JIS(&J)<Tab>fenc=iso-2022-jp :browse confirm e ++enc=iso-2022-jp<CR>
++    an 10.396.100.110 ãƒ•ã‚¡ã‚¤ãƒ«.ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š\.\.\..é–‹ã\.\.\..EUC<Tab>fenc=euc-jp :browse confirm e ++enc=euc-jp<CR>
++    an 10.396.100.120 ãƒ•ã‚¡ã‚¤ãƒ«.ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š\.\.\..é–‹ã\.\.\..JIS<Tab>fenc=iso-2022-jp :browse confirm e ++enc=iso-2022-jp<CR>
+   else
+-    an 10.396.100.110 ãƒ•ã‚¡ã‚¤ãƒ«(&F).ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š(&E)\.\.\..é–‹ã(&O)\.\.\..EUC(&E)<Tab>fenc=euc-jisx0213 :browse confirm e ++enc=euc-jisx0213<CR>
+-    an 10.396.100.120 ãƒ•ã‚¡ã‚¤ãƒ«(&F).ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š(&E)\.\.\..é–‹ã(&O)\.\.\..JIS(&J)<Tab>fenc=iso-2022-jp-3 :browse confirm e ++enc=iso-2022-jp-3<CR>
++    an 10.396.100.110 ãƒ•ã‚¡ã‚¤ãƒ«.ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š\.\.\..é–‹ã\.\.\..EUC<Tab>fenc=euc-jisx0213 :browse confirm e ++enc=euc-jisx0213<CR>
++    an 10.396.100.120 ãƒ•ã‚¡ã‚¤ãƒ«.ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š\.\.\..é–‹ã\.\.\..JIS<Tab>fenc=iso-2022-jp-3 :browse confirm e ++enc=iso-2022-jp-3<CR>
+   endif
+-  an 10.396.100.130 ãƒ•ã‚¡ã‚¤ãƒ«(&F).ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š(&E)\.\.\..é–‹ã(&O)\.\.\..UTF-8(&8)<Tab>fenc=utf-8 :browse confirm e ++enc=utf-8<CR>
++  an 10.396.100.130 ãƒ•ã‚¡ã‚¤ãƒ«.ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š\.\.\..é–‹ã\.\.\..UTF-8<Tab>fenc=utf-8 :browse confirm e ++enc=utf-8<CR>
+ 
+   " å†èª­è¾¼
+-  an 10.396.110.100 ãƒ•ã‚¡ã‚¤ãƒ«(&F).ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š(&E)\.\.\..å†èª­è¾¼(&R)\.\.\..SJIS(&S)<Tab>fenc=cp932 :e ++enc=cp932<CR>
++  an 10.396.110.100 ãƒ•ã‚¡ã‚¤ãƒ«.ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š\.\.\..å†èª­è¾¼\.\.\..SJIS<Tab>fenc=cp932 :e ++enc=cp932<CR>
+   if !support_jisx0213
+-    an 10.396.110.110 ãƒ•ã‚¡ã‚¤ãƒ«(&F).ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š(&E)\.\.\..å†èª­è¾¼(&R)\.\.\..EUC(&E)<Tab>fenc=euc-jp :e ++enc=euc-jp<CR>
+-    an 10.396.110.120 ãƒ•ã‚¡ã‚¤ãƒ«(&F).ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š(&E)\.\.\..å†èª­è¾¼(&R)\.\.\..JIS(&J)<Tab>fenc=iso-2022-jp :e ++enc=iso-2022-jp<CR>
++    an 10.396.110.110 ãƒ•ã‚¡ã‚¤ãƒ«.ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š\.\.\..å†èª­è¾¼\.\.\..EUC<Tab>fenc=euc-jp :e ++enc=euc-jp<CR>
++    an 10.396.110.120 ãƒ•ã‚¡ã‚¤ãƒ«.ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š\.\.\..å†èª­è¾¼\.\.\..JIS<Tab>fenc=iso-2022-jp :e ++enc=iso-2022-jp<CR>
+   else
+-    an 10.396.110.110 ãƒ•ã‚¡ã‚¤ãƒ«(&F).ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š(&E)\.\.\..å†èª­è¾¼(&R)\.\.\..EUC(&E)<Tab>fenc=euc-jisx0213 :e ++enc=euc-jisx0213<CR>
+-    an 10.396.110.120 ãƒ•ã‚¡ã‚¤ãƒ«(&F).ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š(&E)\.\.\..å†èª­è¾¼(&R)\.\.\..JIS(&J)<Tab>fenc=iso-2022-jp-3 :e ++enc=iso-2022-jp-3<CR>
++    an 10.396.110.110 ãƒ•ã‚¡ã‚¤ãƒ«.ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š\.\.\..å†èª­è¾¼\.\.\..EUC<Tab>fenc=euc-jisx0213 :e ++enc=euc-jisx0213<CR>
++    an 10.396.110.120 ãƒ•ã‚¡ã‚¤ãƒ«.ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š\.\.\..å†èª­è¾¼\.\.\..JIS<Tab>fenc=iso-2022-jp-3 :e ++enc=iso-2022-jp-3<CR>
+   endif
+-  an 10.396.110.130 ãƒ•ã‚¡ã‚¤ãƒ«(&F).ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š(&E)\.\.\..å†èª­è¾¼(&R)\.\.\..UTF-8(&8)<Tab>fenc=utf-8 :e ++enc=utf-8<CR>
++  an 10.396.110.130 ãƒ•ã‚¡ã‚¤ãƒ«.ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š\.\.\..å†èª­è¾¼\.\.\..UTF-8<Tab>fenc=utf-8 :e ++enc=utf-8<CR>
+ 
+   " ä¿å­˜
+-  an 10.396.115 ãƒ•ã‚¡ã‚¤ãƒ«(&F).ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š(&E)\.\.\..-SEP1- <Nop>
+-  an 10.396.120.100 ãƒ•ã‚¡ã‚¤ãƒ«(&F).ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š(&E)\.\.\..ä¿å­˜(&S)\.\.\..SJIS(&S)<Tab>fenc=cp932 :set fenc=cp932 \| w<CR>
++  an 10.396.115 ãƒ•ã‚¡ã‚¤ãƒ«.ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š\.\.\..-SEP1- <Nop>
++  an 10.396.120.100 ãƒ•ã‚¡ã‚¤ãƒ«.ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š\.\.\..ä¿å­˜\.\.\..SJIS<Tab>fenc=cp932 :set fenc=cp932 \| w<CR>
+   if !support_jisx0213
+-    an 10.396.120.110 ãƒ•ã‚¡ã‚¤ãƒ«(&F).ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š(&E)\.\.\..ä¿å­˜(&S)\.\.\..EUC(&E)<Tab>fenc=euc-jp :set fenc=euc-jp \| w<CR>
+-    an 10.396.120.120 ãƒ•ã‚¡ã‚¤ãƒ«(&F).ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š(&E)\.\.\..ä¿å­˜(&S)\.\.\..JIS(&J)<Tab>fenc=iso-2022-jp :set fenc=iso-2022-jp \| w<CR>
++    an 10.396.120.110 ãƒ•ã‚¡ã‚¤ãƒ«.ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š\.\.\..ä¿å­˜\.\.\..EUC<Tab>fenc=euc-jp :set fenc=euc-jp \| w<CR>
++    an 10.396.120.120 ãƒ•ã‚¡ã‚¤ãƒ«.ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š\.\.\..ä¿å­˜\.\.\..JIS<Tab>fenc=iso-2022-jp :set fenc=iso-2022-jp \| w<CR>
+   else
+-    an 10.396.120.110 ãƒ•ã‚¡ã‚¤ãƒ«(&F).ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š(&E)\.\.\..ä¿å­˜(&S)\.\.\..EUC(&E)<Tab>fenc=euc-jisx0213 :set fenc=euc-jisx0213 \| w<CR>
+-    an 10.396.120.120 ãƒ•ã‚¡ã‚¤ãƒ«(&F).ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š(&E)\.\.\..ä¿å­˜(&S)\.\.\..JIS(&J)<Tab>fenc=iso-2022-jp-3 :set fenc=iso-2022-jp-3 \| w<CR>
++    an 10.396.120.110 ãƒ•ã‚¡ã‚¤ãƒ«.ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š\.\.\..ä¿å­˜\.\.\..EUC<Tab>fenc=euc-jisx0213 :set fenc=euc-jisx0213 \| w<CR>
++    an 10.396.120.120 ãƒ•ã‚¡ã‚¤ãƒ«.ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š\.\.\..ä¿å­˜\.\.\..JIS<Tab>fenc=iso-2022-jp-3 :set fenc=iso-2022-jp-3 \| w<CR>
+   endif
+-  an 10.396.120.130 ãƒ•ã‚¡ã‚¤ãƒ«(&F).ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š(&E)\.\.\..ä¿å­˜(&S)\.\.\..UTF-8(&8)<Tab>fenc=utf-8 :set fenc=utf-8 \| w<CR>
++  an 10.396.120.130 ãƒ•ã‚¡ã‚¤ãƒ«.ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®š\.\.\..ä¿å­˜\.\.\..UTF-8<Tab>fenc=utf-8 :set fenc=utf-8 \| w<CR>
+ endif
+ 
+ " filler to avoid the line above being recognized as a modeline
+diff --git runtime/lang/menu_japanese_japan.932.vim runtime/lang/menu_japanese_japan.932.vim
+index 5c836be..0875a58 100644
+--- runtime/lang/menu_japanese_japan.932.vim
++++ runtime/lang/menu_japanese_japan.932.vim
+@@ -13,82 +13,82 @@ let did_menu_trans = 1
+ scriptencoding cp932
+ 
+ " Help menu
+-menutrans &Help			ƒwƒ‹ƒv(&H)
+-menutrans &Overview<Tab><F1>	ŠT—ª(&O)<Tab><F1>
+-menutrans &User\ Manual		ƒ†[ƒUƒ}ƒjƒ…ƒAƒ‹(&U)
++menutrans &Help			ƒwƒ‹ƒv
++menutrans &Overview<Tab><F1>	ŠT—ª<Tab><F1>
++menutrans &User\ Manual		ƒ†[ƒUƒ}ƒjƒ…ƒAƒ‹
+ menutrans &How-to\ links	&How-toƒŠƒ“ƒN
+-menutrans &Credits		ƒNƒŒƒWƒbƒg(&C)
+-menutrans Co&pying		’˜ìŒ î•ñ(&P)
+-menutrans &Sponsor/Register	ƒXƒ|ƒ“ƒT[/“o˜^(&S)
+-menutrans O&rphans		ŒÇ™(&R)
+-menutrans &Version		ƒo[ƒWƒ‡ƒ“î•ñ(&V)
+-menutrans &About		Vim‚É‚Â‚¢‚Ä(&A)
++menutrans &Credits		ƒNƒŒƒWƒbƒg
++menutrans Co&pying		’˜ìŒ î•ñ
++menutrans &Sponsor/Register	ƒXƒ|ƒ“ƒT[/“o˜^
++menutrans O&rphans		ŒÇ™
++menutrans &Version		ƒo[ƒWƒ‡ƒ“î•ñ
++menutrans &About		Vim‚É‚Â‚¢‚Ä
+ 
+ let g:menutrans_help_dialog = "ƒwƒ‹ƒv‚ğŒŸõ‚µ‚½‚¢ƒRƒ}ƒ“ƒh‚à‚µ‚­‚Í’PŒê‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢:\n\n‘}“üƒ‚[ƒh‚ÌƒRƒ}ƒ“ƒh‚É‚Í i_ ‚ğæ“ª‚É•t‰Á‚µ‚Ü‚·. (—á: i_CTRL-X)\nƒRƒ}ƒ“ƒhƒ‰ƒCƒ“•ÒWƒRƒ}ƒ“ƒh‚É‚Í c_ ‚ğæ“ª‚É•t‰Á‚µ‚Ü‚·. (—á: c_<Del>)\nƒIƒvƒVƒ‡ƒ“‚Ì–¼‘O‚É‚Í ' ‚ğ•t‰Á‚µ‚Ü‚·. (—á: 'shiftwidth')"
+ 
+ " File menu
+-menutrans &File				ƒtƒ@ƒCƒ‹(&F)
+-menutrans &Open\.\.\.<Tab>:e		ŠJ‚­(&O)\.\.\.<Tab>:e
+-menutrans Sp&lit-Open\.\.\.<Tab>:sp	•ªŠ„‚µ‚ÄŠJ‚­(&L)\.\.\.<Tab>:sp
++menutrans &File				ƒtƒ@ƒCƒ‹
++menutrans &Open\.\.\.<Tab>:e		ŠJ‚­\.\.\.<Tab>:e
++menutrans Sp&lit-Open\.\.\.<Tab>:sp	•ªŠ„‚µ‚ÄŠJ‚­\.\.\.<Tab>:sp
+ menutrans Open\ Tab\.\.\.<Tab>:tabnew	ƒ^ƒuƒy[ƒW‚ÅŠJ‚­<Tab>:tabnew
+-menutrans &New<Tab>:enew		V‹Kì¬(&N)<Tab>:enew
+-menutrans &Close<Tab>:close		•Â‚¶‚é(&C)<Tab>:close
+-menutrans &Save<Tab>:w			•Û‘¶(&S)<Tab>:w
+-menutrans Save\ &As\.\.\.<Tab>:sav	–¼‘O‚ğ•t‚¯‚Ä•Û‘¶(&A)\.\.\.<Tab>:sav
+-menutrans Split\ &Diff\ with\.\.\.	·•ª•\¦(&D)\.\.\.
+-menutrans Split\ Patched\ &By\.\.\.	ƒpƒbƒ`Œ‹‰Ê‚ğ•\¦(&B)\.\.\.
+-menutrans &Print			ˆóü(&P)
+-menutrans Sa&ve-Exit<Tab>:wqa		•Û‘¶‚µ‚ÄI—¹(&V)<Tab>:wqa
+-menutrans E&xit<Tab>:qa			I—¹(&X)<Tab>:qa
++menutrans &New<Tab>:enew		V‹Kì¬<Tab>:enew
++menutrans &Close<Tab>:close		•Â‚¶‚é<Tab>:close
++menutrans &Save<Tab>:w			•Û‘¶<Tab>:w
++menutrans Save\ &As\.\.\.<Tab>:sav	–¼‘O‚ğ•t‚¯‚Ä•Û‘¶\.\.\.<Tab>:sav
++menutrans Split\ &Diff\ with\.\.\.	·•ª•\¦\.\.\.
++menutrans Split\ Patched\ &By\.\.\.	ƒpƒbƒ`Œ‹‰Ê‚ğ•\¦\.\.\.
++menutrans &Print			ˆóü
++menutrans Sa&ve-Exit<Tab>:wqa		•Û‘¶‚µ‚ÄI—¹<Tab>:wqa
++menutrans E&xit<Tab>:qa			I—¹<Tab>:qa
+ 
+ " Edit menu
+-menutrans &Edit				•ÒW(&E)
+-menutrans &Undo<Tab>u			æ‚èÁ‚·(&U)<Tab>u
+-menutrans &Redo<Tab>^R			‚à‚¤ˆê“x‚â‚é(&R)<Tab>^R
+-menutrans Rep&eat<Tab>\.		ŒJ‚è•Ô‚·(&E)<Tab>\.
+-menutrans Cu&t<Tab>"+x			Ø‚èæ‚è(&T)<Tab>"+x
+-menutrans &Copy<Tab>"+y			ƒRƒs[(&C)<Tab>"+y
+-menutrans &Paste<Tab>"+gP		“\‚è•t‚¯(&P)<Tab>"+gP
+-menutrans Put\ &Before<Tab>[p		‘O‚É“\‚é(&B)<Tab>[p
+-menutrans Put\ &After<Tab>]p		Œã‚É“\‚é(&A)<Tab>]p
+-menutrans &Delete<Tab>x			Á‚·(&D)<Tab>x
+-menutrans &Select\ All<Tab>ggVG		‘S‚Ä‘I‘ğ(&S)<Tab>ggVG
+-menutrans &Find\.\.\.			ŒŸõ(&F)\.\.\.
+-menutrans &Find<Tab>/			ŒŸõ(&F)<Tab>/
+-menutrans Find\ and\ Rep&lace\.\.\.	’uŠ·(&L)\.\.\.
+-menutrans Find\ and\ Rep&lace<Tab>:%s	’uŠ·(&L)<Tab>:%s
+-menutrans Find\ and\ Rep&lace<Tab>:s	’uŠ·(&L)<Tab>:s
+-"menutrans Options\.\.\.			ƒIƒvƒVƒ‡ƒ“(&O)\.\.\.
+-menutrans Settings\ &Window		İ’èƒEƒBƒ“ƒhƒE(&W)
+-menutrans Startup\ &Settings		‹N“®‚Ìİ’è(&S)
++menutrans &Edit				•ÒW
++menutrans &Undo<Tab>u			æ‚èÁ‚·<Tab>u
++menutrans &Redo<Tab>^R			‚à‚¤ˆê“x‚â‚é<Tab>^R
++menutrans Rep&eat<Tab>\.		ŒJ‚è•Ô‚·<Tab>\.
++menutrans Cu&t<Tab>"+x			Ø‚èæ‚è<Tab>"+x
++menutrans &Copy<Tab>"+y			ƒRƒs[<Tab>"+y
++menutrans &Paste<Tab>"+gP		“\‚è•t‚¯<Tab>"+gP
++menutrans Put\ &Before<Tab>[p		‘O‚É“\‚é<Tab>[p
++menutrans Put\ &After<Tab>]p		Œã‚É“\‚é<Tab>]p
++menutrans &Delete<Tab>x			Á‚·<Tab>x
++menutrans &Select\ All<Tab>ggVG		‘S‚Ä‘I‘ğ<Tab>ggVG
++menutrans &Find\.\.\.			ŒŸõ\.\.\.
++menutrans &Find<Tab>/			ŒŸõ<Tab>/
++menutrans Find\ and\ Rep&lace\.\.\.	’uŠ·\.\.\.
++menutrans Find\ and\ Rep&lace<Tab>:%s	’uŠ·<Tab>:%s
++menutrans Find\ and\ Rep&lace<Tab>:s	’uŠ·<Tab>:s
++"menutrans Options\.\.\.			ƒIƒvƒVƒ‡ƒ“\.\.\.
++menutrans Settings\ &Window		İ’èƒEƒBƒ“ƒhƒE
++menutrans Startup\ &Settings		‹N“®‚Ìİ’è
+ 
+ " Edit/Global Settings
+-menutrans &Global\ Settings		‘S‘Ìİ’è(&G)
++menutrans &Global\ Settings		‘S‘Ìİ’è
+ menutrans Toggle\ Pattern\ &Highlight<Tab>:set\ hls!
+-	\	ƒpƒ^[ƒ“‹­’²Ø‘Ö(&H)<Tab>:set\ hls!
++	\	ƒpƒ^[ƒ“‹­’²Ø‘Ö<Tab>:set\ hls!
+ menutrans Toggle\ &Ignore-case<Tab>:set\ ic!
+-	\	‘å¬•¶š‹æ•ÊØ‘Ö(&I)<Tab>:set\ ic!
++	\	‘å¬•¶š‹æ•ÊØ‘Ö<Tab>:set\ ic!
+ menutrans Toggle\ &Showmatch<Tab>:set\ sm!
+-	\	ƒ}ƒbƒ`•\¦Ø‘Ö(&S)<Tab>:set\ sm!
+-menutrans &Context\ lines		ƒJ[ƒ\ƒ‹ü•Ós”(&C)
+-menutrans &Virtual\ Edit		‰¼‘z•ÒW(&V)
++	\	ƒ}ƒbƒ`•\¦Ø‘Ö<Tab>:set\ sm!
++menutrans &Context\ lines		ƒJ[ƒ\ƒ‹ü•Ós”
++menutrans &Virtual\ Edit		‰¼‘z•ÒW
+ menutrans Never				–³Œø
+ menutrans Block\ Selection		ƒuƒƒbƒN‘I‘ğ
+ menutrans Insert\ mode			‘}“üƒ‚[ƒh
+ menutrans Block\ and\ Insert		ƒuƒƒbƒN/‘}“üƒ‚[ƒh
+ menutrans Always			í
+ menutrans Toggle\ Insert\ &Mode<Tab>:set\ im!
+-	\	‘}“ü(‰SÒ)ƒ‚[ƒhØ‘Ö(&M)<Tab>:set\ im!
++	\	‘}“ü(‰SÒ)ƒ‚[ƒhØ‘Ö<Tab>:set\ im!
+ menutrans Toggle\ Vi\ C&ompatible<Tab>:set\ cp!
+-	\	ViŒİŠ·ƒ‚[ƒhØ‘Ö(&O)<Tab>:set\ cp!
+-menutrans Search\ &Path\.\.\.		ŒŸõƒpƒX(&P)\.\.\.
+-menutrans Ta&g\ Files\.\.\.		ƒ^ƒOƒtƒ@ƒCƒ‹(&G)\.\.\.
++	\	ViŒİŠ·ƒ‚[ƒhØ‘Ö<Tab>:set\ cp!
++menutrans Search\ &Path\.\.\.		ŒŸõƒpƒX\.\.\.
++menutrans Ta&g\ Files\.\.\.		ƒ^ƒOƒtƒ@ƒCƒ‹\.\.\.
+ "
+ " GUI options
+-menutrans Toggle\ &Toolbar		ƒc[ƒ‹ƒo[•\¦Ø‘Ö(&T)
+-menutrans Toggle\ &Bottom\ Scrollbar	ƒXƒNƒ[ƒ‹ƒo[(‰º)•\¦Ø‘Ö(&B)
+-menutrans Toggle\ &Left\ Scrollbar	ƒXƒNƒ[ƒ‹ƒo[(¶)•\¦Ø‘Ö(&L)
+-menutrans Toggle\ &Right\ Scrollbar	ƒXƒNƒ[ƒ‹ƒo[(‰E)•\¦Ø‘Ö(&R)
++menutrans Toggle\ &Toolbar		ƒc[ƒ‹ƒo[•\¦Ø‘Ö
++menutrans Toggle\ &Bottom\ Scrollbar	ƒXƒNƒ[ƒ‹ƒo[(‰º)•\¦Ø‘Ö
++menutrans Toggle\ &Left\ Scrollbar	ƒXƒNƒ[ƒ‹ƒo[(¶)•\¦Ø‘Ö
++menutrans Toggle\ &Right\ Scrollbar	ƒXƒNƒ[ƒ‹ƒo[(‰E)•\¦Ø‘Ö
+ 
+ let g:menutrans_path_dialog = "ƒtƒ@ƒCƒ‹‚ÌŒŸõƒpƒX‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢:\nƒfƒBƒŒƒNƒgƒŠ–¼‚ÍƒJƒ“ƒ} ( , ) ‚Å‹æØ‚Á‚Ä‚­‚¾‚³‚¢."
+ let g:menutrans_tags_dialog = "ƒ^ƒOƒtƒ@ƒCƒ‹‚Ì–¼‘O‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢:\n–¼‘O‚ÍƒJƒ“ƒ} ( , ) ‚Å‹æØ‚Á‚Ä‚­‚¾‚³‚¢."
+@@ -96,147 +96,147 @@ let g:menutrans_tags_dialog = "
+ " Edit/File Settings
+ 
+ " Boolean options
+-menutrans F&ile\ Settings		ƒtƒ@ƒCƒ‹İ’è(&I)
++menutrans F&ile\ Settings		ƒtƒ@ƒCƒ‹İ’è
+ menutrans Toggle\ Line\ &Numbering<Tab>:set\ nu!
+-	\	s”Ô†•\¦Ø‘Ö(&N)<Tab>:set\ nu!
++	\	s”Ô†•\¦Ø‘Ö<Tab>:set\ nu!
+ menutrans Toggle\ &List\ Mode<Tab>:set\ list!
+-	\ ƒŠƒXƒgƒ‚[ƒhØ‘Ö(&L)<Tab>:set\ list!
++	\ ƒŠƒXƒgƒ‚[ƒhØ‘Ö<Tab>:set\ list!
+ menutrans Toggle\ Line\ &Wrap<Tab>:set\ wrap!
+-	\	sÜ•Ô‚µØ‘Ö(&W)<Tab>:set\ wrap!
++	\	sÜ•Ô‚µØ‘Ö<Tab>:set\ wrap!
+ menutrans Toggle\ W&rap\ at\ word<Tab>:set\ lbr!
+-	\	’PŒêÜ•Ô‚µØ‘Ö(&R)<Tab>:set\ lbr!
++	\	’PŒêÜ•Ô‚µØ‘Ö<Tab>:set\ lbr!
+ menutrans Toggle\ &expand-tab<Tab>:set\ et!
+-	\	ƒ^ƒu“WŠJØ‘Ö(&E)<Tab>:set\ et!
++	\	ƒ^ƒu“WŠJØ‘Ö<Tab>:set\ et!
+ menutrans Toggle\ &auto-indent<Tab>:set\ ai!
+-	\	©“®š‰º‚°Ø‘Ö(&A)<Tab>:set\ ai!
++	\	©“®š‰º‚°Ø‘Ö<Tab>:set\ ai!
+ menutrans Toggle\ &C-indenting<Tab>:set\ cin!
+-	\	CŒ¾Œêš‰º‚°Ø‘Ö(&C)<Tab>:set\ cin!
++	\	CŒ¾Œêš‰º‚°Ø‘Ö<Tab>:set\ cin!
+ 
+ " other options
+-menutrans &Shiftwidth			ƒVƒtƒg•(&S)
+-menutrans Soft\ &Tabstop		ƒ\ƒtƒgƒEƒFƒAƒ^ƒu•(&T)
+-menutrans Te&xt\ Width\.\.\.		ƒeƒLƒXƒg•(&X)\.\.\.
+-menutrans &File\ Format\.\.\.		‰üs‹L†‘I‘ğ(&F)\.\.\.
++menutrans &Shiftwidth			ƒVƒtƒg•
++menutrans Soft\ &Tabstop		ƒ\ƒtƒgƒEƒFƒAƒ^ƒu•
++menutrans Te&xt\ Width\.\.\.		ƒeƒLƒXƒg•\.\.\.
++menutrans &File\ Format\.\.\.		‰üs‹L†‘I‘ğ\.\.\.
+ 
+ let g:menutrans_textwidth_dialog = "ƒeƒLƒXƒg‚Ì•('textwidth')‚ğİ’è‚µ‚Ä‚­‚¾‚³‚¢ (0‚Å®Œ`‚ğ–³Œø‰»):"
+ let g:menutrans_fileformat_dialog = "ƒtƒ@ƒCƒ‹o—Í‚ÌÛ‚Ì‰üs‹L†‚ÌŒ`®‚ğ‘I‚ñ‚Å‚­‚¾‚³‚¢."
+-let g:menutrans_fileformat_choices = "&Unix\n&Dos\n&Mac\nƒLƒƒƒ“ƒZƒ‹(&C)"
++let g:menutrans_fileformat_choices = "&Unix\n&Dos\n&Mac\nƒLƒƒƒ“ƒZƒ‹"
+ 
+-menutrans C&olor\ Scheme		Fƒe[ƒ}‘I‘ğ(&O)
+-menutrans &Keymap			ƒL[ƒ}ƒbƒv(&K)
++menutrans C&olor\ Scheme		Fƒe[ƒ}‘I‘ğ
++menutrans &Keymap			ƒL[ƒ}ƒbƒv
+ menutrans None				‚È‚µ
+ 
+ " Programming menu
+-menutrans &Tools			ƒc[ƒ‹(&T)
+-menutrans &Jump\ to\ this\ tag<Tab>g^]	ƒ^ƒOƒWƒƒƒ“ƒv(&J)<Tab>g^]
+-menutrans Jump\ &back<Tab>^T		–ß‚é(&B)<Tab>^T
+-menutrans Build\ &Tags\ File		ƒ^ƒOƒtƒ@ƒCƒ‹ì¬(&T)
+-menutrans &Make<Tab>:make		ƒƒCƒN(&M)<Tab>:make
+-menutrans &List\ Errors<Tab>:cl		ƒGƒ‰[ƒŠƒXƒg(&L)<Tab>:cl
+-menutrans L&ist\ Messages<Tab>:cl!	ƒƒbƒZ[ƒWƒŠƒXƒg(&I)<Tab>:cl!
+-menutrans &Next\ Error<Tab>:cn		Ÿ‚ÌƒGƒ‰[‚Ö(&N)<Tab>:cn
+-menutrans &Previous\ Error<Tab>:cp	‘O‚ÌƒGƒ‰[‚Ö(&P)<Tab>:cp
+-menutrans &Older\ List<Tab>:cold	ŒÃ‚¢ƒŠƒXƒg(&O)<Tab>:cold
+-menutrans N&ewer\ List<Tab>:cnew	V‚µ‚¢ƒŠƒXƒg(&E)<Tab>:cnew
+-menutrans Error\ &Window		ƒGƒ‰[ƒEƒBƒ“ƒhƒE(&W)
+-menutrans &Update<Tab>:cwin		XV(&U)<Tab>:cwin
+-menutrans &Open<Tab>:copen		ŠJ‚­(&O)<Tab>:copen
+-menutrans &Close<Tab>:cclose		•Â‚¶‚é(&C)<Tab>:cclose
+-menutrans &Convert\ to\ HEX<Tab>:%!xxd	HEX‚Ö•ÏŠ·(&C)<Tab>:%!xxd
+-menutrans Conve&rt\ back<Tab>:%!xxd\ -r	HEX‚©‚ç‹t•ÏŠ·(&R)<Tab>%!xxd\ -r
+-menutrans Se&T\ Compiler		ƒRƒ“ƒpƒCƒ‰İ’è(&T)
++menutrans &Tools			ƒc[ƒ‹
++menutrans &Jump\ to\ this\ tag<Tab>g^]	ƒ^ƒOƒWƒƒƒ“ƒv<Tab>g^]
++menutrans Jump\ &back<Tab>^T		–ß‚é<Tab>^T
++menutrans Build\ &Tags\ File		ƒ^ƒOƒtƒ@ƒCƒ‹ì¬
++menutrans &Make<Tab>:make		ƒƒCƒN<Tab>:make
++menutrans &List\ Errors<Tab>:cl		ƒGƒ‰[ƒŠƒXƒg<Tab>:cl
++menutrans L&ist\ Messages<Tab>:cl!	ƒƒbƒZ[ƒWƒŠƒXƒg<Tab>:cl!
++menutrans &Next\ Error<Tab>:cn		Ÿ‚ÌƒGƒ‰[‚Ö<Tab>:cn
++menutrans &Previous\ Error<Tab>:cp	‘O‚ÌƒGƒ‰[‚Ö<Tab>:cp
++menutrans &Older\ List<Tab>:cold	ŒÃ‚¢ƒŠƒXƒg<Tab>:cold
++menutrans N&ewer\ List<Tab>:cnew	V‚µ‚¢ƒŠƒXƒg<Tab>:cnew
++menutrans Error\ &Window		ƒGƒ‰[ƒEƒBƒ“ƒhƒE
++menutrans &Update<Tab>:cwin		XV<Tab>:cwin
++menutrans &Open<Tab>:copen		ŠJ‚­<Tab>:copen
++menutrans &Close<Tab>:cclose		•Â‚¶‚é<Tab>:cclose
++menutrans &Convert\ to\ HEX<Tab>:%!xxd	HEX‚Ö•ÏŠ·<Tab>:%!xxd
++menutrans Conve&rt\ back<Tab>:%!xxd\ -r	HEX‚©‚ç‹t•ÏŠ·<Tab>%!xxd\ -r
++menutrans Se&T\ Compiler		ƒRƒ“ƒpƒCƒ‰İ’è
+ 
+ " Tools.Spelling Menu
+-menutrans &Spelling			ƒXƒyƒŠƒ“ƒO(&S)
+-menutrans &Spell\ Check\ On		ƒXƒyƒ‹ƒ`ƒFƒbƒN—LŒø(&S)
+-menutrans Spell\ Check\ &Off		ƒXƒyƒ‹ƒ`ƒFƒbƒN—LŒø(&O)
+-menutrans To\ &Next\ error<Tab>]s	Ÿ‚ÌƒGƒ‰[(&N)<Tab>]s
+-menutrans To\ &Previous\ error<Tab>[s	‘O‚ÌƒGƒ‰[(&P)<Tab>[s
+-menutrans Suggest\ &Corrections<Tab>z=	C³Œó•â(&C)<Tab>z=
+-menutrans &Repeat\ correction<Tab>:spellrepall	C³‚ğŒJ‚è•Ô‚·(&R)<Tab>:spellrepall
++menutrans &Spelling			ƒXƒyƒŠƒ“ƒO
++menutrans &Spell\ Check\ On		ƒXƒyƒ‹ƒ`ƒFƒbƒN—LŒø
++menutrans Spell\ Check\ &Off		ƒXƒyƒ‹ƒ`ƒFƒbƒN—LŒø
++menutrans To\ &Next\ error<Tab>]s	Ÿ‚ÌƒGƒ‰[<Tab>]s
++menutrans To\ &Previous\ error<Tab>[s	‘O‚ÌƒGƒ‰[<Tab>[s
++menutrans Suggest\ &Corrections<Tab>z=	C³Œó•â<Tab>z=
++menutrans &Repeat\ correction<Tab>:spellrepall	C³‚ğŒJ‚è•Ô‚·<Tab>:spellrepall
+ menutrans Set\ language\ to\ "en"	Œ¾Œê‚ğ\ "en"\ ‚Éİ’è‚·‚é
+ menutrans Set\ language\ to\ "en_au"	Œ¾Œê‚ğ\ "en_au"\ ‚Éİ’è‚·‚é
+ menutrans Set\ language\ to\ "en_ca"	Œ¾Œê‚ğ\ "en_ca"\ ‚Éİ’è‚·‚é
+ menutrans Set\ language\ to\ "en_gb"	Œ¾Œê‚ğ\ "en_gb"\ ‚Éİ’è‚·‚é
+ menutrans Set\ language\ to\ "en_nz"	Œ¾Œê‚ğ\ "en_nz"\ ‚Éİ’è‚·‚é
+ menutrans Set\ language\ to\ "en_us"	Œ¾Œê‚ğ\ "en_us"\ ‚Éİ’è‚·‚é
+-menutrans &Find\ More\ Languages	‘¼‚ÌŒ¾Œê‚ğŒŸõ‚·‚é(&F)
++menutrans &Find\ More\ Languages	‘¼‚ÌŒ¾Œê‚ğŒŸõ‚·‚é
+ 
+ " Tools.Fold Menu
+-menutrans &Folding			Üô‚İ(&F)
++menutrans &Folding			Üô‚İ
+ " open close folds
+-menutrans &Enable/Disable\ folds<Tab>zi	—LŒø/–³ŒøØ‘Ö(&E)<Tab>zi
+-menutrans &View\ Cursor\ Line<Tab>zv	ƒJ[ƒ\ƒ‹s‚ğ•\¦(&V)<Tab>zv
+-menutrans Vie&w\ Cursor\ Line\ only<Tab>zMzx	ƒJ[ƒ\ƒ‹s‚¾‚¯‚ğ•\¦(&W)<Tab>zMzx
+-menutrans C&lose\ more\ folds<Tab>zm	Üô‚İ‚ğ•Â‚¶‚é(&L)<Tab>zm
+-menutrans &Close\ all\ folds<Tab>zM	‘SÜô‚İ‚ğ•Â‚¶‚é(&C)<Tab>zM
+-menutrans O&pen\ more\ folds<Tab>zr	Üô‚İ‚ğŠJ‚­(&P)<Tab>zr
+-menutrans &Open\ all\ folds<Tab>zR	‘SÜô‚İ‚ğŠJ‚­(&O)<Tab>zR
++menutrans &Enable/Disable\ folds<Tab>zi	—LŒø/–³ŒøØ‘Ö<Tab>zi
++menutrans &View\ Cursor\ Line<Tab>zv	ƒJ[ƒ\ƒ‹s‚ğ•\¦<Tab>zv
++menutrans Vie&w\ Cursor\ Line\ only<Tab>zMzx	ƒJ[ƒ\ƒ‹s‚¾‚¯‚ğ•\¦<Tab>zMzx
++menutrans C&lose\ more\ folds<Tab>zm	Üô‚İ‚ğ•Â‚¶‚é<Tab>zm
++menutrans &Close\ all\ folds<Tab>zM	‘SÜô‚İ‚ğ•Â‚¶‚é<Tab>zM
++menutrans O&pen\ more\ folds<Tab>zr	Üô‚İ‚ğŠJ‚­<Tab>zr
++menutrans &Open\ all\ folds<Tab>zR	‘SÜô‚İ‚ğŠJ‚­<Tab>zR
+ " fold method
+-menutrans Fold\ Met&hod			Üô‚İ•û–@(&H)
+-menutrans M&anual			è“®(&A)
+-menutrans I&ndent			ƒCƒ“ƒfƒ“ƒg(&N)
+-menutrans E&xpression			®•]‰¿(&X)
+-menutrans S&yntax			ƒVƒ“ƒ^ƒbƒNƒX(&Y)
+-menutrans &Diff				·•ª(&D)
+-menutrans Ma&rker			ƒ}[ƒJ[(&R)
++menutrans Fold\ Met&hod			Üô‚İ•û–@
++menutrans M&anual			è“®
++menutrans I&ndent			ƒCƒ“ƒfƒ“ƒg
++menutrans E&xpression			®•]‰¿
++menutrans S&yntax			ƒVƒ“ƒ^ƒbƒNƒX
++menutrans &Diff				·•ª
++menutrans Ma&rker			ƒ}[ƒJ[
+ " create and delete folds
+-menutrans Create\ &Fold<Tab>zf		Üô‚İì¬(&F)<Tab>zf
+-menutrans &Delete\ Fold<Tab>zd		Üô‚İíœ(&D)<Tab>zd
+-menutrans Delete\ &All\ Folds<Tab>zD	‘SÜô‚İíœ(&A)<Tab>zD
++menutrans Create\ &Fold<Tab>zf		Üô‚İì¬<Tab>zf
++menutrans &Delete\ Fold<Tab>zd		Üô‚İíœ<Tab>zd
++menutrans Delete\ &All\ Folds<Tab>zD	‘SÜô‚İíœ<Tab>zD
+ " moving around in folds
+-menutrans Fold\ col&umn\ width		Üô‚İƒJƒ‰ƒ€•(&U)
++menutrans Fold\ col&umn\ width		Üô‚İƒJƒ‰ƒ€•
+ 
+-menutrans &Update		XV(&U)
+-menutrans &Get\ Block		ƒuƒƒbƒN’Šo(&G)
+-menutrans &Put\ Block		ƒuƒƒbƒN“K—p(&P)
++menutrans &Update		XV
++menutrans &Get\ Block		ƒuƒƒbƒN’Šo
++menutrans &Put\ Block		ƒuƒƒbƒN“K—p
+ 
+ " Names for buffer menu.
+-menutrans &Buffers		ƒoƒbƒtƒ@(&B)
+-menutrans &Refresh\ menu	ƒƒjƒ…[Ä“Ç(&R)
+-menutrans &Delete		íœ(&D)
+-menutrans &Alternate		— ‚ÖØ‘Ö(&A)
+-menutrans &Next			Ÿ‚Ìƒoƒbƒtƒ@(&N)
+-menutrans &Previous		‘O‚Ìƒoƒbƒtƒ@(&P)
++menutrans &Buffers		ƒoƒbƒtƒ@
++menutrans &Refresh\ menu	ƒƒjƒ…[Ä“Ç
++menutrans &Delete		íœ
++menutrans &Alternate		— ‚ÖØ‘Ö
++menutrans &Next			Ÿ‚Ìƒoƒbƒtƒ@
++menutrans &Previous		‘O‚Ìƒoƒbƒtƒ@
+ menutrans [No\ File]		[–³‘è]
+ let g:menutrans_no_file = "[–³‘è]"
+ 
+ " Window menu
+-menutrans &Window			ƒEƒBƒ“ƒhƒE(&W)
+-menutrans &New<Tab>^Wn			V‹Kì¬(&N)<Tab>^Wn
+-menutrans S&plit<Tab>^Ws		•ªŠ„(&P)<Tab>^Ws
+-menutrans Sp&lit\ To\ #<Tab>^W^^	— ƒoƒbƒtƒ@‚Ö•ªŠ„(&L)<Tab>^W^^
+-menutrans Split\ &Vertically<Tab>^Wv	‚’¼•ªŠ„(&V)<Tab>^Wv
+-menutrans Split\ File\ E&xplorer	ƒtƒ@ƒCƒ‹ƒGƒNƒXƒvƒ[ƒ‰(&X)
+-menutrans &Close<Tab>^Wc		•Â‚¶‚é(&C)<Tab>^Wc
+-menutrans Move\ &To			ˆÚ“®(&T)
+-menutrans &Top<Tab>^WK			ã(&T)<Tab>^WK
+-menutrans &Bottom<Tab>^WJ		‰º(&B)<Tab>^WJ
+-menutrans &Left\ side<Tab>^WH		¶(&L)<Tab>^WH
+-menutrans &Right\ side<Tab>^WL		‰E(&R)<Tab>^WL
+-menutrans Close\ &Other(s)<Tab>^Wo	‘¼‚ğ•Â‚¶‚é(&O)<Tab>^Wo
+-menutrans Ne&xt<Tab>^Ww			Ÿ‚Ö(&X)<Tab>^Ww
+-menutrans P&revious<Tab>^WW		‘O‚Ö(&R)<Tab>^WW
+-menutrans &Equal\ Size<Tab>^W=	“¯‚¶‚‚³‚É(&E)<Tab>^W=
+-menutrans &Max\ Height<Tab>^W_		Å‘å‚‚É(&M)<Tab>^W_
+-menutrans M&in\ Height<Tab>^W1_		Å¬‚‚É(&i)<Tab>^W1_
+-menutrans Max\ &Width<Tab>^W\|		Å‘å•‚É(&W)<Tab>^W\|
+-menutrans Min\ Widt&h<Tab>^W1\|		Å¬•‚É(&H)<Tab>^W1\|
+-menutrans Rotate\ &Up<Tab>^WR		ã‚Éƒ[ƒe[ƒVƒ‡ƒ“(&U)<Tab>^WR
+-menutrans Rotate\ &Down<Tab>^Wr		‰º‚Éƒ[ƒe[ƒVƒ‡ƒ“(&D)<Tab>^Wr
+-menutrans Select\ Fo&nt\.\.\.		ƒtƒHƒ“ƒgİ’è(&N)\.\.\.
++menutrans &Window			ƒEƒBƒ“ƒhƒE
++menutrans &New<Tab>^Wn			V‹Kì¬<Tab>^Wn
++menutrans S&plit<Tab>^Ws		•ªŠ„<Tab>^Ws
++menutrans Sp&lit\ To\ #<Tab>^W^^	— ƒoƒbƒtƒ@‚Ö•ªŠ„<Tab>^W^^
++menutrans Split\ &Vertically<Tab>^Wv	‚’¼•ªŠ„<Tab>^Wv
++menutrans Split\ File\ E&xplorer	ƒtƒ@ƒCƒ‹ƒGƒNƒXƒvƒ[ƒ‰
++menutrans &Close<Tab>^Wc		•Â‚¶‚é<Tab>^Wc
++menutrans Move\ &To			ˆÚ“®
++menutrans &Top<Tab>^WK			ã<Tab>^WK
++menutrans &Bottom<Tab>^WJ		‰º<Tab>^WJ
++menutrans &Left\ side<Tab>^WH		¶<Tab>^WH
++menutrans &Right\ side<Tab>^WL		‰E<Tab>^WL
++menutrans Close\ &Other(s)<Tab>^Wo	‘¼‚ğ•Â‚¶‚é<Tab>^Wo
++menutrans Ne&xt<Tab>^Ww			Ÿ‚Ö<Tab>^Ww
++menutrans P&revious<Tab>^WW		‘O‚Ö<Tab>^WW
++menutrans &Equal\ Size<Tab>^W=	“¯‚¶‚‚³‚É<Tab>^W=
++menutrans &Max\ Height<Tab>^W_		Å‘å‚‚É<Tab>^W_
++menutrans M&in\ Height<Tab>^W1_		Å¬‚‚É<Tab>^W1_
++menutrans Max\ &Width<Tab>^W\|		Å‘å•‚É<Tab>^W\|
++menutrans Min\ Widt&h<Tab>^W1\|		Å¬•‚É<Tab>^W1\|
++menutrans Rotate\ &Up<Tab>^WR		ã‚Éƒ[ƒe[ƒVƒ‡ƒ“<Tab>^WR
++menutrans Rotate\ &Down<Tab>^Wr		‰º‚Éƒ[ƒe[ƒVƒ‡ƒ“<Tab>^Wr
++menutrans Select\ Fo&nt\.\.\.		ƒtƒHƒ“ƒgİ’è\.\.\.
+ 
+ " The popup menu
+-menutrans &Undo			æ‚èÁ‚·(&U)
+-menutrans Cu&t			Ø‚èæ‚è(&T)
+-menutrans &Copy			ƒRƒs[(&C)
+-menutrans &Paste		“\‚è•t‚¯(&P)
+-menutrans &Delete		íœ(&D)
++menutrans &Undo			æ‚èÁ‚·
++menutrans Cu&t			Ø‚èæ‚è
++menutrans &Copy			ƒRƒs[
++menutrans &Paste		“\‚è•t‚¯
++menutrans &Delete		íœ
+ menutrans Select\ Blockwise	‹éŒ`ƒuƒƒbƒN‘I‘ğ
+-menutrans Select\ &Word		’PŒê‘I‘ğ(&W)
+-menutrans Select\ &Line		s‘I‘ğ(&L)
+-menutrans Select\ &Block	ƒuƒƒbƒN‘I‘ğ(&B)
+-menutrans Select\ &All		‚·‚×‚Ä‘I‘ğ(&A)
++menutrans Select\ &Word		’PŒê‘I‘ğ
++menutrans Select\ &Line		s‘I‘ğ
++menutrans Select\ &Block	ƒuƒƒbƒN‘I‘ğ
++menutrans Select\ &All		‚·‚×‚Ä‘I‘ğ
+ 
+ " The GUI toolbar (for Win32 or GTK)
+ if has("toolbar")
+@@ -277,18 +277,18 @@ if has("toolbar")
+ endif
+ 
+ " Syntax menu
+-menutrans &Syntax		ƒVƒ“ƒ^ƒbƒNƒX(&S)
+-menutrans &Show\ filetypes\ in\ menu	‘Î‰Œ`®‚ğƒƒjƒ…[‚É•\¦(&S)
+-menutrans Set\ '&syntax'\ only	'syntax'‚¾‚¯İ’è(&S)
+-menutrans Set\ '&filetype'\ too	'filetype'‚àİ’è(&F)
+-menutrans &Off			–³Œø‰»(&O)
+-menutrans &Manual		è“®İ’è(&M)
+-menutrans A&utomatic		©“®İ’è(&U)
++menutrans &Syntax		ƒVƒ“ƒ^ƒbƒNƒX
++menutrans &Show\ filetypes\ in\ menu	‘Î‰Œ`®‚ğƒƒjƒ…[‚É•\¦
++menutrans Set\ '&syntax'\ only	'syntax'‚¾‚¯İ’è
++menutrans Set\ '&filetype'\ too	'filetype'‚àİ’è
++menutrans &Off			–³Œø‰»
++menutrans &Manual		è“®İ’è
++menutrans A&utomatic		©“®İ’è
+ menutrans on/off\ for\ &This\ file
+-	\	ƒIƒ“/ƒIƒtØ‘Ö(&T)
+-menutrans Co&lor\ test		ƒJƒ‰[ƒeƒXƒg(&L)
+-menutrans &Highlight\ test	ƒnƒCƒ‰ƒCƒgƒeƒXƒg(&H)
+-menutrans &Convert\ to\ HTML	HTML‚ÖƒRƒ“ƒo[ƒg(&C)
++	\	ƒIƒ“/ƒIƒtØ‘Ö
++menutrans Co&lor\ test		ƒJƒ‰[ƒeƒXƒg
++menutrans &Highlight\ test	ƒnƒCƒ‰ƒCƒgƒeƒXƒg
++menutrans &Convert\ to\ HTML	HTML‚ÖƒRƒ“ƒo[ƒg
+ 
+ " Japanese specific menu
+ " ¬”Û‚ÍiconvŸ‘æA•K‚¸‚µ‚àw’è‚µ‚½ƒGƒ“ƒR[ƒh‚É‚È‚é‚í‚¯‚Å‚Í‚È‚¢‚±‚Æ‚É’ˆÓ
+@@ -297,39 +297,39 @@ if has('iconv')
+   let support_jisx0213 = (iconv("\x87\x64\x87\x6a", 'cp932', 'euc-jisx0213') ==# "\xad\xc5\xad\xcb") ? 1 : 0
+   "
+   " “Ç‚İ‚İ
+-  an 10.395 ƒtƒ@ƒCƒ‹(&F).-SEPICONV- <Nop>
+-  an 10.396.100.100 ƒtƒ@ƒCƒ‹(&F).ƒGƒ“ƒR[ƒhw’è(&E)\.\.\..ŠJ‚­(&O)\.\.\..SJIS(&S)<Tab>fenc=cp932 :browse confirm e ++enc=cp932<CR>
++  an 10.395 ƒtƒ@ƒCƒ‹.-SEPICONV- <Nop>
++  an 10.396.100.100 ƒtƒ@ƒCƒ‹.ƒGƒ“ƒR[ƒhw’è\.\.\..ŠJ‚­\.\.\..SJIS<Tab>fenc=cp932 :browse confirm e ++enc=cp932<CR>
+   if !support_jisx0213
+-    an 10.396.100.110 ƒtƒ@ƒCƒ‹(&F).ƒGƒ“ƒR[ƒhw’è(&E)\.\.\..ŠJ‚­(&O)\.\.\..EUC(&E)<Tab>fenc=euc-jp :browse confirm e ++enc=euc-jp<CR>
+-    an 10.396.100.120 ƒtƒ@ƒCƒ‹(&F).ƒGƒ“ƒR[ƒhw’è(&E)\.\.\..ŠJ‚­(&O)\.\.\..JIS(&J)<Tab>fenc=iso-2022-jp :browse confirm e ++enc=iso-2022-jp<CR>
++    an 10.396.100.110 ƒtƒ@ƒCƒ‹.ƒGƒ“ƒR[ƒhw’è\.\.\..ŠJ‚­\.\.\..EUC<Tab>fenc=euc-jp :browse confirm e ++enc=euc-jp<CR>
++    an 10.396.100.120 ƒtƒ@ƒCƒ‹.ƒGƒ“ƒR[ƒhw’è\.\.\..ŠJ‚­\.\.\..JIS<Tab>fenc=iso-2022-jp :browse confirm e ++enc=iso-2022-jp<CR>
+   else
+-    an 10.396.100.110 ƒtƒ@ƒCƒ‹(&F).ƒGƒ“ƒR[ƒhw’è(&E)\.\.\..ŠJ‚­(&O)\.\.\..EUC(&E)<Tab>fenc=euc-jisx0213 :browse confirm e ++enc=euc-jisx0213<CR>
+-    an 10.396.100.120 ƒtƒ@ƒCƒ‹(&F).ƒGƒ“ƒR[ƒhw’è(&E)\.\.\..ŠJ‚­(&O)\.\.\..JIS(&J)<Tab>fenc=iso-2022-jp-3 :browse confirm e ++enc=iso-2022-jp-3<CR>
++    an 10.396.100.110 ƒtƒ@ƒCƒ‹.ƒGƒ“ƒR[ƒhw’è\.\.\..ŠJ‚­\.\.\..EUC<Tab>fenc=euc-jisx0213 :browse confirm e ++enc=euc-jisx0213<CR>
++    an 10.396.100.120 ƒtƒ@ƒCƒ‹.ƒGƒ“ƒR[ƒhw’è\.\.\..ŠJ‚­\.\.\..JIS<Tab>fenc=iso-2022-jp-3 :browse confirm e ++enc=iso-2022-jp-3<CR>
+   endif
+-  an 10.396.100.130 ƒtƒ@ƒCƒ‹(&F).ƒGƒ“ƒR[ƒhw’è(&E)\.\.\..ŠJ‚­(&O)\.\.\..UTF-8(&8)<Tab>fenc=utf-8 :browse confirm e ++enc=utf-8<CR>
++  an 10.396.100.130 ƒtƒ@ƒCƒ‹.ƒGƒ“ƒR[ƒhw’è\.\.\..ŠJ‚­\.\.\..UTF-8<Tab>fenc=utf-8 :browse confirm e ++enc=utf-8<CR>
+ 
+   " Ä“Ç
+-  an 10.396.110.100 ƒtƒ@ƒCƒ‹(&F).ƒGƒ“ƒR[ƒhw’è(&E)\.\.\..Ä“Ç(&R)\.\.\..SJIS(&S)<Tab>fenc=cp932 :e ++enc=cp932<CR>
++  an 10.396.110.100 ƒtƒ@ƒCƒ‹.ƒGƒ“ƒR[ƒhw’è\.\.\..Ä“Ç\.\.\..SJIS<Tab>fenc=cp932 :e ++enc=cp932<CR>
+   if !support_jisx0213
+-    an 10.396.110.110 ƒtƒ@ƒCƒ‹(&F).ƒGƒ“ƒR[ƒhw’è(&E)\.\.\..Ä“Ç(&R)\.\.\..EUC(&E)<Tab>fenc=euc-jp :e ++enc=euc-jp<CR>
+-    an 10.396.110.120 ƒtƒ@ƒCƒ‹(&F).ƒGƒ“ƒR[ƒhw’è(&E)\.\.\..Ä“Ç(&R)\.\.\..JIS(&J)<Tab>fenc=iso-2022-jp :e ++enc=iso-2022-jp<CR>
++    an 10.396.110.110 ƒtƒ@ƒCƒ‹.ƒGƒ“ƒR[ƒhw’è\.\.\..Ä“Ç\.\.\..EUC<Tab>fenc=euc-jp :e ++enc=euc-jp<CR>
++    an 10.396.110.120 ƒtƒ@ƒCƒ‹.ƒGƒ“ƒR[ƒhw’è\.\.\..Ä“Ç\.\.\..JIS<Tab>fenc=iso-2022-jp :e ++enc=iso-2022-jp<CR>
+   else
+-    an 10.396.110.110 ƒtƒ@ƒCƒ‹(&F).ƒGƒ“ƒR[ƒhw’è(&E)\.\.\..Ä“Ç(&R)\.\.\..EUC(&E)<Tab>fenc=euc-jisx0213 :e ++enc=euc-jisx0213<CR>
+-    an 10.396.110.120 ƒtƒ@ƒCƒ‹(&F).ƒGƒ“ƒR[ƒhw’è(&E)\.\.\..Ä“Ç(&R)\.\.\..JIS(&J)<Tab>fenc=iso-2022-jp-3 :e ++enc=iso-2022-jp-3<CR>
++    an 10.396.110.110 ƒtƒ@ƒCƒ‹.ƒGƒ“ƒR[ƒhw’è\.\.\..Ä“Ç\.\.\..EUC<Tab>fenc=euc-jisx0213 :e ++enc=euc-jisx0213<CR>
++    an 10.396.110.120 ƒtƒ@ƒCƒ‹.ƒGƒ“ƒR[ƒhw’è\.\.\..Ä“Ç\.\.\..JIS<Tab>fenc=iso-2022-jp-3 :e ++enc=iso-2022-jp-3<CR>
+   endif
+-  an 10.396.110.130 ƒtƒ@ƒCƒ‹(&F).ƒGƒ“ƒR[ƒhw’è(&E)\.\.\..Ä“Ç(&R)\.\.\..UTF-8(&8)<Tab>fenc=utf-8 :e ++enc=utf-8<CR>
++  an 10.396.110.130 ƒtƒ@ƒCƒ‹.ƒGƒ“ƒR[ƒhw’è\.\.\..Ä“Ç\.\.\..UTF-8<Tab>fenc=utf-8 :e ++enc=utf-8<CR>
+ 
+   " •Û‘¶
+-  an 10.396.115 ƒtƒ@ƒCƒ‹(&F).ƒGƒ“ƒR[ƒhw’è(&E)\.\.\..-SEP1- <Nop>
+-  an 10.396.120.100 ƒtƒ@ƒCƒ‹(&F).ƒGƒ“ƒR[ƒhw’è(&E)\.\.\..•Û‘¶(&S)\.\.\..SJIS(&S)<Tab>fenc=cp932 :set fenc=cp932 \| w<CR>
++  an 10.396.115 ƒtƒ@ƒCƒ‹.ƒGƒ“ƒR[ƒhw’è\.\.\..-SEP1- <Nop>
++  an 10.396.120.100 ƒtƒ@ƒCƒ‹.ƒGƒ“ƒR[ƒhw’è\.\.\..•Û‘¶\.\.\..SJIS<Tab>fenc=cp932 :set fenc=cp932 \| w<CR>
+   if !support_jisx0213
+-    an 10.396.120.110 ƒtƒ@ƒCƒ‹(&F).ƒGƒ“ƒR[ƒhw’è(&E)\.\.\..•Û‘¶(&S)\.\.\..EUC(&E)<Tab>fenc=euc-jp :set fenc=euc-jp \| w<CR>
+-    an 10.396.120.120 ƒtƒ@ƒCƒ‹(&F).ƒGƒ“ƒR[ƒhw’è(&E)\.\.\..•Û‘¶(&S)\.\.\..JIS(&J)<Tab>fenc=iso-2022-jp :set fenc=iso-2022-jp \| w<CR>
++    an 10.396.120.110 ƒtƒ@ƒCƒ‹.ƒGƒ“ƒR[ƒhw’è\.\.\..•Û‘¶\.\.\..EUC<Tab>fenc=euc-jp :set fenc=euc-jp \| w<CR>
++    an 10.396.120.120 ƒtƒ@ƒCƒ‹.ƒGƒ“ƒR[ƒhw’è\.\.\..•Û‘¶\.\.\..JIS<Tab>fenc=iso-2022-jp :set fenc=iso-2022-jp \| w<CR>
+   else
+-    an 10.396.120.110 ƒtƒ@ƒCƒ‹(&F).ƒGƒ“ƒR[ƒhw’è(&E)\.\.\..•Û‘¶(&S)\.\.\..EUC(&E)<Tab>fenc=euc-jisx0213 :set fenc=euc-jisx0213 \| w<CR>
+-    an 10.396.120.120 ƒtƒ@ƒCƒ‹(&F).ƒGƒ“ƒR[ƒhw’è(&E)\.\.\..•Û‘¶(&S)\.\.\..JIS(&J)<Tab>fenc=iso-2022-jp-3 :set fenc=iso-2022-jp-3 \| w<CR>
++    an 10.396.120.110 ƒtƒ@ƒCƒ‹.ƒGƒ“ƒR[ƒhw’è\.\.\..•Û‘¶\.\.\..EUC<Tab>fenc=euc-jisx0213 :set fenc=euc-jisx0213 \| w<CR>
++    an 10.396.120.120 ƒtƒ@ƒCƒ‹.ƒGƒ“ƒR[ƒhw’è\.\.\..•Û‘¶\.\.\..JIS<Tab>fenc=iso-2022-jp-3 :set fenc=iso-2022-jp-3 \| w<CR>
+   endif
+-  an 10.396.120.130 ƒtƒ@ƒCƒ‹(&F).ƒGƒ“ƒR[ƒhw’è(&E)\.\.\..•Û‘¶(&S)\.\.\..UTF-8(&8)<Tab>fenc=utf-8 :set fenc=utf-8 \| w<CR>
++  an 10.396.120.130 ƒtƒ@ƒCƒ‹.ƒGƒ“ƒR[ƒhw’è\.\.\..•Û‘¶\.\.\..UTF-8<Tab>fenc=utf-8 :set fenc=utf-8 \| w<CR>
+ endif
+ 
+ " filler to avoid the line above being recognized as a modeline
