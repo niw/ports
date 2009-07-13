@@ -1,0 +1,47 @@
+PortSystem 1.0
+
+name                screen
+version             4.1.0
+revision            1
+homepage            http://www.gnu.org/software/screen/
+description         Screen manager with VT100/ANSI terminal emulation
+long_description    Screen is a full-screen window manager that multiplexes a physical \
+                    terminal between several processes (typically interactive shells). \
+                    Each virtual terminal provides the functions of a DEC VT100 terminal \
+                    and, in addition, several control functions from the ANSI X3.64 (ISO \
+                    6429) and ISO 2022 standards (e.g. insert/delete line and support for \
+                    multiple character sets). There is a scrollback history buffer for each \
+                    virtual terminal and a copy-and-paste mechanism that allows moving text \
+                    regions between windows.
+categories          sysutils
+platforms           darwin
+maintainers         digdog
+
+fetch.type          git
+git.url             git://git.savannah.gnu.org/screen.git
+git.branch          origin/master
+
+depends_lib         port:ncurses
+depends_build       port:autoconf
+
+# screen.git contains src dir for building though, if we set worksrcdir as src, ports will clone everything inside src dir.
+# That's really meaningless and I think there is no option to select where we are configure and make inside the repository instead of the root of it.
+# This extract phase move everything inside src dir into root dir of src tree so that we can configure and build.
+extract {
+	system "cd ${worksrcpath} && mv src/* ./"
+}
+
+configure.cmd       ./autogen.sh && ./configure
+configure.args      --mandir=${prefix}/share/man \
+                    --infodir=${prefix}/share/info \
+                    --enable-locale \
+                    --enable-telnet \
+                    --enable-colors256 \
+                    --enable-rxct_osc
+configure.env       LIBS=-lncurses
+
+post-install {
+    ui_msg "===============================================================================\n"
+    ui_msg "Any screens running before upgrading, will not be available, post-install.\n"
+    ui_msg "===============================================================================\n"
+}
