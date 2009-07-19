@@ -1,0 +1,30 @@
+PortSystem 1.0
+
+name                git-subtree
+version             0.2
+revision            1
+homepage            http://github.com/apenwarr/git-subtree
+description         An experimental alternative to the git-submodule command.
+categories          devel
+platforms           darwin
+maintainers         nomaintainer@macports.org
+
+fetch.type          git
+git.url             git://github.com/apenwarr/git-subtree.git
+git.branch          origin/master
+
+depends_lib         port:git-core
+depends_build       port:asciidoc port:xmlto
+
+use_configure       no
+build.target        doc
+
+test.run            yes
+test.cmd            test.sh
+
+destroot {
+    xinstall -d ${destroot}${prefix}/libexec/git-core
+    xinstall -m 755 ${worksrcpath}/git-subtree ${destroot}${prefix}/libexec/git-core
+    xinstall -d ${destroot}${prefix}/share/man/man1
+    xinstall ${worksrcpath}/git-subtree.1 ${destroot}${prefix}/share/man/man1
+}
