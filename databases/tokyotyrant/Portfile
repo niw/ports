@@ -1,0 +1,37 @@
+PortSystem      1.0
+
+name            tokyotyrant
+version         1.1.33
+categories      databases
+maintainers     openmaintainer kallisys.net:pguyot
+platforms       darwin
+description     Tokyo Cabinet remote server
+long_description    \
+    Tokyo Tyrant is Tokyo Cabinet remote server.
+homepage        http://tokyocabinet.sourceforge.net/
+master_sites    ${homepage} \
+                sourceforge:tokyocabinet
+checksums       md5     880d6af48458bc04b993bdae6ecc543d \
+                sha1    d0e7e15935e80baa19d1c74eccc7ac9f01ecee9a \
+                rmd160  b2f565e18c75c18475fd8547079677dc04eced66
+
+depends_lib     port:zlib \
+                port:tokyocabinet
+
+# To avoid linking against a previously installed version, remove the default
+# CPPFLAGS and LDFLAGS. The build scripts already add the
+# destination include and lib directories.
+configure.cppflags
+configure.ldflags
+
+configure.args  --mandir=${prefix}/share/man \
+                --datadir=${prefix}/share/doc
+
+variant lua description {enable lua support} {
+    configure.args-append   --enable-lua
+    depends_lib-append      port:lua
+}
+
+livecheck.check sourceforge
+livecheck.name  tokyocabinet
+livecheck.regex "<title>${name} (.*) released.*</title>"

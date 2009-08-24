@@ -1,0 +1,34 @@
+PortSystem      1.0
+
+name            tokyodystopia
+version         0.9.13
+categories      databases
+maintainers     nomaintainer@macports.org
+platforms       darwin
+description     Tokyo Dystopia full-text search system
+long_description    \
+    Tokyo Dystopia is a full-text search system.
+homepage        http://tokyocabinet.sourceforge.net/
+master_sites    ${homepage} \
+                sourceforge:tokyocabinet
+checksums       md5     2418befbe1719d93ec00290da94bb92b \
+                sha1    073b2edd6a74e2ae1bbdc7faea42a8a219bdf169 \
+                rmd160  d45728a60653b9fc183a5a5e13507875c3440afb
+
+depends_lib     port:zlib \
+                port:bzip2 \
+                port:tokyocabinet
+
+# To avoid linking against a previously installed version, remove the default
+# CPPFLAGS and LDFLAGS. The build scripts already add the
+# destination include and lib directories.
+configure.cppflags
+configure.ldflags
+
+configure.args  --mandir=${prefix}/share/man \
+                --datadir=${prefix}/share/doc
+
+test.run yes
+test.target check
+
+livecheck.check sourceforge
