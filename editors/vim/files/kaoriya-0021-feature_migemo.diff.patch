@@ -1,0 +1,36 @@
+--- ./patches/0021-feature_migemo.diff.orig	2009-11-04 18:47:39.000000000 +0900
++++ ./patches/0021-feature_migemo.diff	2009-11-04 18:49:07.000000000 +0900
+@@ -56,7 +56,7 @@
+   	poll.h sys/poll.h pwd.h utime.h sys/param.h libintl.h \
+ ***************
+ *** 3122,3127 ****
+---- 3123,3141 ----
++--- 3123,3142 ----
+     AC_MSG_RESULT(yes)
+   fi
+   
+@@ -68,7 +68,8 @@
+ + if test "$enable_migemo" = "yes"; then
+ +   AC_MSG_RESULT(no)
+ +   AC_CHECK_LIB(migemo, migemo_open,
+-+ 	[LIBS="$LIBS -lmigemo" AC_DEFINE(HAVE_MIGEMO)],,)
+++ 	[LIBS="$LIBS -lmigemo"
+++    AC_DEFINE(HAVE_MIGEMO)],,)
+ + else
+ +   AC_MSG_RESULT(yes)
+ + fi
+@@ -220,11 +221,12 @@
+ *** ./src/feature.h.orig	Fri Sep 25 20:09:14 2009
+ --- ./src/feature.h	Fri Sep 25 20:12:01 2009
+ ***************
+-*** 1273,1275 ****
+---- 1273,1285 ----
++*** 1273,1276 ****
++--- 1273,1286 ----
+   	    || defined(FEAT_BIG)
+   # define FEAT_AUTOCHDIR
+   #endif
++  #define SYS_VIMRC_FILE "/opt/local/etc/vimrc"
+ + 
+ + /*
+ +  * +migemo		Regexp pattern expansion.  See:
