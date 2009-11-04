@@ -1,0 +1,68 @@
+# Apply KaoriYa's patches and enable migemo
+# see http://2xup.org/log/2006/09/13-0220
+#     http://kimuraw.txt-nifty.com/d/2006/11/vim_portfile.html
+# vim:ft=macports
+
+set kaoriya_patch vim72-20090926-kaoriya-w32j.exe
+set kaoriya_path  ${worksrcpath}/vim72-kaoriya-w32j
+
+variant kaoriya description {Enable KaoriYa patches and cmigemo} {
+	depends_lib-append   lib:libmigemo:cmigemo
+	master_sites-append  http://www.kaoriya.net/dist/:kaoriya
+	distfiles-append     ${kaoriya_patch}:kaoriya
+	checksums-append     ${kaoriya_patch} md5 c3a4ceead53135877c98ee008b9f70b7
+	depends_build-append bin:7za:p7zip
+
+	post-patch {
+		system "cd ${worksrcpath}; 7za x ${distpath}/${kaoriya_patch}"
+		#file delete ${kaoriya_path}/patches/0016-transparency_option.diff
+		system "cd ${kaoriya_path}; cat ${filespath}/kaoriya-*.patch| patch -p0"
+
+		system "cd ${worksrcpath}; cat ${kaoriya_path}/patches/*| patch -p0"
+		system "cd ${worksrcpath}; cat ${portpath}/${filesdir}/patch-fileio.c| patch -p0"
+		#system "cat ${portpath}/${filesdir}/vimrc >> ${kaoriya_path}/vimrc"
+		#system "cat ${portpath}/${filesdir}/gvimrc >> ${kaoriya_path}/gvimrc"
+	}
+
+	pre-configure {
+		system "cd ${worksrcpath}/src; make autoconf"
+	}
+
+	post-destroot {
+		set runtimePath "${destroot}${prefix}/share/vim/vim72"
+		xinstall -d ${runtimePath}/lang/ja/LC_MESSAGES
+		set scripts { \
+			encode_japan.vim \
+			keymap/azik_cp932.vim \
+			keymap/japanese_cp932.vim \
+			keymap/tcode_cp932.vim \
+			keymap/tutcode_cp932.vim \
+			lang/ja/LC_MESSAGES/vim.mo \
+			plugin/autodate.vim \
+			plugin/cmdex.vim \
+			plugin/dicwin.vim \
+			plugin/format.vim \
+			plugin/hz_ja.vim \
+			plugin/scrnmode.vim \
+			plugin/verifyenc.vim \
+		}
+		system "gnutar -C ${kaoriya_path}/runtime/ -cf - ${scripts} | gnutar -C ${runtimePath} -xvf -"
+		foreach f ${scripts} {
+			file attributes ${runtimePath}/${f} -permissions 0644
+		}
+
+		file copy ${prefix}/share/migemo/tools/migemo.vim ${runtimePath}/plugin/migemo.vim
+		reinplace "s|dict/migemo-dict|dict/\".\\&encoding.\"/migemo-dict|" ${runtimePath}/plugin/migemo.vim
+		file mkdir ${runtimePath}/dict
+		set dicts {migemo-dict han2zen.dat hira2kata.dat roma2hira.dat zen2han.dat}
+		foreach encodePath [glob ${prefix}/share/migemo/*] {
+			set encode [file tail $encodePath]
+			if {${encode} != "tools"} {
+				file mkdir ${runtimePath}/dict/${encode}
+				foreach dict ${dicts} {
+					file link -hard ${runtimePath}/dict/${encode}/${dict} ${encodePath}/${dict}
+				}
+			}
+		}
+	}
+}
