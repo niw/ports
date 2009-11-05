@@ -3,14 +3,14 @@
 #     http://kimuraw.txt-nifty.com/d/2006/11/vim_portfile.html
 # vim:ft=macports
 
-set kaoriya_patch vim72-20090926-kaoriya-w32j.exe
+set kaoriya_patch vim72-20091105-kaoriya-w32j.exe
 set kaoriya_path  ${worksrcpath}/vim72-kaoriya-w32j
 
 variant kaoriya description {Enable KaoriYa patches and cmigemo} {
 	depends_lib-append   lib:libmigemo:cmigemo
 	master_sites-append  http://www.kaoriya.net/dist/:kaoriya
 	distfiles-append     ${kaoriya_patch}:kaoriya
-	checksums-append     ${kaoriya_patch} md5 c3a4ceead53135877c98ee008b9f70b7
+	checksums-append     ${kaoriya_patch} md5 18db472b2b93dd70ca52d4a0d5eae42c
 	depends_build-append bin:7za:p7zip
 
 	post-patch {
