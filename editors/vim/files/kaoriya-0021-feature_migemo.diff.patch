@@ -34,3 +34,16 @@
  + 
  + /*
  +  * +migemo		Regexp pattern expansion.  See:
+--- ./patches/0021-feature_migemo.diff.orig	2009-12-09 09:49:42.000000000 -0800
++++ ./patches/0021-feature_migemo.diff	2009-12-09 09:50:43.000000000 -0800
+@@ -28,9 +28,9 @@
+   #undef HAVE_MEMCMP
+   #undef HAVE_MEMSET
+ + #undef HAVE_MIGEMO
++  #undef HAVE_MKDTEMP
+   #undef HAVE_NANOSLEEP
+   #undef HAVE_OPENDIR
+-  #undef HAVE_FLOAT_FUNCS
+ ***************
+ *** 210,215 ****
+ --- 211,217 ----
