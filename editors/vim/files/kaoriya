@@ -13,6 +13,9 @@ variant kaoriya description {Enable KaoriYa patches and cmigemo} {
 	checksums-append     ${kaoriya_patch} md5 18db472b2b93dd70ca52d4a0d5eae42c
 	depends_build-append bin:7za:p7zip
 
+	# see http://code.google.com/p/macvim-kaoriya/issues/detail?id=9#c0
+    patchfiles-append    patch-tag.c
+
 	post-patch {
 		system "cd ${worksrcpath}; 7za x ${distpath}/${kaoriya_patch}"
 		#file delete ${kaoriya_path}/patches/0016-transparency_option.diff
