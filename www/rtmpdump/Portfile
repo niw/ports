@@ -1,7 +1,7 @@
 PortSystem 1.0
 
 name                rtmpdump
-version             2.1d
+version             2.2e
 revision            1
 categories          www
 platforms           darwin
@@ -12,19 +12,18 @@ long_description    A small dumper for media content streamed over \
                     in a dumped flv file, which can be played or transcoded \
                     using ffmpeg/mplayer, etc. The script for downloading \
                     BBC iPlayer streams is included.
-master_sites        http://rtmpdump.mplayerhq.hu/download/
+master_sites        http://rtmpdump.mplayerhq.hu/download
 distfiles           ${name}-${version}.tar.gz
-worksrcdir          .
+worksrcdir          ${name}-${version}
 
-checksums           md5 0698ce0a23931e3ce4c7951b228b19c9
+checksums           md5 10681c2fe41194a97d508d0e6bbfe74f
 
 use_configure       no
-build.target        posix
  
 destroot {
-    xinstall -m 755 -W ${worksrcpath} rtmpdump streams ${destroot}${prefix}/bin
+    xinstall -m 755 -W ${worksrcpath} rtmpdump rtmpgw rtmpsrv rtmpsuck ${destroot}${prefix}/bin
 }
 
 livecheck.type      regex
-livecheck.url       http://lkcl.net/rtmp/
+livecheck.url       http://rtmpdump.mplayerhq.hu/download
 livecheck.regex     ${name}-(\\d+(?:\\.\\d+)*)
