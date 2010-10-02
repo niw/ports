@@ -1,7 +1,7 @@
 PortSystem 1.0
 
 name                rtmpdump
-version             2.2e
+version             2.3
 revision            1
 categories          www
 platforms           darwin
@@ -13,12 +13,14 @@ long_description    A small dumper for media content streamed over \
                     using ffmpeg/mplayer, etc. The script for downloading \
                     BBC iPlayer streams is included.
 master_sites        http://rtmpdump.mplayerhq.hu/download
-distfiles           ${name}-${version}.tar.gz
+distfiles           ${name}-${version}.tgz
 worksrcdir          ${name}-${version}
 
-checksums           md5 10681c2fe41194a97d508d0e6bbfe74f
+checksums           md5 eb961f31cd55f0acf5aad1a7b900ef59
 
 use_configure       no
+
+patchfiles          librtmp_Makefile.patch
  
 destroot {
     xinstall -m 755 -W ${worksrcpath} rtmpdump rtmpgw rtmpsrv rtmpsuck ${destroot}${prefix}/bin

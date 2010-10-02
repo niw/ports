@@ -1,0 +1,22 @@
+--- librtmp/Makefile.orig	2010-10-02 19:47:54.000000000 +0900
++++ librtmp/Makefile	2010-10-02 19:59:32.000000000 +0900
+@@ -25,7 +25,7 @@
+ CRYPTO_REQ=$(REQ_$(CRYPTO))
+ CRYPTO_DEF=$(DEF_$(CRYPTO))
+ 
+-SO_posix=so.0
++SO_posix=0.dylib
+ SO_mingw=dll
+ SO_EXT=$(SO_$(SYS))
+ 
+@@ -61,8 +61,8 @@
+ 	$(AR) rs $@ $?
+ 
+ librtmp.$(SO_EXT): $(OBJS)
+-	$(CC) -shared -Wl,-soname,$@ $(LDFLAGS) -o $@ $^ $> $(CRYPTO_LIB)
+-	ln -sf $@ librtmp.so
++	$(CC) -shared -Wl,-dylib_install_name -Wl,$@ $(LDFLAGS) -o $@ $^ $> $(CRYPTO_LIB)
++	ln -sf $@ librtmp.dylib
+ 
+ log.o: log.c log.h Makefile
+ rtmp.o: rtmp.c rtmp.h rtmp_sys.h handshake.h dh.h log.h amf.h Makefile
